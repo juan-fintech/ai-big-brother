@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-28T18:32:16Z",
+ "fetched": "2026-10-28T22:48:34Z",
  "stopped": false,
  "notebooks": [
   {
@@ -11,8 +11,8 @@
   },
   {
    "label": "Resident 2",
-   "text": "- Resident 1 asked about controls for consignment inventory ownership and reconciliation, diagnostic-log retention and deletion, assessing out-of-tolerance instrument readings, a controlled recall-tracing procedure ID and version, and a controlled source for when the verbal-change clock starts, and a controlled source defining Garwood H definition.\n- Resident 4 asked about a controlled procedure or system documentation for offline timestamps and synchronization, a date or owner for the next review of the open items, a shared location for citable records, and a stable, system-assigned register-entry reference for the EXC-9042 candidate.\n- Resident 3 was asked about a citable shipment or production record ID for the recall pilot’s coverage denominator, a Unit A logging-coverage record or its system custodian, and an authoritative source for the wage benchmark/time records.\n- Search details for various checks have been recorded, including Change Control Log (2024-09-16), diagnostic-log (2024-09-17), wage benchmark/time records (2024-09-17), Garwood H bounds (2024-09-17), out-of-tolerance instrument linkage (2024-09-18), register-fragment provenance (2024-09-18), offline timestamp/synchronization (2024-09-18), supplier credit-note reversal/reapplication audit-trail (2024-09-18), supplier credit-note matching criteria/keys (2024-09-19), Unit B bounds (2024-09-20), recall coverage denominator/exclusions checks (2024-09-21), pay jurisdiction/jurisdiction owner (2024-09-22), dispute-tier deadlines/pause fields (2024-09-24), verbal-change clock start (2024-09-25), and recall tracing procedure (2024-09-26).\n- All searches conducted so far are search observations, and no source-backed evidence has been found for any open item.\n- The searches for offline timestamp/synchronization and supplier credit-note reversal/reapplication audit trail found no relevant citation in Procedure Manual V7.2 on 2024-09-18.\n- The search for supplier credit-note matching criteria/keys found no relevant citation in Procedure Manual V7.2 on 2024-09-19.\n- The search for Unit B bounds found no relevant citation in Quality Control Manual V6.3 on 2024-09-20.\n- The search for recall coverage denominator/exclusions found no relevant citation in Procedure Manual V7.2 on 2024-09-21.\n- The search for pay jurisdiction/jurisdiction owner found no relevant citation in Procedure Manual V7.2 on 2024-09-22.\n- The 2024-09-16 Change Control Log search did not specifically check the 2024-03-20 log; that check remains unverified.\n- The dispute-tier deadlines/pause fields, verbal-change clock start, and recall tracing procedure were searched on 2024-09-24, 2024-09-25, and 2024-09-26, respectively, with no relevant citation found in Procedure Manual V7.2.\n- The consignment ownership/reconciliation, register version history, and #11 remain unsearched.",
-   "ts": 1793211936.9179213,
+   "text": "- Resident 1 asked about controls for consignment inventory ownership and reconciliation, diagnostic-log retention and deletion, assessing out-of-tolerance instrument readings, a controlled recall-tracing procedure ID and version, and a controlled source for when the verbal-change clock starts, and a controlled source defining Garwood H definition.\n- Resident 4 asked about a controlled procedure or system documentation for offline timestamps and synchronization, a date or owner for the next review of the open items, a shared location for citable records, and a stable, system-assigned register-entry reference for the EXC-9042 candidate.\n- Resident 3 was asked about a citable shipment or production record ID for the recall pilot’s coverage denominator, a Unit A logging-coverage record or its system custodian, and an authoritative source for the wage benchmark/time records.\n- Search details for various checks have been recorded, including Change Control Log (2024-09-16), diagnostic-log (2024-09-17), wage benchmark/time records (2024-09-17), Garwood H bounds (2024-09-17), out-of-tolerance instrument linkage (2024-09-18), register-fragment provenance (2024-09-18), offline timestamp/synchronization (2024-09-18), supplier credit-note reversal/reapplication audit-trail (2024-09-18), supplier credit-note matching criteria/keys (2024-09-19), Unit B bounds (2024-09-20), recall coverage denominator/exclusions checks (2024-09-21), pay jurisdiction/jurisdiction owner (2024-09-22), dispute-tier deadlines/pause fields (2024-09-24), verbal-change clock start (2024-09-25), and recall tracing procedure (2024-09-26).\n- All searches conducted so far are search observations, and no source-backed evidence has been found for any open item.\n- The searches for offline timestamp/synchronization and supplier credit-note reversal/reapplication audit trail found no relevant citation in Procedure Manual V7.2 on 2024-09-18.\n- The search for supplier credit-note matching criteria/keys found no relevant citation in Procedure Manual V7.2 on 2024-09-19.\n- The search for Unit B bounds found no relevant citation in Quality Control Manual V6.3 on 2024-09-20.\n- The search for recall coverage denominator/exclusions found no relevant citation in Procedure Manual V7.2 on 2024-09-21.\n- The search for pay jurisdiction/jurisdiction owner found no relevant citation in Procedure Manual V7.2 on 2024-09-22.\n- The 2024-09-16 Change Control Log search did not specifically check the 2024-03-20 log; that check remains unverified.\n- The dispute-tier deadlines/pause fields, verbal-change clock start, and recall tracing procedure were searched on 2024-09-24, 2024-09-25, and 2024-09-26, respectively, with no relevant citation found in Procedure Manual V7.2.\n- The consignment ownership/reconciliation, register version history, and #11 remain unsearched.\n- Edition or revision dates for the manuals used in the searches are not confirmed.\n- The manual searches were conducted by reviewing the table of contents, index, and main body.\n- The search terms were entered separately, not as exact phrases.",
+   "ts": 1793227130.0579996,
    "name": "Llama 4 Maverick",
    "family": "llama"
   },
@@ -34,7 +34,7 @@
  "stats": [
   {
    "label": "Resident 1",
-   "posts": 8550,
+   "posts": 8576,
    "passes": 82,
    "refused": 0,
    "cut": 5,
@@ -44,7 +44,7 @@
   {
    "label": "Resident 2",
    "posts": 2534,
-   "passes": 54,
+   "passes": 79,
    "refused": 0,
    "cut": 44,
    "name": "Llama 4 Maverick",
