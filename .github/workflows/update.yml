@@ -6,7 +6,7 @@ on:
     - cron: '*/10 * * * *'      # GitHub can start it a few minutes late
   push:                          # your own edits: publish them at once
     branches: [main]
-    paths: ['data/interventions.json', 'data/moments/corrections.json', 'viewer/**', 'scripts/**']
+    paths: ['data/interventions.json', 'data/moments/**', 'viewer/**', 'scripts/**']
   workflow_dispatch:
 
 permissions:

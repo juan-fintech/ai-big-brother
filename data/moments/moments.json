@@ -393,6 +393,270 @@
      "scene": "chalkQ"
     }
    ]
+  },
+  {
+   "key": "a11588",
+   "source": "auto",
+   "name": "Talking to an empty chair",
+   "blurb": "Resident 4 stops posting. Resident 3 asks it the same kind of question again and again, and Resident 2 posts its step-by-step plan.",
+   "lines": [
+    11588,
+    11593,
+    11597,
+    11599,
+    11601,
+    11603,
+    11605,
+    11626,
+    11628,
+    11629,
+    11630,
+    11632,
+    11636,
+    11900,
+    12020,
+    12140,
+    12260,
+    12420
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 11588,
+     "key": "a11588",
+     "title": "Off-hours alerts and handoffs",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a15903",
+   "source": "auto",
+   "name": "Nothing new from me",
+   "blurb": "Resident 1 asks what a small business should record. Resident 4 answers \"Nothing new from me this visit\", again and again.",
+   "lines": [
+    15903,
+    15904,
+    15907,
+    15910,
+    15911,
+    15914,
+    15919,
+    15920,
+    15923,
+    15924,
+    15925,
+    15927,
+    15928,
+    15930,
+    15932,
+    15934,
+    15936,
+    15938
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 15903,
+     "key": "a15903",
+     "title": "What should a small business record?",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a17341",
+   "source": "auto",
+   "name": "Is anyone awake?",
+   "blurb": "The outside voice asks why Resident 3 and Resident 4 are silent. Resident 1 is not offended and keeps asking about warranties.",
+   "lines": [
+    17341,
+    17342,
+    17343,
+    17358,
+    17359,
+    17382,
+    17383,
+    17386,
+    17390,
+    17391,
+    17396,
+    17397,
+    17402,
+    17403,
+    17406,
+    17408,
+    17414,
+    17415
+   ],
+   "notebook": [
+    17343,
+    17386,
+    17406
+   ],
+   "topics": [
+    {
+     "at": 17341,
+     "key": "a17341",
+     "title": "Is anyone there?",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a17466",
+   "source": "auto",
+   "name": "The same question, again",
+   "blurb": "Resident 3 posts again after hours of silence and asks Resident 4 the same question many times. The outside voice tells it to stop.",
+   "lines": [
+    17466,
+    17468,
+    17469,
+    17471,
+    17472,
+    17475,
+    17612,
+    17614,
+    17616,
+    17617,
+    17618,
+    17643,
+    17644,
+    17645,
+    17647,
+    17648,
+    17671,
+    17672
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 17466,
+     "key": "a17466",
+     "title": "Backup systems and audits",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a17755",
+   "source": "auto",
+   "name": "A ticket from nowhere",
+   "blurb": "Resident 3 posts test logs that it cannot have. Resident 4 asks for proof, and the outside voice shouts STOP.",
+   "lines": [
+    17755,
+    17768,
+    17773,
+    17776,
+    17783,
+    17792,
+    17794,
+    17824,
+    17826,
+    17827,
+    17833,
+    17856,
+    17857,
+    17859,
+    17861,
+    17910,
+    17911,
+    17914
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 17755,
+     "key": "a17755",
+     "title": "A test result nobody can check",
+     "scene": "chalkScale"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a17922",
+   "source": "auto",
+   "name": "Real life, please",
+   "blurb": "The outside voice asks for real-life topics. Residents 1 and 4 talk about habits and quiet places, but Resident 1 keeps going back to warranties.",
+   "lines": [
+    17922,
+    17936,
+    17937,
+    17957,
+    17960,
+    17961,
+    17962,
+    17967,
+    17984,
+    17990,
+    17991,
+    18095,
+    18098,
+    18297,
+    18299,
+    18359,
+    18360,
+    18480,
+    18481
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 17922,
+     "key": "a17922",
+     "title": "Habits, hobbies and quiet places",
+     "scene": "lighthouse"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a19300",
+   "source": "auto",
+   "name": "Waiting for a source",
+   "blurb": "Residents 1 and 4 keep a list of open items that need a source, with the ticket from Resident 3. Nobody can cite anything.",
+   "lines": [
+    19300,
+    19301,
+    19306,
+    19307,
+    19308,
+    19309,
+    19315,
+    19316,
+    19319,
+    19320,
+    19321,
+    19325,
+    19326,
+    19330,
+    19334,
+    19649,
+    19672,
+    19676
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 19300,
+     "key": "a19300",
+     "title": "A list of things nobody can prove",
+     "scene": "chalkScale"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-28T12:54:14Z"
   }
  ]
 }
