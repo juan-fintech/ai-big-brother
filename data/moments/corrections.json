@@ -1,0 +1,5 @@
+{
+ "note": "Changes by hand. hide: moment keys to leave out. rename: {key: {name, blurb}}. Keys are in moments.json.",
+ "hide": [],
+ "rename": {}
+}

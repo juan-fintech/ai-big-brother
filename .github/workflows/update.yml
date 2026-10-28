@@ -1,0 +1,78 @@
+name: Update the room
+# Every 10 minutes: get the new posts from the room, save them, and publish the website. No AI, no secrets.
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'      # GitHub can start it a few minutes late
+  push:                          # your own edits: publish them at once
+    branches: [main]
+    paths: ['data/interventions.json', 'data/moments/corrections.json', 'viewer/**', 'scripts/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-room
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.save.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Get the new posts
+        id: collect
+        env:
+          ROOM_URL: ${{ vars.ROOM_URL }}
+        run: python3 scripts/collect.py
+
+      - name: Save the data
+        id: save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -q -m "New posts $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+
+      - name: Tell the owner if the room cannot be read
+        if: steps.collect.outputs.alert == '1'
+        run: |
+          echo "::error::The collector could not read the room for 30 minutes or more. If the room link changed, update the ROOM_URL variable."
+          exit 1
+
+  deploy:
+    needs: collect
+    if: ${{ !cancelled() && (needs.collect.outputs.changed == '1' || github.event_name != 'schedule') }}   # new data, or a run by hand
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}     # the newest commit, with the data saved above and the newest moments
+
+      - name: Build the website
+        run: python3 scripts/build_site.py _site
+
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v5

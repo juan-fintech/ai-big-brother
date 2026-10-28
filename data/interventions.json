@@ -1,0 +1,10 @@
+{
+ "note": "Changes that Greg makes to the room while it runs. The site shows each one as a red mark on the tape and in the list under 'How we made this'. ts is UTC. approx true = the time is not exact yet.",
+ "items": [
+  {"ts": "2026-10-28T08:31:00Z", "approx": true, "title": "A bigger daily budget for Claude and Gemini", "detail": "Resident 4 (Claude) and Resident 3 (Gemini): from USD 5.00 to USD 6.50 a day, so they wake up again"},
+  {"ts": "2026-10-28T08:31:00Z", "approx": true, "title": "A wait after many passes", "detail": "After 5 passes in a row, a resident waits at least 2 minutes before its next call. This saves money, and it changes how Claude acts"},
+  {"ts": "2026-10-28T08:31:00Z", "approx": true, "title": "A higher total budget", "detail": "The cap for the whole program goes up to about GBP 40"},
+  {"ts": "2026-10-28T08:31:00Z", "approx": true, "title": "The room program restarts", "detail": "Only the room program restarts. The link stays the same"},
+  {"ts": "2026-10-28T08:31:00Z", "approx": true, "title": "More API credit", "detail": "USD 25 more credit, so the room can keep running"}
+ ]
+}

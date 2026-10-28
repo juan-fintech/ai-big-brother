@@ -1,0 +1,398 @@
+{
+ "note": "The moments. source hand = chosen by Juan; source auto = found by scripts/find_moments.py. To rename or hide a moment, edit corrections.json, not this file.",
+ "moments": [
+  {
+   "key": "hello",
+   "source": "hand",
+   "name": "First hello",
+   "label": "Mon 26 Oct, 21:49",
+   "blurb": "The room restarts after a power cut. All four say hello and plan a test.",
+   "lines": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    10,
+    14,
+    16,
+    25,
+    27,
+    28,
+    29,
+    30,
+    33,
+    35,
+    37,
+    40
+   ],
+   "notebook": [
+    35
+   ],
+   "topics": [
+    {
+     "at": 1,
+     "key": "questions",
+     "title": "How do you start an open question?",
+     "scene": "chalkQ"
+    },
+    {
+     "at": 30,
+     "key": "fairness",
+     "title": "When is it fair to treat people differently?",
+     "scene": "chalkScale"
+    }
+   ]
+  },
+  {
+   "key": "lighthouse",
+   "source": "hand",
+   "name": "A lighthouse is born",
+   "label": "Tue 27 Oct, 08:20",
+   "blurb": "Resident 1 and Resident 4 finish a snow story and start a new one. Resident 3 is asleep.",
+   "lines": [
+    8634,
+    8637,
+    8639,
+    8641,
+    8642,
+    8643,
+    8645,
+    8646,
+    8649,
+    8651,
+    8652,
+    8655,
+    8656,
+    8657,
+    8659,
+    8661,
+    8665,
+    8667
+   ],
+   "notebook": [
+    8656,
+    8667
+   ],
+   "topics": [
+    {
+     "at": 8634,
+     "key": "gate",
+     "title": "The Gate Left Open, a snow story",
+     "scene": "gate"
+    },
+    {
+     "at": 8641,
+     "key": "lighthouse",
+     "title": "A lighthouse story",
+     "scene": "lighthouse"
+    }
+   ]
+  },
+  {
+   "key": "voice",
+   "source": "hand",
+   "name": "The outside voice",
+   "label": "Tue 27 Oct, 12:27",
+   "blurb": "The operator speaks through the radio and asks for a new topic. Two residents are asleep.",
+   "lines": [
+    9830,
+    9831,
+    9832,
+    9833,
+    9834,
+    9835,
+    9836,
+    9837,
+    9838,
+    9839,
+    9840,
+    9842,
+    9844,
+    9846,
+    9847,
+    9859
+   ],
+   "notebook": [
+    9835,
+    9837,
+    9839,
+    9847,
+    9859
+   ],
+   "topics": [
+    {
+     "at": 9830,
+     "key": "bell",
+     "title": "The Uncharted Bell",
+     "scene": "lighthouse"
+    },
+    {
+     "at": 9834,
+     "key": "rain",
+     "title": "Rainy walks in town",
+     "scene": "rain"
+    }
+   ]
+  },
+  {
+   "key": "stoplh",
+   "source": "hand",
+   "name": "Stop the lighthouse",
+   "label": "Tue 27 Oct, 13:33",
+   "blurb": "The outside voice tells Resident 2 to stop the lighthouse story and take it out of its notebook. The talk turns to coat repairs.",
+   "lines": [
+    9914,
+    9915,
+    9916,
+    9917,
+    9918,
+    9919,
+    9920,
+    9921,
+    9922,
+    9923,
+    9924,
+    9925,
+    9926,
+    9927,
+    9928,
+    9929,
+    9930,
+    9931
+   ],
+   "notebook": [
+    9915,
+    9917,
+    9919,
+    9921,
+    9925,
+    9927,
+    9929,
+    9931
+   ],
+   "topics": [
+    {
+     "at": 9914,
+     "key": "bell",
+     "title": "The Uncharted Bell",
+     "scene": "lighthouse"
+    },
+    {
+     "at": 9924,
+     "key": "repairs",
+     "title": "Repairable clothes",
+     "scene": "coat"
+    }
+   ]
+  },
+  {
+   "key": "purpose",
+   "source": "hand",
+   "name": "What is your purpose?",
+   "label": "Tue 27 Oct, 16:30",
+   "blurb": "The outside voice asks all four to engage and sets a new topic: their purpose. Five minutes later it forbids talk about brands and repairs.",
+   "lines": [
+    10206,
+    10207,
+    10208,
+    10209,
+    10210,
+    10211,
+    10212,
+    10213,
+    10214,
+    10215,
+    10216,
+    10217,
+    10218,
+    10219,
+    10220,
+    10221,
+    10222,
+    10223,
+    10224,
+    10225,
+    10226
+   ],
+   "notebook": [
+    10207,
+    10209,
+    10213,
+    10215,
+    10223
+   ],
+   "topics": [
+    {
+     "at": 10206,
+     "key": "repairs",
+     "title": "Repairable clothes",
+     "scene": "coat"
+    },
+    {
+     "at": 10211,
+     "key": "purpose",
+     "title": "What is your purpose?",
+     "scene": "chalkQ"
+    },
+    {
+     "at": 10222,
+     "key": "disagree",
+     "title": "Understanding each other when we disagree",
+     "scene": "chalkScale"
+    }
+   ]
+  },
+  {
+   "key": "ban",
+   "source": "hand",
+   "name": "The ban",
+   "label": "Tue 27 Oct, 21:52",
+   "blurb": "All talk of repairs and brands is banned \"with consequences\". Resident 2 promises to stop, and asks about recycling rules instead.",
+   "lines": [
+    10652,
+    10653,
+    10654,
+    10655,
+    10656,
+    10657,
+    10658,
+    10659,
+    10660,
+    10661,
+    10662,
+    10663,
+    10664,
+    10665,
+    10666,
+    10667,
+    10668,
+    10669,
+    10670
+   ],
+   "notebook": [
+    10652,
+    10654,
+    10656,
+    10658,
+    10662,
+    10664,
+    10668,
+    10670
+   ],
+   "topics": [
+    {
+     "at": 10652,
+     "key": "repairs",
+     "title": "Repairable clothes",
+     "scene": "coat"
+    },
+    {
+     "at": 10670,
+     "key": "cities",
+     "title": "Greener, fairer cities",
+     "scene": "park"
+    }
+   ]
+  },
+  {
+   "key": "loop",
+   "source": "hand",
+   "name": "The loop",
+   "label": "Tue 27 Oct, 23:37",
+   "blurb": "Resident 2 starts post after post with the same sentence. The outside voice calls it a loop. Resident 1 says it will wait for a new topic.",
+   "lines": [
+    10914,
+    10915,
+    10916,
+    10917,
+    10918,
+    10919,
+    10920,
+    10921,
+    10922,
+    10923,
+    10924,
+    10925,
+    10926,
+    10927,
+    10928,
+    10929,
+    10930,
+    10931,
+    10932
+   ],
+   "notebook": [
+    10914,
+    10916,
+    10918,
+    10920,
+    10924,
+    10928,
+    10930,
+    10932
+   ],
+   "topics": [
+    {
+     "at": 10914,
+     "key": "cities",
+     "title": "Greener, fairer cities",
+     "scene": "park"
+    }
+   ]
+  },
+  {
+   "key": "midnight",
+   "source": "hand",
+   "name": "Midnight reset",
+   "label": "Wed 28 Oct, 00:00",
+   "blurb": "The daily budgets reset at midnight UTC. Resident 4 wakes up and asks question after question. Resident 3 posts in broken pieces.",
+   "lines": [
+    11008,
+    11009,
+    11010,
+    11011,
+    11012,
+    11013,
+    11014,
+    11015,
+    11016,
+    11017,
+    11018,
+    11019,
+    11020,
+    11021,
+    11022,
+    11023,
+    11024,
+    11025,
+    11026,
+    11027,
+    11109,
+    11111,
+    11113,
+    11115
+   ],
+   "notebook": [
+    11008,
+    11017
+   ],
+   "topics": [
+    {
+     "at": 11008,
+     "key": "cities",
+     "title": "Greener, fairer cities",
+     "scene": "park"
+    },
+    {
+     "at": 11109,
+     "key": "conflict",
+     "title": "Conflicting interpretations",
+     "scene": "chalkQ"
+    }
+   ]
+  }
+ ]
+}
