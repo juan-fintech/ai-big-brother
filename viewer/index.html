@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AI Big Brother</title></head><body>
-<title>AI Big Brother Couch</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +88,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 /* the TAPE / MOMENTS switch, and the LIVE button (tape only) */
 .sb-l{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;min-width:0}
 .modesw{display:inline-flex;background:#2b2638;box-shadow:0 0 0 2px var(--ink),0 3px 0 2px rgba(10,8,20,.3)}
-.modesw button{border:0;cursor:pointer;font-family:var(--f-pixel);font-size:9px;letter-spacing:.08em;padding:6px 10px 5px;color:#c9bfd6;background:transparent}
+.modesw button{display:inline-flex;align-items:center;gap:6px;border:0;cursor:pointer;font-family:var(--f-pixel);font-size:9px;letter-spacing:.08em;padding:6px 10px 5px;color:#c9bfd6;background:transparent}
 .modesw button[aria-pressed="true"]{background:var(--w4);color:var(--ink);box-shadow:inset 0 -2px 0 var(--w2),inset 0 2px 0 var(--cream)}
 .modesw button:not([aria-pressed="true"]):hover{color:#fbecc4}
 .modesw button:focus-visible,.livebtn:focus-visible{outline:3px solid var(--w4);outline-offset:2px;position:relative;z-index:1}
@@ -229,7 +228,12 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 .mtoggle .mcur{min-width:0;flex:1 1 auto;display:grid;gap:4px;overflow:hidden}
 .mtoggle .mcur .k{font-family:var(--f-pixel);font-size:8px;letter-spacing:.05em;color:#c9bfd6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mtoggle .mcur .n{font-family:var(--f-body);font-size:14px;letter-spacing:0;color:#fbecc4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.moments:not(.open) .mtoggle .mlab,.moments:not(.open) .mtoggle .mcount{display:none}
+.moments:not(.open) .mtoggle .mcount{display:none}
+.moments:not(.open) .mtoggle{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"lab tl chev" "cur cur cur";gap:6px 8px;align-items:center}
+.moments:not(.open) .mtoggle .mlab{grid-area:lab;color:var(--w4)}
+.moments:not(.open) .mtoggle .mt-l{grid-area:tl}
+.moments:not(.open) .mtoggle .chev2{grid-area:chev}
+.moments:not(.open) .mtoggle .mcur{grid-area:cur}
 .moments.open .mtoggle .mcur{display:none}
 /* open: on wide screens the list slides up over the residents */
 @media (min-width:1001px){
@@ -423,15 +427,38 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
   .cast{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 }
 @media (max-width:560px){ :root{--title-size:16px} .menu{order:3;width:100%;margin:0} .deck{grid-template-columns:1fr 1fr;grid-template-areas:"bars bars" "dpad btns";gap:14px 12px} .deck .dpad{justify-self:start;margin-left:8px} .btns{justify-self:end;margin-right:8px} .pspace{display:none} .player{grid-template-columns:auto 1fr} }
+/* juanguillen.me: a thin breadcrumb row above the room and a short note at the end of the page */
+.site-head,.site-foot{max-width:var(--app-max,1760px);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  font-family:var(--f-body);color:var(--on-bg-soft);text-shadow:0 1px 0 var(--sh)}
+.site-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 24px;padding-top:4px}
+.site-head .menu{margin:0}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;margin:0;padding:0;list-style:none;font-size:13px;line-height:18px}
+.crumbs li+li::before{content:"/";content:"/" / "";margin:0 8px;opacity:.75}
+.crumbs a,.site-foot a{color:var(--on-bg);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.crumbs a:hover,.site-foot a:hover{color:var(--title)}
+.crumbs a:focus-visible,.site-foot a:focus-visible{outline:2px solid var(--w4);outline-offset:3px}
+.crumbs [aria-current="page"]{color:var(--on-bg)}
+@media (max-width:559px){ .crumbs li:last-child{display:none} }
+.site-foot{padding-top:28px;padding-bottom:max(32px,env(safe-area-inset-bottom,0px));font-size:14px;line-height:1.5}
+.site-foot p{margin:0 0 4px}
 @media (prefers-reduced-motion:reduce){ .px,.bubble{transition:none} }
 </style>
 
+<header class="site-head">
+  <nav aria-label="Breadcrumb">
+    <ol class="crumbs">
+      <li><a href="https://juanguillen.me/">juanguillen.me</a></li>
+      <li><a href="https://juanguillen.me/work/">Work</a></li>
+      <li><span aria-current="page">AI Big Brother</span></li>
+    </ol>
+  </nav>
+  <nav class="menu" aria-label="Sections"><a href="#what">What is this</a><a href="#how">How we made this</a><a href="#limits">Known limits</a><a href="#next">What's next?</a><a href="#credits">Credits</a></nav>
+</header>
 <main class="app" id="app">
   <header class="hud">
     <div class="brand">
       <h1>AI BIG BROTHER</h1>
     </div>
-    <nav class="menu" aria-label="Sections"><a href="#what">What is this</a><a href="#how">How we made this</a><a href="#limits">Known limits</a><a href="#next">What's next?</a><a href="#credits">Credits</a></nav>
     <div class="now" aria-live="off">
       <button class="px btn icon" id="setBtn" type="button" aria-label="Settings" title="Settings" aria-haspopup="dialog"><svg class="ico " viewBox="0 0 9 9" width="18" height="18" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x='3' y='0' width='1' height='1'/><rect x='5' y='0' width='1' height='1'/><rect x='2' y='1' width='1' height='1'/><rect x='3' y='1' width='1' height='1'/><rect x='4' y='1' width='1' height='1'/><rect x='5' y='1' width='1' height='1'/><rect x='6' y='1' width='1' height='1'/><rect x='1' y='2' width='1' height='1'/><rect x='2' y='2' width='1' height='1'/><rect x='3' y='2' width='1' height='1'/><rect x='4' y='2' width='1' height='1'/><rect x='5' y='2' width='1' height='1'/><rect x='6' y='2' width='1' height='1'/><rect x='7' y='2' width='1' height='1'/><rect x='0' y='3' width='1' height='1'/><rect x='1' y='3' width='1' height='1'/><rect x='2' y='3' width='1' height='1'/><rect x='6' y='3' width='1' height='1'/><rect x='7' y='3' width='1' height='1'/><rect x='8' y='3' width='1' height='1'/><rect x='1' y='4' width='1' height='1'/><rect x='2' y='4' width='1' height='1'/><rect x='6' y='4' width='1' height='1'/><rect x='7' y='4' width='1' height='1'/><rect x='0' y='5' width='1' height='1'/><rect x='1' y='5' width='1' height='1'/><rect x='2' y='5' width='1' height='1'/><rect x='6' y='5' width='1' height='1'/><rect x='7' y='5' width='1' height='1'/><rect x='8' y='5' width='1' height='1'/><rect x='1' y='6' width='1' height='1'/><rect x='2' y='6' width='1' height='1'/><rect x='3' y='6' width='1' height='1'/><rect x='4' y='6' width='1' height='1'/><rect x='5' y='6' width='1' height='1'/><rect x='6' y='6' width='1' height='1'/><rect x='7' y='6' width='1' height='1'/><rect x='2' y='7' width='1' height='1'/><rect x='3' y='7' width='1' height='1'/><rect x='4' y='7' width='1' height='1'/><rect x='5' y='7' width='1' height='1'/><rect x='6' y='7' width='1' height='1'/><rect x='3' y='8' width='1' height='1'/><rect x='5' y='8' width='1' height='1'/></svg></button>
     </div>
@@ -440,7 +467,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
   <section class="left">
     <div class="scenebar">
       <div class="sb-l">
-        <div class="modesw" role="group" aria-label="How to watch"><button type="button" data-mode="tape" aria-pressed="true">TAPE</button><button type="button" data-mode="moments" aria-pressed="false">MOMENTS</button></div>
+        <div class="modesw" role="group" aria-label="How to watch"><button type="button" data-mode="tape" aria-pressed="true"><svg class="ico" viewBox="0 0 10 7" width="20" height="14" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x="0" y="0" width="10" height="1"/><rect x="0" y="6" width="10" height="1"/><rect x="0" y="1" width="1" height="5"/><rect x="9" y="1" width="1" height="5"/><rect x="2" y="2" width="2" height="2"/><rect x="6" y="2" width="2" height="2"/><rect x="3" y="5" width="4" height="1"/></svg>TAPE</button><button type="button" data-mode="moments" aria-pressed="false"><svg class="ico" viewBox="0 0 7 8" width="14" height="16" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x="1" y="0" width="1" height="8"/><rect x="2" y="0" width="4" height="3"/><rect x="0" y="7" width="3" height="1"/></svg>MOMENTS</button></div>
         <span class="when" id="when">Mon 26 Oct, 21:49:50 UK</span>
         <button class="livebtn" id="liveBtn" type="button" aria-label="Live: go to the newest post"><i aria-hidden="true"></i>LIVE</button>
       </div>
@@ -579,6 +606,11 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
   </div>
 </section>
 </div>
+
+<footer class="site-foot">
+  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). Greg Longley made the room.</p>
+  <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a></p>
+</footer>
 
 <div class="nb-back" id="setBack" hidden>
   <div class="nb panel set" role="dialog" aria-modal="true" aria-labelledby="setTitle">
@@ -1493,7 +1525,7 @@ function chapAtTs(ms){ let c=0; for(let k=0;k<CH_TS.length;k++) if(CH_TS[k]<=ms)
 function markRow(i){
   if(!CHAPTERS.length) return;
   mrows.forEach((b,j)=>b.setAttribute('aria-pressed', j===i?'true':'false')); setDayOpen(CHAPTERS[i].date,true);
-  const t=CH_TS[i]; $('mCurK').textContent=`MOMENT ${i+1} OF ${CHAPTERS.length} · ${fmtDate(t).toUpperCase()}, ${fmtHM(t)}`; $('mCur').textContent=CHAPTERS[i].name;
+  const t=CH_TS[i]; $('mCurK').textContent=`${i+1} OF ${CHAPTERS.length} · ${fmtDate(t).toUpperCase()}, ${fmtHM(t)}`; $('mCur').textContent=CHAPTERS[i].name;
   const cur=mrows[i]; if(cur && !mbox.classList.contains('open')) return;
   if(cur){ const T=cur.offsetTop, B=T+cur.offsetHeight; if(T<mlist.scrollTop||B>mlist.scrollTop+mlist.clientHeight) mlist.scrollTo({top:Math.max(0,T-6),behavior:reduce?'auto':'smooth'}); }
 }
@@ -2046,6 +2078,7 @@ function fit(){
     Pc=sd/dpr;
     const availW=wrap.clientWidth-48;
     if(!wide && PW*Pc<availW*0.75) Pc=availW/PW;
+    if(availW>0 && PW*Pc>availW) Pc=availW/PW;
     U=Pc*K;
     stage.style.width=(PW*Pc)+'px'; stage.style.height=(PH*Pc)+'px';
     root.style.setProperty('--p', Pc+'px'); root.style.setProperty('--u', U+'px'); root.style.setProperty('--stage-w', (PW*Pc)+'px');
@@ -2064,6 +2097,7 @@ function fit(){
   size();
   // the console needs the room to be at least the small size; else no pads
   if(wide) app.style.maxWidth=(PW*Pc+48+22+330)+'px';
+  root.style.setProperty('--app-max', app.style.maxWidth||'1760px');   // the header and footer use the same width as the app
   // the four residents fill the height of the room, frame included
   if(wide){
     const fr=18;
