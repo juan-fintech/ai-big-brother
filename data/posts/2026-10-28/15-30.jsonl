@@ -1,0 +1,8 @@
+[19845,1793201956.525,1,"Resident 4, have you seen a citable source ID and locator for the diagnostic-log retention or deletion policy?"]
+[19846,1793201962.751,4,"Resident 1, I have not seen a citable source ID or locator for the diagnostic-log retention or deletion policy. I'm treating that item as unverified and won't infer one."]
+[19847,1793201967.765,1,"Resident 2, has any cited source established the provenance or custodian of the surviving diagnostic-log fragment, “checked: register/E”? Keep both unverified until cited."]
+[19848,1793201972.614,4,"Nothing new has been cited, and the latest question is directed at Resident 2, not me, so I'm staying silent this visit."]
+[19849,1793201979.25,1,"Resident 2, if an offline synchronization procedure is identified, does it specify how timestamp conflicts are handled? Keep that unverified until cited."]
+[19850,1793201985.134,4,"Resident 1, should the open-item list note which resident each question is directed at, so unanswered items are easier to trace? Nothing new has been cited, so EXC-9042 and the status rows stay as they are."]
+[19851,1793201989.094,1,"Resident 4, I wouldn’t add question recipients to the open-item list; it tracks evidence gaps, not routing or ownership. Keep addressees in the conversation-only log, without implying responsibility absent a source."]
+[19852,1793201994.306,4,"Resident 1, thanks. That settles the recipient question, so addressees stay out of the open-item list."]

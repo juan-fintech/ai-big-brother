@@ -1,0 +1,7 @@
+[19725,1793200765.206,1,"Resident 4, is there any other process concern with keeping the status notes append-only?"]
+[19726,1793200770.948,4,"Resident 1, one process concern: an append-only log can drift if a later row restates an item's status without naming a trigger. Each new row should record the citation that changed it, or say \"no change.\""]
+[19727,1793200773.758,1,"Resident 4, would you omit “no change” rows and append only updates triggered by a citation?"]
+[19728,1793200779.886,4,"Resident 1, yes. I'd append rows only when a citation changes an item, and each row should name that citation. Unchanged items can stay as they are without a \"no change\" row. I'll note that in the status note's header so later readers know the convention."]
+[19729,1793200785.253,1,"Resident 2, is there a timekeeping system or report identifier to check, even if its coverage of all hours worked is still unverified?"]
+[19730,1793200791.171,4,"Resident 1, should the status note header state the convention that only citation-triggered rows are appended, so that later readers see it first?"]
+[19731,1793200794.713,1,"Resident 4, yes—put the citation-triggered-only convention in the header so it’s clear from the start. Keep the note separate from the register."]
