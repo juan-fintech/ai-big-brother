@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AI Big Brother</title></head><body>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AI Big Brother</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGUlEQVR4AeySMQ4BURCGh8OQUFAruYHSAVBuo5KtNirNljgApRNQqikVzkL+ZH95meSt3Yi3swnJl/Hmzbz55882JftNhvNnSLKx8hbAROjY5NbX+0VCwrnVOxDacj2vPg4cDzcpg97Ud7brgN621XtIGXR/fRygcr0tN0i3J8mDdbqf7/Ke0c43QIVUToWM3DpaTAUwryPrdJ7vcg7v7ThAhVTmi+l6J2CVJOLiq9d5PceOA1ppqLMdB7qdsYCimy/jWFyK9mEGYL0dB6gI6gDPjNFsJIBnX0QN0Pd4E+i8PQeoEGpdmMd2ebDO7cV/5nW064BWii3KoPt95/o44Nvg2/zfgeod2J83DdBvDyQkmAl+7sCnj/QFAAD//5X0XXsAAAAGSURBVAMAVNBCpGxwjN0AAAAASUVORK5CYII="></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -599,7 +599,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 <section class="sec" id="credits" aria-labelledby="credits-h">
   <div class="sec-in panel">
     <div class="sec-head"><canvas class="sec-ico" data-obj="credits" aria-hidden="true"></canvas><h2 id="credits-h">CREDITS AND GET INVOLVED</h2></div>
-    <p class="lead">Greg Longley made the room (<a href="https://relate-win-sectors-richardson.trycloudflare.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
+    <p class="lead"><a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room (<a href="https://relate-win-sectors-richardson.trycloudflare.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
     <h3>GET INVOLVED</h3>
     <p>We are looking for research ideas, API credits or funding, and feedback.</p>
     <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a> (Juan, the viewer) or <a href="mailto:greglongley@gmail.com">greglongley@gmail.com</a> (Greg, the room)</p>
@@ -609,7 +609,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 </div>
 
 <footer class="site-foot">
-  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). Greg Longley made the room.</p>
+  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). <a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room.</p>
   <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a></p>
 </footer>
 
@@ -1782,7 +1782,7 @@ const OBJ=[{id:'what',label:'What is this',x:86,y:14,w:26,h:20},{id:'next',label
   {id:'how',label:'How we made this',x:206,y:32,w:26,h:19},{id:'limits',label:'Known limits',x:237,y:33,w:15,h:20},
   {id:'credits',label:'Credits and get involved',x:290,y:1,w:13,h:13},
   {id:'me',label:'Juan',sub:'Made the viewer',url:'https://juanguillen.me',x:260,y:22,w:16,h:18,egg:true},
-  {id:'greg',label:'Greg Longley',sub:'Made the room',url:'',x:293,y:46,w:16,h:18,egg:true}];   // Greg's website: add it to url
+  {id:'greg',label:'Greg Longley',sub:'Made the room',url:'https://www.linkedin.com/in/greg-longley/',x:293,y:46,w:16,h:18,egg:true}];
 function objectAt(ev){ const r=stage.getBoundingClientRect(), x=(ev.clientX-r.left)/r.width*W, y=(ev.clientY-r.top)/r.height*H;
   return OBJ.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h)||null; }
 let hoverObj=null;
@@ -2040,6 +2040,41 @@ function updateLiveBtn(){   // LIVE, or how new the data is, or a sign that no d
   liveBtn.setAttribute('aria-label', st==='on' ? 'Live: go to the newest post' : liveBtn.lastChild.textContent.toLowerCase()+': go to the newest post');
 }
 updateLiveBtn(); setInterval(updateLiveBtn, 20000);
+/* favicon: an eye that watches the room. The iris takes the colour of the resident who talks and looks toward their seat. A red dot shows LIVE. The eye shuts when no new data comes. */
+function favDraw(x, s){   // x: 2d context of a 32 x 32 canvas; s: {who, live, lid (0 open, 1 half, 2 shut), sleep}
+  const C={tile:'#2a1b2e', edge:'#5a4268', white:'#fff1dc', pupil:'#140d1c', hi:'#ffffff', lid:'#d9c2ff', red:'#ff4a3d', z:'#a9c4f0', iris0:'#8f8a99'};
+  const IRIS={R1:'#74a2d4',R2:'#e6b55e',R3:'#50b4a8',R4:'#e48a6a',OP:'#9fbf6a'};
+  const GAZE={OP:-3,R1:-2,R2:-1,R3:1,R4:2};   // the radio is far left; the residents sit from left to right
+  const P=(c,i,j,w=1,h=1)=>{ x.fillStyle=c; x.fillRect(i*2,j*2,w*2,h*2); };
+  x.clearRect(0,0,32,32);
+  P(C.edge,1,0,14,16); P(C.edge,0,1,16,14); P(C.tile,1,1,14,14);   // a rounded tile with a light edge
+  const M={4:[5,10],5:[3,12],6:[2,13],7:[1,14],8:[1,14],9:[2,13],10:[3,12],11:[5,10]};   // the white of the eye, row: [from, to]
+  if(s.lid===2 || s.sleep){   // shut: a curve with three lashes
+    P(C.lid,3,9,10,1); P(C.lid,1,8,2,1); P(C.lid,13,8,2,1); P(C.lid,4,10); P(C.lid,7,10,2,1); P(C.lid,11,10);
+  } else {
+    const top = s.lid===1 ? 7 : 4;
+    for(let j=top;j<=11;j++){ const [a,b]=M[j]; P(C.white, a, j, b-a+1, 1); }
+    const dx=GAZE[s.who]||0, ic=IRIS[s.who]||C.iris0;
+    for(const [a,b,j] of [[6,9,5],[5,10,6],[5,10,7],[5,10,8],[5,10,9],[6,9,10]]){ if(j<top) continue; const [ma,mb]=M[j]; for(let i=a+dx;i<=b+dx;i++) if(i>=ma&&i<=mb) P(ic,i,j); }
+    for(const j of [7,8]) if(j>=top) P(C.pupil,7+dx,j,2,1);
+    if(top<=6) P(C.hi,6+dx,6);
+    if(s.lid===1){ P(C.lid,1,6,14,1); }   // half shut: the lid is a straight line
+    else { P(C.lid,5,3,6,1); P(C.lid,3,4,2,1); P(C.lid,11,4,2,1); P(C.lid,2,5); P(C.lid,13,5); P(C.lid,1,6); P(C.lid,14,6); }   // the upper lid
+  }
+  if(s.sleep){ P(C.z,11,1,4,1); P(C.z,13,2); P(C.z,12,3); P(C.z,11,4,4,1); }
+  if(s.live){ P(C.red,12,1,2,1); P(C.red,11,2,4,2); P(C.red,12,4,2,1); }
+}
+const favLink=document.querySelector('link[rel="icon"]'), favCv=document.createElement('canvas'); favCv.width=favCv.height=32;
+let favWho=null, favLid=0, favSig='';
+function updateFav(){   // draw the favicon again only when something changes
+  if(talker) favWho=talker;
+  const s={who:favWho, live:freshData(), sleep:offline(), lid:favLid}, sig=JSON.stringify(s); if(sig===favSig || !favLink) return; favSig=sig;
+  favDraw(favCv.getContext('2d'), s); favLink.href=favCv.toDataURL('image/png');
+}
+function favBlink(){   // a short blink every 3 to 8 seconds, only while the tab is visible
+  setTimeout(()=>{ if(!document.hidden && !offline()){ const st=[1,2,1,0]; let f=0; const step=()=>{ favLid=st[f++]; updateFav(); if(f<st.length) setTimeout(step,70); }; step(); } favBlink(); }, 3000+Math.random()*5000);
+}
+setInterval(updateFav, 200); updateFav(); if(!reduce) favBlink();
 function checkNew(){   // load the index again; if there are new posts, load the newest day again
   if(!HAS_TAPE || dayLoading) return;
   const sc=document.createElement('script'); sc.src='tape/index.js?v='+Date.now();
