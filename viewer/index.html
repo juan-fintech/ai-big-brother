@@ -172,6 +172,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 .bubble .who,.dialog .who{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;margin-bottom:2px;
   font-family:var(--f-pixel);font-size:clamp(10px,calc(var(--u)*3),12px);letter-spacing:.03em}
 .bubble .who span,.dialog .who span{color:var(--text-soft)}
+.bubble .who .t,.dialog .who .t{font-variant-numeric:tabular-nums}
 .bubble .txt{margin:0;font-size:clamp(13px,calc(var(--u)*4.4),19px);line-height:1.28;min-height:2.56em;overflow-wrap:anywhere}
 .note{display:block;margin:4px 0 0;padding:0;border:0;background:none;font-family:var(--f-pixel);font-size:10px;color:#2e4072;letter-spacing:.03em;
   cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
@@ -601,7 +602,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
     <p class="lead">Greg Longley made the room (<a href="https://relate-win-sectors-richardson.trycloudflare.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
     <h3>GET INVOLVED</h3>
     <p>We are looking for research ideas, API credits or funding, and feedback.</p>
-    <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a></p>
+    <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a> (Juan, the viewer) or <a href="mailto:greglongley@gmail.com">greglongley@gmail.com</a> (Greg, the room)</p>
     <p class="back"><a href="#app">Back to the room</a></p>
   </div>
 </section>
@@ -1250,7 +1251,7 @@ function drawJuan(b){
 }
 
 /* Greg's photo, standing on the middle shelf of the bookcase (pixel art made from his picture, in the room's warm colours) */
-const GREG={w:28,h:32,pal:["#2a1b2e", "#2c6266", "#2f2026", "#3a2620", "#3a3346", "#3f7c70", "#4e3428", "#55506a", "#6e9ab4", "#8a5048", "#9a8478", "#a85a4a", "#c4806a", "#d0906c", "#f0a878", "#fcd0a8", "#fff1dc"],px:'11111111111111111111111111111111111111110000111111111111111111111100feee0011111111111111111110feeeeeee01111111111111111110feeeeeeee011111111111111110eeeeeeeeee01111111155111110eeeeeeeeeeec0111111155551110eeeeeeeeeeec011111115555550deeeeeeeeeeecd01111111155550eeeeeeeeeeeeec01111111111550ee333eeee333ec0111111111110ee3eee3cc3eee3ce01111111110eeeecccceeccccecee0111111110c6eeg80eece08gec6c0111111110c66eeeeeeceeeee66c0111111110e666eeeeeceeee666e0111111110e6a6ee669c66ee666e0111111111066666666666666660511111111110266666666666620555511111111066266bbbb666a60555555111111106666666662660111555511111110a62666666666011111551111111106666666a620111111111111111106666a666660111111111111111110662662660111111111111110100cc662266cc001111111111110044cccccccccc440011111110004444444444444444440001100744444444cccccc44444444700447444444444444444444444474444744444444444444444444447444474444444444444444444444744'};
+const GREG={w:28,h:32,pal:["#2a1b2e", "#2c6266", "#2f2026", "#3a2620", "#3a3346", "#3f7c70", "#4e3428", "#55506a", "#6e9ab4", "#8a5048", "#9a8478", "#a85a4a", "#c4806a", "#d0906c", "#f0a878", "#fcd0a8", "#fff1dc", "#6e4c38"],px:'11111111111111111111111111111111111111110000111111111111111111111100hh6600111111111111111111106hh66666011111111111111111106h6666663011111111111111110666666666301111111155111110666eeeeee633011111115555111066eeeeeeee3301111111555555066eeeeeeeeee3d01111111155550eeeeeeeeeeeeec01111111111550ee333eeee333ec0111111111110ee3eee3cc3eee3ce01111111110eeeecccceeccccecee0111111110c6eeg80eece08gec6c0111111110c66eeeeeeceeeee66c0111111110e666eeeeeceeee666e0111111110e6a6ee669c66ee666e0111111111066666666666666660511111111110266666666666620555511111111066266bbbb666a60555555111111106666666662660111555511111110a62666666666011111551111111106666666a620111111111111111106666a666660111111111111111110662662660111111111111110100cc662266cc001111111111110044cccccccccc440011111110004444444444444444440001100744444444cccccc44444444700447444444444444444444444474444744444444444444444444447444474444444444444444444444744'};
 function drawGreg(b){
   F(b,295,47,16,17,'rgba(42,27,46,0.45)');
   blk(b,293,46,16,18,0,M.woodL,{top:1,bot:1,hl:5});
@@ -1658,8 +1659,9 @@ function placeBubble(){
   tailcap.style.left=((G.baseX*K-TAIL_HW-(G.bx*K+3))*Pc)+'px'; tailcap.style.width=((2*TAIL_HW+1)*Pc)+'px';
 }
 function showBubble(e){
-  const who = e.r==='OP' ? `<b style="color:var(--op)">Outside voice</b><span>on the radio</span>`
-                         : `<b style="color:var(${RES[e.r].css})">${RES[e.r].name}</b><span>${RES[e.r].model}</span>`;
+  const at = `<span class="t">${fmtHM(e.ts)}</span>`;   // the time of the post, after the model name
+  const who = e.r==='OP' ? `<b style="color:var(--op)">Outside voice</b><span>on the radio</span>${at}`
+                         : `<b style="color:var(${RES[e.r].css})">${RES[e.r].name}</b><span>${RES[e.r].model}</span>${at}`;
   $('bWho').innerHTML=who; $('dWho').innerHTML=who;
   $('bTxt').textContent=''; $('dTxt').textContent='';
   for(const id of ['bNote','dNote']){ const n=$(id); n.hidden=!e.nb; }
