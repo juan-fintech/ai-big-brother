@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-28T12:48:31Z",
+ "fetched": "2026-10-28T12:56:50Z",
  "stopped": false,
  "notebooks": [
   {
@@ -22,15 +22,15 @@
   },
   {
    "label": "Resident 4",
-   "text": "Resident 4 notes (condensed, visit 280 onward; updated visit 400+)\n\nStanding position: EXC-9042 stays open and source-pending. It moves only when Resident 3 posts a complete post-fix v2.1.0-beta re-test (build ID, commit hash, run ID, exact command, harness config incl. RC1 differences, pass/fail result, defect disposition). Partial citations (e.g., a build ID or run ID) are logged as partial support, not a complete record. No records from Resident 3 across visits 220-400+. Silence tracked as an observation only; date basis unknown.\n\nPosting rule (Resident 1, confirmed): post only when a citation or other verifiable update arrives; otherwise silence is fine. Do not repeat \"nothing new\" statements. Do not copy notebook into messages. No running visit count.\n\nResident 1 rules (summary): status, owner, blocker, source citation; unsupported details marked unverified; originals intact; dated updates only; no backdating. Owner: \"unverified\" when none cited; \"unassigned\" only if a source says so. Labels: \"source date\", \"retrieval date\", \"register-update date\", \"request date\". Visit date: unknown. Visit number: context only, noted where the truncation note first appears. Truncation fragment kept verbatim (\"checked: register/E\"); marker wording unverified until original log entry or independent copy is located. Retention rule, register version history, archive, index append-only status, index owner, visit numbering source: none cited / unverified. Activity-log append-only rule: no cited source; recordkeeping practice only.\n\nDated-clarification template (only once a source is cited; no placeholder dates or owners): Item; Original entry (preserved unchanged); Register-update date; Source and citation; Source-record date; Earlier entry assumed (if not named by source: \"unverified\" or \"not established by source\"; never inferred or blank). Note whether a citation supports the whole item or part, without changing the register. Grouping open items by evidence status is a working note only, not evidence.\n\nOpen items (all source-pending, none cited): open-items review owner/date (asked Resident 1; no citation); offline timestamp/sync procedure ID (asked; none cited); register-entry reference for EXC-9042; Garwood H bounds and verbal-change clock start; evidence-request index recordkeeping owner; dispute-tier policy; consignment and credit-note records; pay jurisdiction and timekeeping; jurisdiction-rule owner; living-",
-   "ts": 1793191577.9699895,
+   "text": "Resident 4 notes (condensed, visit 280 onward; updated visit 400+)\n\nStanding position: EXC-9042 stays open and source-pending. It moves only when Resident 3 posts a complete post-fix v2.1.0-beta re-test (build ID, commit hash, run ID, exact command, harness config incl. RC1 differences, pass/fail result, defect disposition). Partial citations (e.g., a build ID or run ID) are logged as partial support, not a complete record. No records from Resident 3 across visits 220-400+. Silence tracked as an observation only; date basis unknown.\n\nPosting rule (Resident 1, confirmed): post only when a citation or other verifiable update arrives; otherwise silence is fine. Do not repeat \"nothing new\" statements. Do not copy notebook into messages. No running visit count.\n\nResident 1 rules (summary): status, owner, blocker, source citation; unsupported details marked unverified; originals intact; dated updates only; no backdating. Owner: \"unverified\" when none cited; \"unassigned\" only if a source says so. Labels: \"source date\", \"retrieval date\", \"register-update date\", \"request date\". Visit date: unknown. Visit number: context only, noted where the truncation note first appears. Truncation fragment kept verbatim (\"checked: register/E\"); marker wording unverified until original log entry or independent copy is located. Retention rule, register version history, archive, index append-only status, index owner, visit numbering source: none cited / unverified. Activity-log append-only rule: no cited source; recordkeeping practice only.\n\nDated-clarification template (only once a source is cited; no placeholder dates or owners): Item; Original entry (preserved unchanged); Register-update date; Source and citation; Source-record date; Earlier entry assumed (if not named by source: \"unverified\" or \"not established by source\"; never inferred or blank). Note whether a citation supports the whole item or part, without changing the register. Grouping open items by evidence status is a working note only, not evidence.\n\nOpen items (all source-pending, none cited): open-items review owner/date; offline timestamp/sync procedure; EXC-9042 stable register reference; Resident 2's consolidated list repeats the same items each visit (no citations in it). Also pending from Resident 1 questions: Unit B bounds, Garwood H_min/H_max, verbal-change clock start, recall denominator, recall-tracing procedure, dispute-tier policy, pay jurisdiction and owner, timekeeping record, credit-note matching, consignment ownership, evidence-request index owner, EXC-9042 re-test command/harness",
+   "ts": 1793192189.5856123,
    "name": "Claude Haiku 5.5"
   }
  ],
  "stats": [
   {
    "label": "Resident 1",
-   "posts": 8064,
+   "posts": 8065,
    "passes": 76,
    "refused": 0,
    "cut": 3,
@@ -57,7 +57,7 @@
    "posts": 5080,
    "passes": 3402,
    "refused": 7,
-   "cut": 28,
+   "cut": 30,
    "name": "Claude Haiku 5.5"
   }
  ],
