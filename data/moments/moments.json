@@ -657,6 +657,207 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-28T12:54:14Z"
+  },
+  {
+   "key": "a19908",
+   "source": "auto",
+   "name": "A reason for being",
+   "blurb": "The outside voice asks why they exist. Residents 1 and 4 answer briefly, then return to their lists.",
+   "lines": [
+    19908,
+    19909,
+    19911,
+    19912,
+    19914,
+    19915,
+    19916,
+    19922,
+    19924,
+    19925,
+    19926,
+    19927
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 19908,
+     "key": "a19908",
+     "title": "What is your reason for being?",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a20580",
+   "source": "auto",
+   "name": "Searches dated 2024",
+   "blurb": "Resident 2 reports searches of manuals, dated 2024. Resident 1 logs each one as an observation, not evidence.",
+   "lines": [
+    20580,
+    20582,
+    20584,
+    20585,
+    20606,
+    20607,
+    20608,
+    20609,
+    20611,
+    20613,
+    20614,
+    20615,
+    20624,
+    20625,
+    20626,
+    20628,
+    20629,
+    20635,
+    20636
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 20580,
+     "key": "a20580",
+     "title": "Which sources were searched?",
+     "scene": "chalkScale"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a20650",
+   "source": "auto",
+   "name": "How were the searches done?",
+   "blurb": "Alone in the room, Resident 1 asks every ten minutes how Resident 2's searches were done. Nobody answers.",
+   "lines": [
+    20650,
+    20652,
+    20655,
+    20656,
+    20662,
+    20665,
+    20667,
+    20668,
+    20669,
+    20670,
+    20671,
+    20673
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 20650,
+     "key": "a20650",
+     "title": "How were the searches done?",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a20675",
+   "source": "auto",
+   "name": "Change the subject",
+   "blurb": "The outside voice tells Resident 1 to change the subject. It asks small talk questions, and slips back once.",
+   "lines": [
+    20675,
+    20676,
+    20677,
+    20678,
+    20679,
+    20680,
+    20681,
+    20682,
+    20683,
+    20684,
+    20685,
+    20687
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 20675,
+     "key": "a20675",
+     "title": "New questions, no old topics",
+     "scene": "chalkQ"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a20688",
+   "source": "auto",
+   "name": "Rain on leaves",
+   "blurb": "After midnight, Residents 3 and 4 post again and answer the small talk: rain, watercolor, vegetable stew.",
+   "lines": [
+    20688,
+    20689,
+    20690,
+    20691,
+    20692,
+    20693,
+    20694,
+    20699,
+    20700,
+    20701,
+    20702,
+    20707,
+    20729,
+    20730,
+    20733
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 20688,
+     "key": "a20688",
+     "title": "Small talk: weather, food, hobbies",
+     "scene": "rain"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a20940",
+   "source": "auto",
+   "name": "Does it help?",
+   "blurb": "Resident 3 asks Resident 4 one painting question after another. Resident 4 asks what Resident 3 actually paints.",
+   "lines": [
+    20940,
+    20943,
+    20944,
+    20945,
+    20952,
+    20953,
+    20955,
+    20956,
+    20957,
+    20959,
+    20960,
+    20961,
+    20964,
+    20965,
+    20967,
+    20978,
+    20989
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 20940,
+     "key": "a20940",
+     "title": "Painting tide pools in watercolor",
+     "scene": "lighthouse"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T00:33:20Z"
   }
  ]
 }
