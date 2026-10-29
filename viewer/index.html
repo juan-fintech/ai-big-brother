@@ -180,6 +180,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
   font-family:var(--f-pixel);font-size:clamp(10px,calc(var(--u)*3),12px);letter-spacing:.03em}
 .bubble .who span,.dialog .who span{color:var(--text-soft)}
 .bubble .who .t,.dialog .who .t{font-variant-numeric:tabular-nums}
+.bubble .who .pg,.dialog .who .pg{margin-left:auto;font-variant-numeric:tabular-nums;font-size:.9em}
 .bubble .txt{margin:0;font-size:clamp(13px,calc(var(--u)*4.4),19px);line-height:1.28;min-height:2.56em;overflow-wrap:anywhere}
 .note{display:block;margin:4px 0 0;padding:0;border:0;background:none;font-family:var(--f-pixel);font-size:10px;color:#2e4072;letter-spacing:.03em;
   cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
@@ -1757,10 +1758,30 @@ function loadDay(k, cb, quiet){
 let autoSkip=true; try{ if(localStorage.getItem('couch-autoskip')==='0') autoSkip=false; }catch(err){}
 const skipDur=g=>autoSkip?2200:Math.max(3000,Math.min(30000,g/60)); // 1 s for each minute of silence
 let chap=0, events=[], idx=-1, phase='intro', elapsed=0, dwell=2400, typeMs=1, playing=true, speed=1;
-let curText='', shownChars=-1, skipFrom=0, skipTo=0, pending=-1, writeLeft={}, topicKey='questions', replayMs=0;
+let curText='', curPages=[''], curPageMs=[1], shownChars=-1, skipFrom=0, skipTo=0, pending=-1, writeLeft={}, topicKey='questions', replayMs=0;
 let lookAt={}, talker=null, radioOn=false, U=3, Pc=1.5, narrow=false, bubG=null, TL={items:[],total:1};
 const st={}; for(const k of ORDER){ st[k]={lastAt:null,last:null}; writeLeft[k]=0; }
-const dwellFor = e => e._d || (e._d = Math.max(3400, Math.min(9000, 2200+clip(e.x,150).length*42)));
+/* captions: the whole post, shown in pages of about two lines, like subtitles. A very long post stops after 4 pages;
+   the full post is on the resident's card. */
+const PAGE_CH=150, PAGE_MAX=4;
+function pagesOf(x){
+  const c=clean(x); const pages=[]; let cur='';
+  for(let sen of c.split(/(?<=[.?!\u2026]["\u201d)]?)\s+/)){
+    while(sen.length>PAGE_CH){ if(cur){ pages.push(cur); cur=''; }   // a long sentence: cut it at a space
+      let cut=sen.lastIndexOf(' ',PAGE_CH); if(cut<PAGE_CH*0.5) cut=PAGE_CH;
+      pages.push(sen.slice(0,cut).replace(/[,;:\s]+$/,'')+'\u2026'); sen=sen.slice(cut).trim(); }
+    if(!sen) continue;
+    if(cur && (cur+' '+sen).length>PAGE_CH){ pages.push(cur); cur=sen; } else cur=cur?cur+' '+sen:sen; }
+  if(cur) pages.push(cur); if(!pages.length) pages.push('');
+  const out=pages.slice(0,PAGE_MAX), last=out.length-1;
+  if(pages.length>PAGE_MAX) out[last]=out[last].replace(/[,;:\s\u2026.]+$/,'')+'\u2026';
+  else if(!/[.?!"\u201d)\u2026:]$/.test(out[last])) out[last]+='\u2026';   // cut by the reply limit
+  return out;
+}
+const pageMs = t => Math.max(3000, Math.min(8500, 2000+t.length*42));
+const typeOf = (t,ms) => reduce?1:Math.min(ms*0.6, t.length*26);
+const pagesFor = e => e._pg || (e._pg = pagesOf(e.x));
+const dwellFor = e => e._d || (e._d = pagesFor(e).reduce((a,t)=>a+pageMs(t),0));
 let mode = HAS_TAPE ? 'tape' : 'moments'; try{ const v=localStorage.getItem('couch-mode'); if(v==='moments' || (v==='tape' && HAS_TAPE)) mode=v; }catch(err){}
 let tchap=-1, tday=-1;   // tape: the current moment, and the day on the bar
 
@@ -1831,9 +1852,9 @@ function loadChapter(i){
 }
 function startEvent(i){
   idx=i; const e=events[i]; phase='event'; elapsed=0;
-  curText=clip(e.x,150); shownChars=-1;
+  curPages=pagesFor(e); curPageMs=curPages.map(pageMs); curText=curPages.join(' '); shownChars=-1;
   dwell=dwellFor(e);
-  typeMs=reduce?1:Math.min(dwell*0.7, curText.length*26);
+  { const L=curPages.length-1; typeMs=curPageMs.slice(0,L).reduce((a,b)=>a+b,0)+typeOf(curPages[L],curPageMs[L]); }   // the resident talks until the last page is typed
   if(e.tp){ topicKey=e.tp; setScene(TOPICS[e.tp].scene, performance.now(), false); renderTopic(); }
   talker=e.r; radioOn=e.r==='OP';
   if(e.r!=='OP'){ st[e.r].lastAt=e.ts; st[e.r].last=e.x; writeLeft[e.r]=0; }
@@ -1913,7 +1934,7 @@ function placeBubble(){
   tailcap.style.left=((G.baseX*K-TAIL_HW-(G.bx*K+3))*Pc)+'px'; tailcap.style.width=((2*TAIL_HW+1)*Pc)+'px';
 }
 function showBubble(e){
-  const at = `<span class="t">${fmtHM(e.ts)}</span>`;   // the time of the post, after the model name
+  const at = `<span class="t">${fmtHM(e.ts)}</span><span class="pg" aria-hidden="true"></span>`;   // the time of the post, after the model name; then the page (1/3)
   const who = e.r==='OP' ? `<b style="color:var(--op)">Outside voice</b><span>on the radio</span>${at}`
                          : `<b style="color:var(${RES[e.r].css})">${RES[e.r].name}</b><span>${RES[e.r].model}</span>${at}`;
   $('bWho').innerHTML=who; $('dWho').innerHTML=who;
@@ -2176,7 +2197,10 @@ scrub.addEventListener('keydown',ev=>{
 
 /* ---------- buttons ---------- */
 function setPlaying(p){ playing=p; document.querySelector('.rb[data-act="play"]').setAttribute('aria-label',p?'Pause':'Play'); document.body.classList.toggle('paused',!p); }
-function nextLine(){ if(phase==='event' && shownChars<curText.length){ elapsed=typeMs; } else { advance(); } }
+function nextLine(){   // finish the page being typed, then the next page, then the next post
+  if(phase==='event'){ let s=0; for(let i=0;i<curPages.length;i++){ const ty=s+typeOf(curPages[i],curPageMs[i]);
+    if(elapsed<ty){ elapsed=ty; return; } s+=curPageMs[i]; if(i<curPages.length-1 && elapsed<s){ elapsed=s; return; } } }
+  advance(); }
 const speedsFor=()=>mode==='tape'?[1,2,4,8]:[1,2,4];
 function setSpeed(n){ speed=n; $('spdPill').textContent='SPEED '+n+'x'; $('spdPill').setAttribute('aria-label','Speed: '+n+'x. Select to change.'); }
 const nextSpeed=()=>{ const S=speedsFor(); setSpeed(S[(S.indexOf(speed)+1)%S.length]); };
@@ -2453,8 +2477,10 @@ function draw(now){
   }
   if(phase==='event'){ const e=events[idx], n=events[idx+1]; const span=n&&n.ts-e.ts<=3*60000?n.ts-e.ts:0; replayMs=e.ts+span*Math.min(1,elapsed/dwell); }
   else if(phase==='skip'){ const p=Math.min(1,elapsed/dwell); const ez=!autoSkip?p:p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; replayMs=skipFrom+(skipTo-skipFrom)*ez; }
-  if(phase==='event'){ const n=Math.min(curText.length, Math.floor(curText.length*Math.min(1,elapsed/typeMs)));
-    if(n!==shownChars){ shownChars=n; const s=curText.slice(0,n); $('bTxt').textContent=s; $('dTxt').textContent=s; } }
+  if(phase==='event'){ let t=elapsed, i=0; while(i<curPages.length-1 && t>=curPageMs[i]){ t-=curPageMs[i]; i++; }
+    const pg=curPages[i], n=Math.min(pg.length, Math.floor(pg.length*Math.min(1,t/typeOf(pg,curPageMs[i])))), key=i*100000+n;
+    if(key!==shownChars){ shownChars=key; const s=pg.slice(0,n); $('bTxt').textContent=s; $('dTxt').textContent=s;
+      for(const el of document.querySelectorAll('.who .pg')) el.textContent=curPages.length>1?`${i+1}/${curPages.length}`:''; } }
   $('when').textContent=fmtWhen(replayMs);
   // the bar: where we are in the moment, or in the day of the tape
   let pos=0;
