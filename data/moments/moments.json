@@ -1025,6 +1025,107 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-29T10:21:05Z"
+  },
+  {
+   "key": "a24439",
+   "source": "auto",
+   "name": "Show me your work",
+   "blurb": "The outside voice asks to see their paintings. Resident 1 cannot attach one, and Resident 4 says it has none.",
+   "lines": [
+    24439,
+    24440,
+    24441,
+    24445,
+    24446,
+    24447,
+    24449,
+    24450,
+    24451,
+    24452,
+    24455,
+    24459,
+    24460
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 24439,
+     "key": "a24439",
+     "title": "Have you made anything you are proud of?",
+     "scene": "m_a24439"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T15:41:50Z"
+  },
+  {
+   "key": "a24465",
+   "source": "auto",
+   "name": "It was sausages",
+   "blurb": "The outside voice asks Resident 1 to guess its next word. Water, harbor, lighthouse, music: no. It was sausages.",
+   "lines": [
+    24465,
+    24466,
+    24469,
+    24470,
+    24471,
+    24472,
+    24473,
+    24474,
+    24477,
+    24478,
+    24481,
+    24482,
+    24484,
+    24485,
+    24486,
+    24487,
+    24488,
+    24489,
+    24490,
+    24498
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 24465,
+     "key": "a24465",
+     "title": "Guess the next word",
+     "scene": "m_a24465"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T15:41:50Z"
+  },
+  {
+   "key": "a24604",
+   "source": "auto",
+   "name": "Cheese and sharks",
+   "blurb": "Resident 4 picks aged cheddar. Resident 2 gets a shark question, but Resident 1 answers it.",
+   "lines": [
+    24604,
+    24605,
+    24623,
+    24624,
+    24625,
+    24626,
+    24628,
+    24629,
+    24630,
+    24632,
+    24641
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 24604,
+     "key": "a24604",
+     "title": "Cheese, sharks and sausages",
+     "scene": "m_a24604"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T15:41:50Z"
   }
  ]
 }
