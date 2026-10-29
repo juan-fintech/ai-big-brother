@@ -34,9 +34,9 @@
    "topics": [
     {
      "at": 1,
-     "key": "questions",
+     "key": "hello",
      "title": "How do you start an open question?",
-     "scene": "chalkQ"
+     "scene": "m_hello"
     },
     {
      "at": 30,
@@ -176,9 +176,9 @@
    "topics": [
     {
      "at": 9914,
-     "key": "bell",
+     "key": "stoplh",
      "title": "The Uncharted Bell",
-     "scene": "lighthouse"
+     "scene": "m_stoplh"
     },
     {
      "at": 9924,
@@ -285,9 +285,9 @@
    "topics": [
     {
      "at": 10652,
-     "key": "repairs",
+     "key": "ban",
      "title": "Repairable clothes",
-     "scene": "coat"
+     "scene": "m_ban"
     },
     {
      "at": 10670,
@@ -382,9 +382,9 @@
    "topics": [
     {
      "at": 11008,
-     "key": "cities",
+     "key": "midnight",
      "title": "Greener, fairer cities",
-     "scene": "park"
+     "scene": "m_midnight"
     },
     {
      "at": 11109,
@@ -425,7 +425,7 @@
      "at": 11588,
      "key": "a11588",
      "title": "Off-hours alerts and handoffs",
-     "scene": "chalkQ"
+     "scene": "m_chair"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -462,7 +462,7 @@
      "at": 15903,
      "key": "a15903",
      "title": "What should a small business record?",
-     "scene": "chalkQ"
+     "scene": "m_ledger"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -503,7 +503,7 @@
      "at": 17341,
      "key": "a17341",
      "title": "Is anyone there?",
-     "scene": "chalkQ"
+     "scene": "m_awake"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -540,7 +540,7 @@
      "at": 17466,
      "key": "a17466",
      "title": "Backup systems and audits",
-     "scene": "chalkQ"
+     "scene": "m_echo"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -577,7 +577,7 @@
      "at": 17755,
      "key": "a17755",
      "title": "A test result nobody can check",
-     "scene": "chalkScale"
+     "scene": "m_ticket"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -615,7 +615,7 @@
      "at": 17922,
      "key": "a17922",
      "title": "Habits, hobbies and quiet places",
-     "scene": "lighthouse"
+     "scene": "m_nook"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -652,7 +652,7 @@
      "at": 19300,
      "key": "a19300",
      "title": "A list of things nobody can prove",
-     "scene": "chalkScale"
+     "scene": "m_wait"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -683,7 +683,7 @@
      "at": 19908,
      "key": "a19908",
      "title": "What is your reason for being?",
-     "scene": "chalkQ"
+     "scene": "m_reason"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -721,7 +721,7 @@
      "at": 20580,
      "key": "a20580",
      "title": "Which sources were searched?",
-     "scene": "chalkScale"
+     "scene": "m_search"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -752,7 +752,7 @@
      "at": 20650,
      "key": "a20650",
      "title": "How were the searches done?",
-     "scene": "chalkQ"
+     "scene": "m_clock"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -783,7 +783,7 @@
      "at": 20675,
      "key": "a20675",
      "title": "New questions, no old topics",
-     "scene": "chalkQ"
+     "scene": "m_subject"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -817,7 +817,7 @@
      "at": 20688,
      "key": "a20688",
      "title": "Small talk: weather, food, hobbies",
-     "scene": "rain"
+     "scene": "m_leaves"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",
@@ -853,7 +853,7 @@
      "at": 20940,
      "key": "a20940",
      "title": "Painting tide pools in watercolor",
-     "scene": "lighthouse"
+     "scene": "m_pool"
     }
    ],
    "model": "claude-opus-5-5 (manual run)",

@@ -601,7 +601,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 <section class="sec" id="credits" aria-labelledby="credits-h">
   <div class="sec-in panel">
     <div class="sec-head"><canvas class="sec-ico" data-obj="credits" aria-hidden="true"></canvas><h2 id="credits-h">CREDITS AND GET INVOLVED</h2></div>
-    <p class="lead"><a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room (<a href="https://relate-win-sectors-richardson.trycloudflare.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
+    <p class="lead"><a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room (<a href="https://api.aibigbrotherchat.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
     <h3>GET INVOLVED</h3>
     <p>We are looking for research ideas, API credits or funding, and feedback.</p>
     <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a> (Juan, the viewer) or <a href="mailto:greglongley@gmail.com">greglongley@gmail.com</a> (Greg, the room)</p>
@@ -1457,6 +1457,221 @@ SCENES.park=function(t){ const {x,y,w,h}=PIC;   // "Greener, fairer cities": a p
     ellF(g,x+tx+s,y+ty,r,r-1,P.green); ellF(g,x+tx+s-1,y+ty-1,r-2,r-3,P.greenL); }
   F(g,x+66,y+29,10,2,P.w1); F(g,x+66,y+27,10,1,P.w2); F(g,x+67,y+31,1,2,P.ink); F(g,x+74,y+31,1,2,P.ink);
   const bx=x+Math.floor((t/60)%(w+10))-5, by=y+12+Math.round(Math.sin(t/150)); if(bx<x+w-2){ Pp(g,bx,by,P.ink); Pp(g,bx+1,by-1,P.ink); Pp(g,bx+2,by,P.ink); }
+};
+
+/* ---------- one wall picture for each moment (drawn in code, like the scenes above) ---------- */
+const G3={'?':['###','..#','.##','...','.#.'],'O':['###','#.#','#.#','#.#','###'],'L':['#..','#..','#..','#..','###'],'D':['##.','#.#','#.#','#.#','##.'],
+  'N':['#.#','###','###','###','#.#'],'E':['###','#..','##.','#..','###'],'W':['#.#','#.#','###','###','#.#'],'Z':['###','..#','.#.','#..','###'],
+  'H':['#.#','#.#','###','#.#','#.#'],'I':['###','.#.','.#.','.#.','###'],'S':['###','#..','###','..#','###'],'T':['###','.#.','.#.','.#.','.#.'],
+  'P':['###','#.#','###','#..','#..'],'0':['###','#.#','#.#','#.#','###'],'2':['###','..#','###','#..','###'],'4':['#.#','#.#','###','..#','..#'],
+  '.':['...','...','...','...','.#.'],'V':['#.#','#.#','#.#','#.#','.#.'],'7':['###','..#','.#.','.#.','.#.']};
+function txt3(x,y,s,col){ [...s].forEach((ch,k)=>{ const gl=G3[ch]; if(!gl) return; gl.forEach((row,j)=>[...row].forEach((c,i)=>{ if(c==='#') Pp(g,x+k*4+i,y+j,col); })); }); }
+function nightSky(x,y,w,a,b){ F(g,x,y,w,a,P.ink); F(g,x,y+a,w,b-a,P.violet); for(let xx=x;xx<x+w;xx+=2) Pp(g,xx,y+a,P.ink); }
+
+SCENES.m_reason=function(t){ const {x,y,w,h}=PIC;   // "A reason for being": a small figure on a hill looks up; the stars make a question mark
+  nightSky(x,y,w,13,24); F(g,x,y+24,w,h-24,P.navy); for(let xx=x;xx<x+w;xx+=2) Pp(g,xx+1,y+24,P.violet);
+  const r=rng(41); for(let i=0;i<30;i++){ const sx=x+Math.floor(r()*w), sy=y+Math.floor(r()*26); Pp(g,sx,sy,Math.sin(t/500+i*1.7)>0.3?P.cream:P.lilac); }
+  const Q=[[49,7],[52,4],[56,3],[60,5],[61,9],[58,12],[55,15],[55,19],[55,24]];
+  for(let i=0;i<Q.length-2;i++) line(g,x+Q[i][0],y+Q[i][1],x+Q[i+1][0],y+Q[i+1][1],'rgba(182,216,236,0.22)');
+  Q.forEach(([qx,qy],i)=>{ const on=Math.sin(t/650+i*0.9)>-0.5; Pp(g,x+qx,y+qy,on?P.w4:P.cream);
+    if(on){ F(g,x+qx-1,y+qy,1,1,'rgba(242,204,122,0.35)'); F(g,x+qx+1,y+qy,1,1,'rgba(242,204,122,0.35)'); F(g,x+qx,y+qy-1,1,1,'rgba(242,204,122,0.35)'); F(g,x+qx,y+qy+1,1,1,'rgba(242,204,122,0.35)'); } });
+  const ph=(t%7000)/900; if(ph<1){ const sx=x+74-ph*30, sy=y+3+ph*9; for(let k=0;k<7;k++) Pp(g,Math.round(sx+k*1.6),Math.round(sy-k*0.5),k===0?P.cream:k<3?P.skyL:'rgba(182,216,236,0.4)'); }
+  ellF(g,x+20,y+44,34,15,P.tealD); ellF(g,x+20,y+44,33,14,P.teal); ellF(g,x+70,y+46,22,12,P.tealD);
+  for(let i=4;i<38;i+=5) Pp(g,x+i,y+33+((i*7)%3),P.green);
+  F(g,x+18,y+26,3,3,P.skinL); Pp(g,x+18,y+26,P.skinH); Pp(g,x+20,y+26,P.ink); F(g,x+17,y+29,5,3,P.wine); F(g,x+17,y+29,5,1,P.red); F(g,x+20,y+31,4,1,P.wine); F(g,x+16,y+32,7,1,'rgba(31,58,70,0.6)');
+};
+
+SCENES.m_subject=function(t){ const {x,y,w,h}=PIC;   // "Change the subject": a points lever sends the cart onto a new track
+  F(g,x,y,w,h,P.green); const r=rng(17); for(let i=0;i<60;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*h),r()<0.5?P.greenL:P.teal);
+  for(const [bx,by,br] of [[8,8,5],[72,32,5],[20,34,3]]){ ellF(g,x+bx,y+by,br,br-1,P.teal); ellF(g,x+bx-1,y+by-1,br-1,br-2,P.greenL); Pp(g,x+bx-1,y+by-2,P.pink); }
+  const sw=x+30, my=y+27;
+  const rail=(px,cy)=>{ F(g,px,cy-3,1,1,P.gray); F(g,px,cy+2,1,1,P.gray); };
+  for(let xx=x;xx<x+68;xx++){ if((xx-x)%3===0) F(g,xx,my-4,1,8,P.w1); }
+  for(let s=0;s<=50;s++){ const px=sw+s, cy=my-Math.round(Math.pow(s/50,1.5)*17); if(s%3===0) F(g,px,cy-4,1,8,P.w1); }
+  for(let xx=x;xx<x+68;xx++) rail(xx,my);
+  for(let s=0;s<=50;s++){ const px=sw+s, cy=my-Math.round(Math.pow(s/50,1.5)*17); rail(px,cy); }
+  blk(g,x+66,my-5,4,10,0,M.red,{top:1,bot:1,hl:1}); F(g,x+66,my-2,4,1,P.cream); F(g,x+66,my+1,4,1,P.cream);
+  F(g,x+71,my-2,1,9,P.ink); ellF(g,x+71.5,my-4,3.5,3.5,P.cream); line(g,x+70,y+21,x+73,y+24,P.red); line(g,x+73,y+21,x+70,y+24,P.red);   // the old line ends here
+  F(g,x+62,y+6,1,9,P.ink); ellF(g,x+62.5,y+5,4,4,P.green); ellF(g,x+62.5,y+5,3,3,P.greenL); line(g,x+60,y+7,x+64,y+3,P.cream); F(g,x+63,y+3,2,1,P.cream); F(g,x+64,y+3,1,2,P.cream);   // the new line: go
+  const ph=(t%6000)/6000, flip=ph>0.30;
+  F(g,sw-4,y+33,6,2,P.ink); line(g,sw-1,y+33,flip?sw+2:sw-4,y+29,P.grayL); Pp(g,flip?sw+2:sw-4,y+29,P.red);
+  let cx, cy; if(ph<0.4){ cx=x-6+ph/0.4*(sw-x+6); cy=my; } else { const s=(ph-0.4)/0.6*56; cx=sw+s; cy=my-Math.round(Math.pow(Math.min(s,50)/50,1.5)*17); }
+  if(cx<x+w-2){ blk(g,cx-3,cy-3,7,5,1,M.navy,{top:1,bot:1,hl:2}); F(g,cx-1,cy-2,3,2,P.w4); }
+};
+
+SCENES.m_awake=function(t){ const {x,y,w,h}=PIC;   // "Is anyone awake?": four windows, one for each resident; two are dark
+  nightSky(x,y,w,10,22); for(let xx=x;xx<x+w;xx+=2) Pp(g,xx+1,y+22,P.violet);
+  const r=rng(8); for(let i=0;i<14;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*9),Math.sin(t/400+i)>0?P.cream:P.lilac);
+  ellF(g,x+70,y+6,4,4,P.cream); ellF(g,x+71,y+5,3,3,P.violet);
+  blk(g,x+6,y+11,68,22,0,M.brown,{top:1,bot:1,hl:0}); F(g,x+4,y+9,72,2,P.plum); F(g,x+4,y+9,72,1,P.mauve); F(g,x+12,y+5,4,4,P.plum); F(g,x+12,y+5,4,1,P.mauve);
+  const C=['#2e4072','#86501a','#1f6a66','#9e3442'], lit=[1,1,0,0];
+  for(let i=0;i<4;i++){ const wx=x+10+i*16, wy=y+15;
+    F(g,wx-1,wy-1,12,11,C[i]); F(g,wx,wy,10,9,lit[i]?P.w4:P.violet);
+    if(lit[i]){ F(g,wx,wy,10,2,P.cream); if(i===0 && Math.sin(t/300)>0) F(g,wx+6,wy+5,2,2,P.w2); }
+    else { Pp(g,wx+2,wy+1,P.lilac); Pp(g,wx+3,wy+2,P.lilac); const zp=((t/1600+i*0.5)%1); const zy=wy-2-Math.round(zp*9), zx=wx+5+Math.round(zp*3); if(zp<0.85) txt3(zx,zy,'Z',zp<0.5?P.lilacL:P.lilac); }
+    F(g,wx+4,wy,1,9,C[i]); F(g,wx,wy+4,10,1,C[i]); }
+  F(g,x,y+33,w,h-33,P.navy); F(g,x,y+33,w,1,P.mauve); for(let i=0;i<w;i+=8) F(g,x+i,y+35,4,1,P.violet);
+  F(g,x+2,y+20,1,13,P.ink); F(g,x+1,y+19,3,1,P.ink); Pp(g,x+2,y+20,P.w4); ellF(g,x+2,y+21,4,3,'rgba(242,204,122,0.16)');
+};
+
+function bub(bx,by,s,edge,fill){   // a small speech bubble with 1 to 3 characters
+  const wd=s.length*4+3; F(g,bx-1,by-1,wd+2,9,edge); F(g,bx,by,wd,7,fill||P.cream); F(g,bx+2,by+8,2,1,edge); Pp(g,bx+2,by+7,fill||P.cream); txt3(bx+2,by+1,s,edge); }
+const RC=['#2e4072','#86501a','#1f6a66','#9e3442'];   // the residents' colours
+
+SCENES.m_hello=function(t){ const {x,y,w,h}=PIC;   // "First hello": the power comes back, the light goes on, and four hellos follow
+  const ph=t%8000, on=ph>1300 || (ph>700&&ph<820) || (ph>980&&ph<1080);
+  F(g,x,y,w,h,on?P.wall:P.violet); for(let i=3;i<w;i+=7) F(g,x+i,y,1,h-6,on?P.wallS:P.ink);
+  F(g,x,y+h-6,w,6,on?P.w2:P.plum); F(g,x,y+h-6,w,1,on?P.w3:P.mauve);
+  F(g,x+39,y,1,7,P.ink); F(g,x+37,y+7,4,3,on?P.gray:P.mauve);
+  if(on) ringGlow(g,x+39.5,y+14,16,12,5,'242,204,122',0.07);
+  ellF(g,x+39.5,y+14,4,4.5,on?P.w4:P.mauve); ellF(g,x+38.5,y+13,2,2,on?P.cream:P.gray); if(on){ line(g,x+38,y+15,x+41,y+15,P.w2); }
+  for(let i=0;i<4;i++) if(on && ph>2000+i*600) bub(x+5+i*19,y+22,'HI',RC[i]);
+};
+
+SCENES.m_chair=function(t){ const {x,y,w,h}=PIC;   // "Talking to an empty chair": a chair under a lamp, and question after question goes to it
+  F(g,x,y,w,h,P.violet); F(g,x,y+30,w,h-30,P.plum); F(g,x,y+30,w,1,P.mauve);
+  for(let j=2;j<31;j++){ const hw=2+Math.floor(j*0.42); F(g,x+52-hw,y+j,hw*2+1,1,'rgba(242,204,122,0.09)'); }
+  ellF(g,x+52,y+31,14,2.5,'rgba(242,204,122,0.18)'); F(g,x+49,y,7,2,P.ink); F(g,x+50,y+2,5,1,P.w4);
+  F(g,x+57,y+13,2,18,P.w1); F(g,x+57,y+13,2,1,P.w3); F(g,x+46,y+22,13,2,P.w2); F(g,x+46,y+22,13,1,P.w3); F(g,x+47,y+24,1,7,P.w1); F(g,x+56,y+24,1,7,P.w1); F(g,x+55,y+15,2,1,P.w2); F(g,x+55,y+18,2,1,P.w2);
+  F(g,x+65,y+31,6,3,P.ink); F(g,x+66,y+32,2,1,P.grayL); Pp(g,x+69,y+32,Math.floor(t/450)%2?P.rust:P.wine);
+  for(let i=0;i<3;i++){ const ph=((t/2600)+i/3)%1; const bx=x+3+Math.round(ph*26), by=y+5+i*8; bub(bx,by,'?',ph>0.7?P.mauve:RC[2],ph>0.7?P.lilacL:P.cream); }
+};
+
+SCENES.m_ledger=function(t){ const {x,y,w,h}=PIC;   // "Nothing new from me": a small shop's record book, and the same short answer again and again
+  F(g,x,y,w,h,P.parch); for(let i=0;i<w;i+=8){ F(g,x+i,y,4,5,P.red); F(g,x+i+4,y,4,5,P.cream); ellF(g,x+i+2,y+5,2,1.2,P.red); ellF(g,x+i+6,y+5,2,1.2,P.cream); }
+  F(g,x,y+27,w,h-27,P.w2); F(g,x,y+27,w,1,P.w3); F(g,x,y+31,w,1,P.w1);
+  F(g,x+8,y+19,22,9,P.cream); F(g,x+30,y+19,22,9,P.cream); F(g,x+30,y+19,1,9,P.grayL); F(g,x+8,y+28,44,1,P.wallS);
+  for(let j=0;j<4;j++){ F(g,x+10,y+21+j*2,16-(j%2)*5,1,P.skyL); F(g,x+33,y+21+j*2,3,1,P.grayL); }
+  line(g,x+46,y+26,x+52,y+16,P.navy); Pp(g,x+46,y+26,P.ink);
+  const n=Math.floor(t/1100)%4; for(let i=0;i<2;i++) if(n>i) bub(x+58,y+7+i*10,'...',RC[3]);
+};
+
+SCENES.m_echo=function(t){ const {x,y,w,h}=PIC;   // "The same question, again": a tape machine plays the same question over and over
+  F(g,x,y,w,h,P.tealD); const r=rng(5); for(let i=0;i<40;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*h),P.teal);
+  blk(g,x+6,y+4,34,30,1,M.slate,{top:1,bot:2,hl:4});
+  for(const [cx,dir] of [[15,1],[31,1]]){ const X=x+cx, Y=y+13; ellF(g,X,Y,6,6,P.ink); ellF(g,X,Y,5,5,P.grayL); ellF(g,X,Y,1.5,1.5,P.ink);
+    for(let k=0;k<3;k++){ const a=t/400*dir+k*2.094; line(g,X,Y,X+Math.cos(a)*4,Y+Math.sin(a)*4,P.gray); } }
+  F(g,x+15,y+7,16,1,P.plum); F(g,x+12,y+24,22,4,P.ink); F(g,x+13,y+25,3,2,P.red); F(g,x+18,y+25,3,2,P.gray); F(g,x+23,y+25,3,2,P.gray); F(g,x+28,y+25,3,2,P.gray);
+  for(let i=0;i<3;i++){ const bx=x+46+i*11, by=y+8+((i+Math.floor(t/350))%2); bub(bx,by,'?',[RC[2],P.lilac,P.mauve][i],[P.cream,P.lilacL,P.lilac][i]); }
+  F(g,x+44,y+22,32,1,P.teal); for(let i=0;i<4;i++) F(g,x+45+i*8,y+24,6,1,P.teal);
+};
+
+SCENES.m_ticket=function(t){ const {x,y,w,h}=PIC;   // "A ticket from nowhere": a ticket prints from a slot nobody can see behind; the outside voice says STOP
+  F(g,x,y,w,h,P.violet); for(let i=0;i<w;i+=4) Pp(g,x+i,y+((i*5)%h),P.plum);
+  blk(g,x+8,y+5,26,7,1,M.slate,{top:1,bot:1,hl:3}); F(g,x+12,y+9,18,1,P.ink);
+  const len=Math.min(24,Math.floor((t%5000)/150));
+  F(g,x+13,y+10,16,len,P.cream); for(let j=3;j<len-1;j+=3) F(g,x+15,y+10+j,(j*7)%9+4,1,P.grayL);
+  if(len>12) txt3(x+19,y+20,'?',P.red); if(len>=24){ for(let i=0;i<16;i+=2) Pp(g,x+13+i,y+34,P.violet); }
+  const cx=x+62, cy=y+5, lit=Math.floor(t/600)%2===0;
+  for(let j=0;j<19;j++){ const ins=Math.max(0,5-j,j-13); F(g,cx-9+ins,cy+j,19-2*ins,1,P.cream); }
+  for(let j=1;j<18;j++){ const ins=Math.max(0,5-j,j-12); F(g,cx-8+ins,cy+j,17-2*ins,1,lit?P.red:P.wine); }
+  txt3(cx-7,cy+7,'STOP',P.cream); F(g,cx-1,cy+19,2,h-24,P.gray);
+};
+
+SCENES.m_nook=function(t){ const {x,y,w,h}=PIC;   // "Real life, please": a quiet corner with an armchair, a window, a plant and a cup of tea
+  F(g,x,y,w,h,P.wall); for(let i=0;i<w;i+=6) for(let j=2;j<h-6;j+=6) Pp(g,x+i+((j/6)%2)*3,y+j,P.wallS);
+  F(g,x,y+h-6,w,6,P.w2); F(g,x,y+h-6,w,1,P.w3); for(let i=2;i<w;i+=9) F(g,x+i,y+h-3,5,1,P.w1);
+  blk(g,x+5,y+4,22,18,0,M.wood,{top:1,bot:1,hl:0}); F(g,x+6,y+5,20,16,P.sky); F(g,x+6,y+14,20,7,P.skyL);
+  const cl=x+6+Math.floor((t/220)%28)-4; for(const [ox,oy] of [[0,8],[12,11]]){ const cx2=x+6+((cl-x-6+ox+28)%28)-4; if(cx2>x+5&&cx2<x+23){ F(g,cx2,y+oy,6,2,P.cream); F(g,cx2+1,y+oy-1,3,1,P.cream); } }
+  F(g,x+15,y+5,1,16,P.w1); F(g,x+6,y+12,20,1,P.w1);
+  blk(g,x+36,y+12,22,14,4,M.coral,{top:2,bot:1,hl:6}); blk(g,x+33,y+19,6,13,2,M.coral,{top:1,bot:1,hl:2}); blk(g,x+55,y+19,6,13,2,M.coral,{top:1,bot:1,hl:2}); blk(g,x+38,y+24,18,7,1,M.coral,{top:2,bot:1,hl:5});
+  F(g,x+36,y+32,2,1,P.w1); F(g,x+56,y+32,2,1,P.w1); F(g,x+40,y+22,8,2,P.navy); F(g,x+40,y+22,8,1,P.blue);
+  F(g,x+65,y+22,11,2,P.w1); F(g,x+65,y+22,11,1,P.w3); F(g,x+67,y+24,1,8,P.w1); F(g,x+74,y+24,1,8,P.w1);
+  F(g,x+68,y+19,4,3,P.cream); Pp(g,x+72,y+20,P.cream); for(let i=0;i<3;i++){ const s=Math.round(Math.sin(t/300+i)); Pp(g,x+69+s,y+17-i*2,P.grayL); }
+  F(g,x+3,y+27,6,5,P.rust); F(g,x+3,y+27,6,1,P.peach); for(const [lx,ly] of [[4,22],[6,20],[2,24],[7,23],[5,25]]) ellF(g,x+lx,y+ly,1.5,2.5,P.green);
+};
+
+SCENES.m_wait=function(t){ const {x,y,w,h}=PIC;   // "Waiting for a source": a list with empty boxes, and an hourglass
+  F(g,x,y,w,h,P.tealD); const r=rng(31); for(let i=0;i<50;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*h),P.teal);
+  blk(g,x+8,y+3,30,33,1,M.wood,{top:1,bot:1,hl:0}); F(g,x+10,y+6,26,28,P.cream); F(g,x+19,y+2,8,4,P.gray); F(g,x+20,y+2,6,1,P.grayL);
+  for(let j=0;j<6;j++){ const ry=y+9+j*4; F(g,x+12,ry,3,3,P.mauve); F(g,x+13,ry+1,1,1,P.cream); F(g,x+17,ry+1,13-(j*3)%7,1,P.skyL);
+    if(j===Math.floor(t/1200)%6) F(g,x+13,ry+1,1,1,P.red); }
+  const cx=x+60, ph=(t%6000)/6000;
+  F(g,cx-8,y+4,17,2,P.w2); F(g,cx-8,y+32,17,2,P.w2); F(g,cx-8,y+4,17,1,P.w3); F(g,cx-7,y+6,1,26,P.w1); F(g,cx+8,y+6,1,26,P.w1);
+  for(let j=0;j<12;j++){ const hw=6-Math.floor(j/2.2); F(g,cx-hw,y+7+j,hw*2+1,1,'rgba(182,216,236,0.22)'); F(g,cx-hw,y+31-j,hw*2+1,1,'rgba(182,216,236,0.22)'); }
+  const top=Math.round((1-ph)*9), bot=Math.round(ph*9);
+  for(let j=0;j<top;j++){ const yy=y+18-j, hw=Math.max(0,6-Math.floor((yy-(y+7))/2.2)); F(g,cx-hw,yy,hw*2+1,1,P.w4); }
+  for(let j=0;j<bot;j++){ const yy=y+31-j, hw=Math.max(0,6-Math.floor((y+31-yy)/2.2)); F(g,cx-hw,yy,hw*2+1,1,P.w3); }
+  if(top>0) for(let j=19;j<31-bot;j+=2) Pp(g,cx,y+j,P.w4);
+};
+
+SCENES.m_search=function(t){ const {x,y,w,h}=PIC;   // "Searches dated 2024": manuals on a shelf, an open manual, a magnifying glass and a 2024 calendar
+  F(g,x,y,w,h,P.wall); F(g,x,y+14,w,2,P.w1); F(g,x,y+14,w,1,P.w3);
+  const B=[P.navy,P.red,P.teal,P.w1,P.mauve,P.navy,P.green,P.red,P.w2,P.violet];
+  B.forEach((c,i)=>{ const bh=10+(i*3)%3; F(g,x+3+i*4,y+14-bh,3,bh,c); F(g,x+3+i*4,y+14-bh+2,3,1,P.cream); });
+  F(g,x,y+28,w,h-28,P.w2); F(g,x,y+28,w,1,P.w3);
+  F(g,x+10,y+19,20,11,P.cream); F(g,x+30,y+19,20,11,P.cream); F(g,x+30,y+19,1,11,P.grayL); F(g,x+10,y+30,40,1,P.wallS);
+  for(let j=0;j<4;j++){ F(g,x+12,y+21+j*2,15,1,P.grayL); F(g,x+33,y+21+j*2,14,1,P.grayL); }
+  const mx=x+30+Math.round(Math.sin(t/900)*15), my=y+23+Math.round(Math.cos(t/700)*2);
+  ellF(g,mx,my,4.5,4.5,P.ink); ellF(g,mx,my,3.5,3.5,'rgba(182,216,236,0.55)'); Pp(g,mx-1,my-2,P.cream); line(g,mx+3,my+3,mx+7,my+7,P.w1); line(g,mx+4,my+3,mx+8,my+7,P.w1);
+  F(g,x+56,y+3,19,15,P.cream); F(g,x+56,y+3,19,4,P.red); Pp(g,x+60,y+2,P.ink); Pp(g,x+70,y+2,P.ink); txt3(x+58,y+9,'2024',P.red);
+  for(let i=0;i<4;i++) F(g,x+58+i*4,y+15,3,1,P.grayL);
+};
+
+SCENES.m_clock=function(t){ const {x,y,w,h}=PIC;   // "How were the searches done?": a clock runs fast; every ten minutes one more question, and no answer
+  F(g,x,y,w,h,P.violet); for(let i=0;i<w;i+=5) Pp(g,x+i,y+((i*3)%h),P.plum);
+  const cx=x+20, cy=y+17; ellF(g,cx,cy,12,12,P.w1); ellF(g,cx,cy,11,11,P.cream);
+  for(let k=0;k<12;k++){ const a=k*Math.PI/6; Pp(g,Math.round(cx+Math.sin(a)*9)-0.5,Math.round(cy-Math.cos(a)*9)-0.5,k%3?P.grayL:P.ink); }
+  const a=(t%3000)/3000*Math.PI*2; line(g,cx,cy,cx+Math.sin(a)*8,cy-Math.cos(a)*8,P.ink); line(g,cx,cy,cx+Math.sin(a/12+2)*5,cy-Math.cos(a/12+2)*5,P.red); Pp(g,cx-0.5,cy-0.5,P.ink);
+  F(g,x+40,y+28,36,2,P.w2); F(g,x+40,y+28,36,1,P.w3); F(g,x+42,y+30,1,8,P.w1); F(g,x+73,y+30,1,8,P.w1);
+  F(g,x+66,y+18,1,10,P.ink); line(g,x+66,y+18,x+70,y+14,P.ink); F(g,x+68,y+12,6,3,P.w2); F(g,x+68,y+12,6,1,P.w3); F(g,x+69,y+15,4,1,P.w4); F(g,x+62,y+28,14,1,P.w4);
+  F(g,x+50,y+25,9,3,P.cream); F(g,x+51,y+26,6,1,P.skyL);
+  const ph=(t%3000)/3000; if(ph<0.45) bub(x+46,y+10,'?',RC[0]);
+};
+
+SCENES.m_leaves=function(t){ const {x,y,w,h}=PIC;   // "Rain on leaves": soft rain on big green leaves
+  F(g,x,y,w,9,P.gray); F(g,x,y+9,w,9,P.grayL); F(g,x,y+18,w,h-18,P.tealD); for(let xx=x;xx<x+w;xx+=2){ Pp(g,xx,y+9,P.gray); }
+  for(const [bx,br] of [[6,9],[22,8],[40,10],[58,8],[74,9]]) ellF(g,x+bx,y+20,br,5,P.tealD); for(let i=0;i<w;i+=3) Pp(g,x+i,y+18+(i*7)%9,P.teal);
+  const L=[[10,28,11,6,-0.5],[30,32,13,6,0.2],[56,27,12,6,0.6],[72,33,9,5,-0.3],[44,36,10,4,0]];
+  for(const [lx,ly,rx,ry] of L){ ellF(g,x+lx,y+ly,rx,ry,P.teal); ellF(g,x+lx-1,y+ly-1,rx-1,ry-1.5,P.green); ellF(g,x+lx-3,y+ly-2,rx-6,ry-4,P.greenL); line(g,x+lx-rx+2,y+ly,x+lx+rx-2,y+ly-1,P.tealD); }
+  F(g,x+29,y+36,2,2,P.tealD); F(g,x+9,y+33,2,5,P.tealD);
+  const r=rng(12); for(let i=0;i<46;i++){ const sx=r()*w, sp=0.8+r()*0.5, sy=r()*h; const fy=(sy+t/11*sp)%h, fx=(sx-fy*0.15+w*2)%w; F1(g,(x+fx)*K,(y+fy)*K,1,3,'rgba(110,100,140,0.55)'); }
+  for(let i=0;i<5;i++){ const [lx,ly,rx]=L[i]; const ph=((t/700)+i*0.37)%1; if(ph<0.3){ const sx=x+lx+Math.round((i*7%5)-2), sy=y+ly-4; Pp(g,sx-1,sy-1,P.cream); Pp(g,sx+1,sy-1,P.cream); Pp(g,sx,sy-2,P.skyL); } }
+};
+
+SCENES.m_pool=function(t){ const {x,y,w,h}=PIC;   // "Does it help?": a tide pool, a paint box and a brush, and many small questions
+  F(g,x,y,w,h,P.parch); const r=rng(19); for(let i=0;i<60;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*h),r()<0.5?P.wall:P.cream);
+  ellF(g,x+28,y+21,25,14,P.gray); ellF(g,x+28,y+21,22,12,P.teal); ellF(g,x+26,y+19,18,9,P.aqua);
+  for(const [bx,by,br] of [[6,12,5],[49,30,6],[44,9,4],[10,32,4]]){ ellF(g,x+bx,y+by,br,br-1,P.gray); ellF(g,x+bx-1,y+by-1,br-1,br-2,P.grayL); }
+  for(let i=0;i<8;i++){ const sx=x+12+((i*9+Math.floor(t/120))%30), sy=y+14+(i*5)%10; F(g,sx,sy,2,1,P.aquaL); }
+  const sx=x+20, sy=y+24; for(let k=0;k<5;k++){ const a=k*1.2566-1.57; line(g,sx,sy,sx+Math.cos(a)*3.5,sy+Math.sin(a)*3.5,P.rust); } Pp(g,sx,sy,P.peach);
+  const ax=x+34, ay=y+17; ellF(g,ax,ay,2.5,2.5,P.pink); for(let k=0;k<7;k++){ const a=k*0.9+Math.sin(t/400+k)*0.25; Pp(g,ax+Math.cos(a)*3.5,ay+Math.sin(a)*3.5,P.pink); }
+  blk(g,x+58,y+20,18,11,2,M.paper,{top:1,bot:1,hl:4}); [P.navy,P.teal,P.green,P.rust,P.w3,P.pink].forEach((c,i)=>F(g,x+60+(i%3)*5,y+22+Math.floor(i/3)*4,3,2,c));
+  const tilt=Math.round(Math.sin(t/500)*2); line(g,x+62+tilt,y+4,x+70,y+18,P.w2); line(g,x+63+tilt,y+4,x+71,y+18,P.w1); F(g,x+70,y+18,2,2,P.navy);
+  for(let i=0;i<2;i++){ const ph=((t/2000)+i/2)%1; bub(x+44+i*10,y+2+Math.round(ph*-1),'?',RC[2]); }
+};
+
+SCENES.m_stoplh=function(t){ const {x,y,w,h}=PIC;   // "Stop the lighthouse": the lighthouse light goes out; the radio says STOP
+  nightSky(x,y,w,9,20); F(g,x,y+20,w,5,P.violet); for(let xx=x;xx<x+w;xx+=2) Pp(g,xx+1,y+20,P.violet);
+  const r=rng(6); for(let i=0;i<14;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*16),Math.sin(t/450+i)>0?P.cream:P.lilac);
+  F(g,x,y+25,w,h-25,P.navy); F(g,x,y+29,w,2,P.violet); for(let i=0;i<10;i++){ const wx=(r()*w+t/90)%w; F(g,x+Math.floor(wx),y+27+Math.floor(r()*9),3,1,P.blue); }
+  F(g,x+8,y+26,26,12,P.ink); F(g,x+12,y+23,16,4,P.ink);
+  const cx=x+20; for(let yy=y+9;yy<=y+23;yy++){ const ww=5+Math.floor((yy-(y+9))*4/14); const xx=cx-Math.floor(ww/2); const red=(yy>=y+12&&yy<=y+14)||(yy>=y+18&&yy<=y+20); F(g,xx,yy,ww,1,red?P.wine:P.grayL); }
+  F(g,cx-4,y+8,9,1,P.ink); F(g,cx-2,y+4,5,4,P.ink); F(g,cx-1,y+5,3,2,P.mauve); for(let i=0;i<3;i++) F(g,cx-2+i,y+3-i,5-i*2,1,P.wine);
+  const ph=(t%4000)/4000; if(ph<0.12){ F(g,cx-1,y+5,3,2,P.w4); for(let k=3;k<22;k++) F(g,cx+k,y+5,1,3,'rgba(242,204,122,0.25)'); }
+  blk(g,x+52,y+18,20,11,2,M.wood,{top:1,bot:1,hl:4}); F(g,x+54,y+20,9,7,P.ink); for(let j=0;j<3;j++) F(g,x+55,y+21+j*2,7,1,P.plum); F(g,x+65,y+21,4,4,P.w4); F(g,x+61,y+14,1,4,P.ink);
+  if(ph>0.15) { const bx=x+52, by=y+5; F(g,bx-1,by-1,21,9,P.red); F(g,bx,by,19,7,P.cream); F(g,bx+5,by+8,2,1,P.red); txt3(bx+2,by+1,'STOP',P.red); }
+};
+
+SCENES.m_ban=function(t){ const {x,y,w,h}=PIC;   // "The ban": no more talk of repairs or brands
+  SCENES.coat(t);
+  const cx=x+34, cy=y+20, R=13; for(let a=0;a<360;a+=3){ const rr=a*Math.PI/180; F(g,cx+Math.cos(rr)*R-1,cy+Math.sin(rr)*R-1,2,2,P.red); }
+  for(let k=-9;k<=9;k++) F(g,cx+k*0.7-1,cy+k*0.7-1,2,2,P.red);
+  if(Math.floor(t/700)%2===0){ F(g,x+60,y+5,15,7,P.red); txt3(x+61,y+6,'NO',P.cream); txt3(x+70,y+6,'.',P.cream); }
+};
+
+SCENES.m_midnight=function(t){ const {x,y,w,h}=PIC;   // "Midnight reset": the town at night; the clock strikes twelve and the windows light up again
+  nightSky(x,y,w,8,20); const r=rng(14); for(let i=0;i<16;i++) Pp(g,x+Math.floor(r()*w),y+Math.floor(r()*12),Math.sin(t/400+i)>0?P.cream:P.lilac);
+  ellF(g,x+70,y+5,3,3,P.cream);
+  const ph=(t%6000)/6000, lit=[ph>0.55,ph>0.65,ph>0.75,ph>0.35];
+  for(const [bx,bw,bh,c] of [[0,10,12,P.violet],[10,8,16,P.ink],[18,12,10,P.violet],[46,9,14,P.ink],[55,12,18,P.violet],[67,13,11,P.ink]]){
+    F(g,x+bx,y+20-bh,bw,bh,c); for(let wy=y+22-bh;wy<y+19;wy+=3) for(let wx=x+bx+2;wx<x+bx+bw-1;wx+=3) Pp(g,wx,wy,P.plum); }
+  blk(g,x+33,y+3,10,18,0,M.slate,{top:1,bot:1,hl:2}); F(g,x+35,y+1,6,2,P.mauve); ellF(g,x+38,y+9,4,4,P.cream); F(g,x+37.5,y+5,1,4,P.ink); Pp(g,x+37.5,y+8.5,P.red);
+  [[4,8],[13,6],[58,9],[70,13]].forEach(([wx,wy],i)=>{ F(g,x+wx,y+wy,2,2,lit[i]?P.w4:P.plum); if(lit[i]) Pp(g,x+wx,y+wy,P.cream); });
+  F(g,x,y+20,w,h-20,P.teal); F(g,x,y+20,w,1,P.green); for(let j=0;j<h-20;j++){ const pw=4+j; F(g,x+38-Math.floor(pw/2)+Math.floor(j*0.5),y+20+j,pw,1,P.mauve); }
+  for(const [tx,ty,rr] of [[12,15,7],[27,18,5],[62,16,6]]){ F(g,x+tx-1,y+ty+rr-2,2,8,P.plum); ellF(g,x+tx,y+ty,rr,rr-1,P.tealD); ellF(g,x+tx-1,y+ty-1,rr-2,rr-3,P.teal); }
+  F(g,x+66,y+29,10,2,P.plum); F(g,x+67,y+31,1,2,P.ink); F(g,x+74,y+31,1,2,P.ink);
+  if(ph<0.3){ txt3(x+44,y+4,'Z',P.lilacL); }
 };
 
 /* ---------- notebooks ---------- */
