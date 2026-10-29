@@ -57,7 +57,8 @@ def main():
     stats = {'posts': total, 'hours': round(hrs), 'perMin': round(total / (hrs * 60)) if total else 0, 'watch': round(play / hrs / 60000) if total else 0}
     with open(os.path.join(OUT, 'tape', 'index.js'), 'w', encoding='utf-8') as f:
         ivs = read_json(os.path.join(ROOT, 'data', 'interventions.json'), {}).get('items', [])   # changes Greg makes to the room
-        f.write(js('window.TAPE_INDEX_DATA', {'updated': state.get('lastFetch'), 'days': index, 'notebooks': room.get('notebooks', []), 'stats': stats, 'interventions': ivs}))
+        f.write(js('window.TAPE_INDEX_DATA', {'updated': state.get('lastFetch'), 'days': index, 'notebooks': room.get('notebooks', []), 'stats': stats, 'interventions': ivs,
+                                                  'audience': {'visits': room.get('visits'), 'at': room.get('fetched')} if room.get('visits') is not None else None}))
     # --- the moments ---
     store = read_json(os.path.join(MOMENTS, 'moments.json'), {'moments': []})
     fix = read_json(os.path.join(MOMENTS, 'corrections.json'), {})

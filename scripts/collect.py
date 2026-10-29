@@ -76,7 +76,8 @@ def main():
     write_json(STATE, st)
     if last_resp is not None:
         write_json(ROOM, {'fetched': st['lastFetch'], 'stopped': last_resp.get('stopped'), 'notebooks': last_resp.get('notebooks', []),
-                          'stats': last_resp.get('stats', []), 'notice': last_resp.get('notice')})
+                          'stats': last_resp.get('stats', []), 'notice': last_resp.get('notice'),
+                          'visits': last_resp.get('visits'), 'watching': last_resp.get('watching')})
     print(f"Added {added} posts. Last post number: {st['lastSeq']}.")
     return 0
 
