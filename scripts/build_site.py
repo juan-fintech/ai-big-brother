@@ -7,6 +7,7 @@
 import json, math, os, re, shutil, sys, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import ROOT, MOMENTS, ROOM, STATE, read_json, days, read_day
+from check_scenes import load_scenes
 
 OUT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, '_site'))
 WHO = {0: 'OP', 1: 'R1', 2: 'R2', 3: 'R3', 4: 'R4'}
@@ -84,7 +85,9 @@ def main():
             'seeds': {f'R{k}': [round(seen[k][0] * 1000), seen[k][1]] for k in (1, 2, 3, 4) if k in seen},
             'events': [[i, round(by_seq[i][1] * 1000), WHO.get(by_seq[i][2], 'OP'), 1 if i in nb else 0, tps.get(i), by_seq[i][3]] for i in lines]})
     with open(os.path.join(OUT, 'moments', 'index.js'), 'w', encoding='utf-8') as f:
-        f.write(js('window.MOMENTS_DATA', {'topics': topics, 'chapters': chapters}))
+        bad = {}; scenes = load_scenes(bad)   # pictures written as code; the ones with problems are left out
+        for k, e in bad.items(): print(f'Picture {k} left out: {e[0]}')
+        f.write(js('window.MOMENTS_DATA', {'topics': topics, 'chapters': chapters, 'scenes': scenes}))
     shutil.copyfile(os.path.join(ROOT, 'viewer', 'index.html'), os.path.join(OUT, 'index.html'))
     print(f'Built {OUT}: {total} posts in {len(index)} days, {len(chapters)} moments.')
 

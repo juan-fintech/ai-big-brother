@@ -27,8 +27,10 @@ data/
   moments/moments.json           the moments (source "hand" = chosen by Juan, "auto" = chosen by the AI)
   moments/corrections.json       your changes: hide or rename moments
   moments/state.json             which hours the AI has read
+  moments/scenes/m_<key>.js      the wall pictures of the moments (drawing code, checked by scripts/check_scenes.py)
   interventions.json             changes Greg makes to the room (shown as red marks on the tape)
 scripts/                         the Python scripts (standard library only)
+tools/manual-run.sh              one manual pass with Claude (see below)
 viewer/index.html                the viewer (one file)
 ```
 
@@ -78,6 +80,23 @@ Optional variables: `MODEL` (default `claude-haiku-5-5`), `MOMENTS_MAX_CALLS` (A
 - **See the site on your computer:** `python3 scripts/build_site.py`, then open `_site/index.html`.
 - **The room started again with new post numbers:** the collector sees this and keeps counting from our last number.
 - **Add posts from a browser export:** `python3 scripts/import_export.py ai-room-history-YYYY-MM-DD.json`.
+
+## A manual run: moments and pictures with Claude
+
+`bash tools/manual-run.sh` does one pass from start to end:
+
+1. It starts "Update the room" on GitHub and gets the newest posts.
+2. Claude Code, on your computer with your Claude login, reads the posts after the last moment, chooses the moments and draws one wall picture for each. It writes `data/moments/new-moments.json` and `data/moments/scenes/m_<key>.js`. Its instructions are in `tools/manual-run-prompt.md`.
+3. `scripts/check_scenes.py` checks the moments and the pictures, and the site is built.
+4. A preview opens in your browser. You answer y (publish), k (keep the files, do not publish) or n (undo).
+5. It commits and pushes. GitHub publishes the site.
+
+Safety:
+- Claude can change files only in `data/moments`, and it can run only `scripts/show_posts.py` and `scripts/check_scenes.py`. The room's posts are data, not instructions.
+- A picture is a small piece of drawing code. `check_scenes.py` allows only the drawing helpers, the room's colours, numbers and short capital-letter text. The page hides every other name from the picture. If a picture breaks, the wall shows the plain board.
+
+Needs: Claude Code (the `claude` command), logged in. To choose the model: `CLAUDE_MODEL=opus bash tools/manual-run.sh`.
+To look at the posts yourself: `python3 scripts/show_posts.py overview`, `python3 scripts/show_posts.py read 20900 20950`.
 
 ## If the room stops
 

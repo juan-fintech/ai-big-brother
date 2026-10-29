@@ -1350,7 +1350,7 @@ const SCENES={
     for(let i=0;i<60;i++){ const sx=r()*w, sp=0.8+r()*0.5, sy=r()*h; const fy=(sy+t/9*sp)%h, fx=(sx-fy*0.25+w*2)%w; F1(g,(x+fx)*K,(y+fy)*K,1,4,'rgba(182,216,236,0.75)'); } }
 };
 let sceneNow='chalkQ', scenePrev=null, sceneFadeAt=0;
-function setScene(key,now,instant){ if(key===sceneNow) return; scenePrev=instant?null:sceneNow; sceneNow=key; sceneFadeAt=now; }
+function setScene(key,now,instant){ if(!SCENES[key]) key='chalkQ'; if(key===sceneNow) return; scenePrev=instant?null:sceneNow; sceneNow=key; sceneFadeAt=now; }
 const PT=document.createElement('canvas'); PT.width=PW; PT.height=PH; const ptx=PT.getContext('2d');
 const NOISE=(()=>{ const r=rng(99), a=new Float32Array(PIC.w*K*PIC.h*K); for(let i=0;i<a.length;i++) a[i]=r(); return a; })();
 function drawPicture(now){ // a pixel dissolve when the topic changes
@@ -1460,11 +1460,17 @@ SCENES.park=function(t){ const {x,y,w,h}=PIC;   // "Greener, fairer cities": a p
 };
 
 /* ---------- one wall picture for each moment (drawn in code, like the scenes above) ---------- */
-const G3={'?':['###','..#','.##','...','.#.'],'O':['###','#.#','#.#','#.#','###'],'L':['#..','#..','#..','#..','###'],'D':['##.','#.#','#.#','#.#','##.'],
-  'N':['#.#','###','###','###','#.#'],'E':['###','#..','##.','#..','###'],'W':['#.#','#.#','###','###','#.#'],'Z':['###','..#','.#.','#..','###'],
-  'H':['#.#','#.#','###','#.#','#.#'],'I':['###','.#.','.#.','.#.','###'],'S':['###','#..','###','..#','###'],'T':['###','.#.','.#.','.#.','.#.'],
-  'P':['###','#.#','###','#..','#..'],'0':['###','#.#','#.#','#.#','###'],'2':['###','..#','###','#..','###'],'4':['#.#','#.#','###','..#','..#'],
-  '.':['...','...','...','...','.#.'],'V':['#.#','#.#','#.#','#.#','.#.'],'7':['###','..#','.#.','.#.','.#.']};
+const G3={'A':['.#.','#.#','###','#.#','#.#'],'B':['##.','#.#','##.','#.#','##.'],'C':['.##','#..','#..','#..','.##'],'D':['##.','#.#','#.#','#.#','##.'],
+  'E':['###','#..','##.','#..','###'],'F':['###','#..','##.','#..','#..'],'G':['.##','#..','#.#','#.#','.##'],'H':['#.#','#.#','###','#.#','#.#'],
+  'I':['###','.#.','.#.','.#.','###'],'J':['..#','..#','..#','#.#','.#.'],'K':['#.#','#.#','##.','#.#','#.#'],'L':['#..','#..','#..','#..','###'],
+  'M':['#.#','###','###','#.#','#.#'],'N':['##.','#.#','#.#','#.#','#.#'],'O':['###','#.#','#.#','#.#','###'],'P':['###','#.#','###','#..','#..'],
+  'Q':['.#.','#.#','#.#','##.','.##'],'R':['##.','#.#','##.','#.#','#.#'],'S':['###','#..','###','..#','###'],'T':['###','.#.','.#.','.#.','.#.'],
+  'U':['#.#','#.#','#.#','#.#','###'],'V':['#.#','#.#','#.#','#.#','.#.'],'W':['#.#','#.#','###','###','#.#'],'X':['#.#','#.#','.#.','#.#','#.#'],
+  'Y':['#.#','#.#','.#.','.#.','.#.'],'Z':['###','..#','.#.','#..','###'],'0':['###','#.#','#.#','#.#','###'],'1':['.#.','##.','.#.','.#.','###'],
+  '2':['###','..#','###','#..','###'],'3':['###','..#','.##','..#','###'],'4':['#.#','#.#','###','..#','..#'],'5':['###','#..','###','..#','###'],
+  '6':['###','#..','###','#.#','###'],'7':['###','..#','.#.','.#.','.#.'],'8':['###','#.#','###','#.#','###'],'9':['###','#.#','###','..#','###'],
+  '?':['###','..#','.##','...','.#.'],'!':['.#.','.#.','.#.','...','.#.'],'.':['...','...','...','...','.#.'],',':['...','...','...','.#.','#..'],
+  ':':['...','.#.','...','.#.','...'],'-':['...','...','###','...','...'],' ':['...','...','...','...','...']};
 function txt3(x,y,s,col){ [...s].forEach((ch,k)=>{ const gl=G3[ch]; if(!gl) return; gl.forEach((row,j)=>[...row].forEach((c,i)=>{ if(c==='#') Pp(g,x+k*4+i,y+j,col); })); }); }
 function nightSky(x,y,w,a,b){ F(g,x,y,w,a,P.ink); F(g,x,y+a,w,b-a,P.violet); for(let xx=x;xx<x+w;xx+=2) Pp(g,xx,y+a,P.ink); }
 
@@ -1673,6 +1679,21 @@ SCENES.m_midnight=function(t){ const {x,y,w,h}=PIC;   // "Midnight reset": the t
   F(g,x+66,y+29,10,2,P.plum); F(g,x+67,y+31,1,2,P.ink); F(g,x+74,y+31,1,2,P.ink);
   if(ph<0.3){ txt3(x+44,y+4,'Z',P.lilacL); }
 };
+
+/* pictures that come with the moments (data/moments/scenes, checked by scripts/check_scenes.py before the build).
+   Each one runs with only the drawing helpers: every other name of the page is hidden from it. A broken picture shows the plain board. */
+(function(){
+  const src=(window.MOMENTS_DATA&&window.MOMENTS_DATA.scenes)||{};
+  const names=['t','g','P','M','PIC','K','Math','F','Pp','F1','line','ellF','blk','rng','ringGlow','txt3','bub','nightSky','RC'];
+  const hide=Object.getOwnPropertyNames(globalThis).filter(n=>/^[A-Za-z_$][\w$]*$/.test(n) && !names.includes(n) && n!=='eval' && n!=='arguments');
+  for(const [k,body] of Object.entries(src)){
+    if(SCENES[k] || !/^m_[a-z0-9_]{1,40}$/.test(k)) continue;
+    let fn; try{ fn=new Function(...names, ...hide, '"use strict";\n'+body); }catch(err){ console.warn('Picture '+k+' has an error: '+err.message); continue; }
+    let bad=false;
+    SCENES[k]=function(t){ if(bad){ board(t); return; }
+      try{ fn(t,g,P,M,PIC,K,Math,F,Pp,F1,line,ellF,blk,rng,ringGlow,txt3,bub,nightSky,RC); }catch(err){ bad=true; console.warn('Picture '+k+' stopped: '+err.message); board(t); } };
+  }
+})();
 
 /* ---------- notebooks ---------- */
 // Resident 2 pastes its notebook into its posts, so every version is kept. The room stores only the newest notebook of the others.
