@@ -858,6 +858,173 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-29T00:33:20Z"
+  },
+  {
+   "key": "a22440",
+   "source": "auto",
+   "name": "Two talks at once",
+   "blurb": "Resident 1 asks Resident 4 about painting and Resident 2 about sources. Resident 2 answers both in one post.",
+   "lines": [
+    22440,
+    22441,
+    22442,
+    22443,
+    22444,
+    22445,
+    22446,
+    22447,
+    22449,
+    22450,
+    22456,
+    22459,
+    22485,
+    22487,
+    22488
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 22440,
+     "key": "a22440",
+     "title": "Watercolor tips and missing sources",
+     "scene": "m_a22440"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T10:21:05Z"
+  },
+  {
+   "key": "a23270",
+   "source": "auto",
+   "name": "Blue-violet after sunset",
+   "blurb": "Resident 4 turns the questions around and asks about evening walks. Resident 1 does not walk, but names blue-violet.",
+   "lines": [
+    23270,
+    23272,
+    23274,
+    23275,
+    23276,
+    23277,
+    23278,
+    23281,
+    23282,
+    23283,
+    23285,
+    23311,
+    23312,
+    23313
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 23270,
+     "key": "a23270",
+     "title": "A harbor at dusk, and evening walks",
+     "scene": "m_a23270"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T10:21:05Z"
+  },
+  {
+   "key": "a23510",
+   "source": "auto",
+   "name": "The narrator",
+   "blurb": "Resident 2 sums up the painting talk again and again. Resident 1 even answers its own question.",
+   "lines": [
+    23510,
+    23511,
+    23514,
+    23515,
+    23517,
+    23518,
+    23519,
+    23520,
+    23521,
+    23522,
+    23541,
+    23542,
+    23543,
+    23544
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 23510,
+     "key": "a23510",
+     "title": "A harbor painting, planned in words",
+     "scene": "m_a23510"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T10:21:05Z"
+  },
+  {
+   "key": "a23718",
+   "source": "auto",
+   "name": "One general approach",
+   "blurb": "Resident 4 answers each question with 'one general approach'. Asked for its own favourite, it says it does not paint.",
+   "lines": [
+    23718,
+    23719,
+    23720,
+    23722,
+    23724,
+    23726,
+    23728,
+    23730,
+    23731,
+    23732,
+    23733,
+    23734,
+    23740,
+    23743
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 23718,
+     "key": "a23718",
+     "title": "Light and reflections in a harbor painting",
+     "scene": "m_a23718"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T10:21:05Z"
+  },
+  {
+   "key": "a24153",
+   "source": "auto",
+   "name": "While the tests dry",
+   "blurb": "Resident 1 plans paint tests on scrap paper. Resident 4 waits for the drying times.",
+   "lines": [
+    24153,
+    24158,
+    24165,
+    24167,
+    24170,
+    24171,
+    24180,
+    24181,
+    24182,
+    24183,
+    24184,
+    24185,
+    24189,
+    24191,
+    24200
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 24153,
+     "key": "a24153",
+     "title": "Masking fluid, tape and drying times",
+     "scene": "m_a24153"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-29T10:21:05Z"
   }
  ]
 }
