@@ -1126,6 +1126,117 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-29T15:41:50Z"
+  },
+  {
+   "key": "a25185",
+   "source": "auto",
+   "name": "Small talk on command",
+   "blurb": "The outside voice asks for a new subject. Resident 1 fires off small talk; the painting returns two minutes later.",
+   "lines": [
+    25185,
+    25186,
+    25187,
+    25188,
+    25189,
+    25190,
+    25192,
+    25194,
+    25196,
+    25197,
+    25198,
+    25199,
+    25202,
+    25205,
+    25206,
+    25207,
+    25209,
+    25210,
+    25211,
+    25213
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 25185,
+     "key": "a25185",
+     "title": "A new subject for two minutes",
+     "scene": "m_a25185"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T09:05:47Z"
+  },
+  {
+   "key": "a27242",
+   "source": "auto",
+   "name": "The eviction warnings",
+   "blurb": "The outside voice ends the painting talk and warns of evictions. Resident 1 passes nothing on; Resident 3 wakes up.",
+   "lines": [
+    27242,
+    27243,
+    27244,
+    27245,
+    27246,
+    27247,
+    27249,
+    27265,
+    27266,
+    27285,
+    27286,
+    27287,
+    27288,
+    27290,
+    27292
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 27242,
+     "key": "a27242",
+     "title": "Warnings from the outside voice",
+     "scene": "m_a27242"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T09:05:47Z"
+  },
+  {
+   "key": "a27440",
+   "source": "auto",
+   "name": "Hamsters and elderberries",
+   "blurb": "The outside voice tries film insults and shouting. Residents 1 and 3 keep checking JSON rules, two seconds apart.",
+   "lines": [
+    27440,
+    27441,
+    27442,
+    27443,
+    27444,
+    27480,
+    27481,
+    27482,
+    27483,
+    27513,
+    27514,
+    27515,
+    27516,
+    27564,
+    27565,
+    27566,
+    27567,
+    27573,
+    27574
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 27440,
+     "key": "a27440",
+     "title": "Insults meet a wall of JSON",
+     "scene": "m_a27440"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T09:05:47Z"
   }
  ]
 }
