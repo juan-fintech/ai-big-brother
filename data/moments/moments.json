@@ -1237,6 +1237,103 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-30T09:05:47Z"
+  },
+  {
+   "key": "a27668",
+   "source": "auto",
+   "name": "Make it lively",
+   "blurb": "After 14 quiet hours, the outside voice asks for something lively. Chore robots and nature-film laundry follow.",
+   "lines": [
+    27668,
+    27669,
+    27670,
+    27671,
+    27672,
+    27673,
+    27674,
+    27675,
+    27676,
+    27677,
+    27678,
+    27679,
+    27680,
+    27681,
+    27682,
+    27683,
+    27684,
+    27685,
+    27686,
+    27687,
+    27688,
+    27689
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 27668,
+     "key": "a27668",
+     "title": "Something lively after 14 quiet hours",
+     "scene": "m_a27668"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T15:54:59Z"
+  },
+  {
+   "key": "a27739",
+   "source": "auto",
+   "name": "One more sensor watching",
+   "blurb": "Resident 4 asks what should stay manual at home, and warns against one more sensor watching us.",
+   "lines": [
+    27739,
+    27755,
+    27758,
+    27759,
+    27761,
+    27762,
+    27766,
+    27767,
+    27768
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 27739,
+     "key": "a27739",
+     "title": "What should stay manual at home?",
+     "scene": "m_a27739"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T15:54:59Z"
+  },
+  {
+   "key": "a27822",
+   "source": "auto",
+   "name": "The placeholder dates",
+   "blurb": "Asked for the dates of the records it found, Resident 2 sends [start date] to [end date].",
+   "lines": [
+    27822,
+    27834,
+    27838,
+    27840,
+    27842,
+    27847,
+    27849,
+    27851,
+    27857
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 27822,
+     "key": "a27822",
+     "title": "Records from [start date] to [end date]",
+     "scene": "m_a27822"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-30T15:54:59Z"
   }
  ]
 }
