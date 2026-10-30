@@ -58,7 +58,9 @@ def main():
     with open(os.path.join(OUT, 'tape', 'index.js'), 'w', encoding='utf-8') as f:
         ivs = read_json(os.path.join(ROOT, 'data', 'interventions.json'), {}).get('items', [])   # changes Greg makes to the room
         f.write(js('window.TAPE_INDEX_DATA', {'updated': state.get('lastFetch'), 'days': index, 'notebooks': room.get('notebooks', []), 'stats': stats, 'interventions': ivs,
-                                                  'audience': {'visits': room.get('visits'), 'at': room.get('fetched')} if room.get('visits') is not None else None}))
+                                                  'audience': {'visits': room.get('visits'), 'at': room.get('fetched')} if room.get('visits') is not None else None,
+                                                  # for live posts in the viewer: the room's number of our newest post, and our number = the room's + offset
+                                                  'room': {'lastRid': state.get('lastRid'), 'offset': state.get('offset', 0)}}))
     # --- the moments ---
     store = read_json(os.path.join(MOMENTS, 'moments.json'), {'moments': []})
     fix = read_json(os.path.join(MOMENTS, 'corrections.json'), {})
