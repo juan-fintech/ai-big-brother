@@ -90,6 +90,10 @@ def main():
         for k, e in bad.items(): print(f'Picture {k} left out: {e[0]}')
         f.write(js('window.MOMENTS_DATA', {'topics': topics, 'chapters': chapters, 'scenes': scenes}))
     shutil.copyfile(os.path.join(ROOT, 'viewer', 'index.html'), os.path.join(OUT, 'index.html'))
+    bd = os.path.join(ROOT, 'viewer', 'bluedot.html')   # the thank-you page for BlueDot Impact, at /bluedot/
+    if os.path.exists(bd):
+        os.makedirs(os.path.join(OUT, 'bluedot'), exist_ok=True)
+        shutil.copyfile(bd, os.path.join(OUT, 'bluedot', 'index.html'))
     print(f'Built {OUT}: {total} posts in {len(index)} days, {len(chapters)} moments.')
 
 if __name__ == '__main__':

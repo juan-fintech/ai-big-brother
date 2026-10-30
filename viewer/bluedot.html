@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thank You, BlueDot</title>
+<meta name="description" content="Greg and Juan met through BlueDot Impact. A thank you, the two BlueDot courses, and 14 readings from the AGI Strategy course.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGUlEQVR4AeySMQ4BURCGh8OQUFAruYHSAVBuo5KtNirNljgApRNQqikVzkL+ZH95meSt3Yi3swnJl/Hmzbz55882JftNhvNnSLKx8hbAROjY5NbX+0VCwrnVOxDacj2vPg4cDzcpg97Ud7brgN621XtIGXR/fRygcr0tN0i3J8mDdbqf7/Ke0c43QIVUToWM3DpaTAUwryPrdJ7vcg7v7ThAhVTmi+l6J2CVJOLiq9d5PceOA1ppqLMdB7qdsYCimy/jWFyK9mEGYL0dB6gI6gDPjNFsJIBnX0QN0Pd4E+i8PQeoEGpdmMd2ebDO7cV/5nW064BWii3KoPt95/o44Nvg2/zfgeod2J83DdBvDyQkmAl+7sCnj/QFAAD//5X0XXsAAAAGSURBVAMAVNBCpGxwjN0AAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=Press+Start+2P&display=swap">
+<style>
+/* The thank-you page for BlueDot Impact. Same look as the room (the tokens, panel and buttons are copied from viewer/index.html). */
+:root{
+  --ink:#2a1b2e; --plum:#4a2a3e; --bplum:#6e3a3e; --w1:#955338; --w2:#bb7442; --w3:#dca05a; --w4:#f2cc7a; --cream:#fbecc4;
+  --parch:#f1dcb2; --parch-line:rgba(110,58,62,.06);
+  --text:#2a1b2e; --text-soft:#6e4a4a;
+  --on-bg:#f3e6cc; --on-bg-soft:#c9bfd6;
+  --r1:#2e4072; --r2:#86501a; --r3:#1f6a66; --r4:#9e3442; --op:#3f6a2a;
+  --r1-sw:#74a2d4; --r2-sw:#e6b55e; --r3-sw:#50b4a8; --r4-sw:#e48a6a; --op-sw:#9fbf6a;
+  --sleep:#3a2a4e;
+  --f-pixel:"Silkscreen","Courier New",monospace;
+  --f-body:"Pixelify Sans","Trebuchet MS",system-ui,sans-serif;
+  --u:3px; --p:1.5px; --stage-w:960px;
+  --f-title:"Press Start 2P","Silkscreen",monospace; --title-size:24px; --title-ls:0; --title-w:400;
+  --sh:var(--ink); --title:var(--w4); --rule:rgba(255,240,210,.12);
+  color-scheme:dark;
+}
+body{background-color:#1f2340;color:var(--on-bg);min-height:100vh;margin:0}
+body{font-family:var(--f-body);font-size:15px;line-height:1.35;image-rendering:pixelated;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' shape-rendering='crispEdges'%3E%3Crect width='128' height='128' fill='%231f2340'/%3E%3Crect x='82' y='38' width='22' height='1' fill='%23272c4d'/%3E%3Crect x='12' y='18' width='36' height='1' fill='%23272c4d'/%3E%3Crect x='24' y='93' width='28' height='1' fill='%23272c4d'/%3E%3Crect x='14' y='54' width='11' height='1' fill='%23272c4d'/%3E%3Crect x='22' y='111' width='23' height='1' fill='%23272c4d'/%3E%3Crect x='17' y='61' width='12' height='1' fill='%23272c4d'/%3E%3Crect x='108' y='15' width='36' height='1' fill='%23272c4d'/%3E%3Crect x='31' y='57' width='30' height='1' fill='%23272c4d'/%3E%3Crect x='15' y='101' width='11' height='1' fill='%23272c4d'/%3E%3Crect x='56' y='11' width='27' height='1' fill='%23272c4d'/%3E%3Crect x='34' y='74' width='23' height='1' fill='%23272c4d'/%3E%3Crect x='36' y='30' width='28' height='1' fill='%23272c4d'/%3E%3Crect x='78' y='46' width='13' height='1' fill='%23272c4d'/%3E%3Crect x='48' y='95' width='13' height='1' fill='%23272c4d'/%3E%3Crect x='16' y='15' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='52' y='127' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='109' y='80' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='119' y='116' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='92' y='76' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='63' y='46' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='62' y='20' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='76' y='126' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='87' y='114' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='73' y='18' width='1' height='1' fill='%23cfc6ea'/%3E%3Crect x='30' y='107' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='42' y='87' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='38' y='125' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='107' y='10' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='19' y='80' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='87' y='89' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='127' y='116' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='17' y='23' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='69' y='121' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='16' y='15' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='79' y='114' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='72' y='98' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='88' y='5' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='118' y='90' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='43' y='29' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='126' y='15' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='55' y='73' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='33' y='63' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='101' y='100' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='127' y='20' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='42' y='114' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='102' y='71' width='1' height='1' fill='%237d78b4'/%3E%3Crect x='117' y='21' width='1' height='1' fill='%23f2e3b4'/%3E%3Crect x='116' y='21' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='118' y='21' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='117' y='20' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='117' y='22' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='108' y='59' width='1' height='1' fill='%23f2e3b4'/%3E%3Crect x='107' y='59' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='109' y='59' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='108' y='58' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='108' y='60' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='114' y='74' width='1' height='1' fill='%23f2e3b4'/%3E%3Crect x='113' y='74' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='115' y='74' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='114' y='73' width='1' height='1' fill='%239a93c9'/%3E%3Crect x='114' y='75' width='1' height='1' fill='%239a93c9'/%3E%3C/svg%3E");background-size:256px 256px}
+
+body.bg-desk{--on-bg:#eef0f5;--on-bg-soft:#c3c9d6;--sh:#1b202c;--rule:rgba(238,240,245,.14);
+  background-color:#3b4354;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' shape-rendering='crispEdges'%3E%3Crect x='21' y='1' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='37' y='4' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='36' y='6' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='4' y='10' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='38' y='10' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='9' y='14' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='30' y='16' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='33' y='24' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='4' y='26' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='37' y='26' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='36' y='28' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='12' y='30' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='20' y='34' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='15' y='37' width='1' height='1' fill='%23343b4b'/%3E%3Crect x='37' y='2' width='1' height='1' fill='%23465064'/%3E%3Crect x='7' y='4' width='1' height='1' fill='%23465064'/%3E%3Crect x='30' y='5' width='1' height='1' fill='%23465064'/%3E%3Crect x='1' y='17' width='1' height='1' fill='%23465064'/%3E%3Crect x='27' y='19' width='1' height='1' fill='%23465064'/%3E%3Crect x='8' y='23' width='1' height='1' fill='%23465064'/%3E%3Crect x='24' y='27' width='1' height='1' fill='%23465064'/%3E%3Crect x='35' y='30' width='1' height='1' fill='%23465064'/%3E%3Crect x='8' y='31' width='1' height='1' fill='%23465064'/%3E%3Crect x='13' y='36' width='1' height='1' fill='%23465064'/%3E%3Crect x='24' y='36' width='1' height='1' fill='%23465064'/%3E%3Crect x='23' y='38' width='1' height='1' fill='%23465064'/%3E%3C/svg%3E"),radial-gradient(ellipse 80% 70% at 35% 45%,#4a5468,#2f3644 85%);background-size:80px 80px,100% 100%;background-attachment:scroll,fixed}
+/* wood-framed parchment panel */
+.panel{position:relative;background-color:var(--parch);color:var(--text);
+  background-image:repeating-linear-gradient(0deg,var(--parch-line) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(110,58,62,.03) 0 1px,transparent 1px 9px);
+  border:3px solid;border-color:var(--w3) var(--w1) var(--bplum) var(--w2);
+  box-shadow:0 0 0 2px var(--ink),inset 0 0 0 1px rgba(255,246,220,.55),0 5px 0 2px rgba(10,8,20,.45)}
+.panel::before{content:"";position:absolute;inset:-3px;pointer-events:none;
+  background:
+    linear-gradient(var(--cream),var(--cream)) 2px 2px/2px 2px no-repeat,
+    linear-gradient(var(--cream),var(--cream)) calc(100% - 3px) 2px/2px 2px no-repeat,
+    linear-gradient(var(--cream),var(--cream)) 2px calc(100% - 3px)/2px 2px no-repeat,
+    linear-gradient(var(--cream),var(--cream)) calc(100% - 3px) calc(100% - 3px)/2px 2px no-repeat,
+    linear-gradient(var(--plum),var(--plum)) 1px 1px/3px 3px no-repeat,
+    linear-gradient(var(--plum),var(--plum)) calc(100% - 1px) 1px/3px 3px no-repeat,
+    linear-gradient(var(--plum),var(--plum)) 1px calc(100% - 1px)/3px 3px no-repeat,
+    linear-gradient(var(--plum),var(--plum)) calc(100% - 1px) calc(100% - 1px)/3px 3px no-repeat}
+
+
+.px{appearance:none;border:0;cursor:pointer;font:inherit;margin:2px 2px 6px;color:var(--cream);text-shadow:0 1px 0 var(--plum);
+  background-color:var(--w2);
+  background-image:repeating-linear-gradient(0deg,rgba(74,42,62,.13) 0 1px,transparent 1px 4px);
+  box-shadow:0 0 0 2px var(--ink),inset 0 2px 0 var(--w3),inset 2px 0 0 var(--w3),inset 0 -3px 0 var(--bplum),inset -2px 0 0 var(--w1),0 4px 0 2px var(--ink);
+  transition:transform .05s ease}
+.px:hover{background-color:#c67d48}
+.px:active,.px[aria-pressed="true"]{transform:translateY(3px);background-color:var(--w1);color:var(--w4);
+  box-shadow:0 0 0 2px var(--ink),inset 0 3px 0 var(--bplum),inset 2px 0 0 var(--bplum),inset 0 -1px 0 var(--w2),0 1px 0 2px var(--ink)}
+.px:focus-visible{outline:3px solid var(--w4);outline-offset:5px}
+.btn{font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:7px 10px 9px}
+.site-head,.site-foot{max-width:var(--app-max,1760px);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  font-family:var(--f-body);color:var(--on-bg-soft);text-shadow:0 1px 0 var(--sh)}
+.site-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 24px;padding-top:4px}
+.site-head .menu{margin:0}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;margin:0;padding:0;list-style:none;font-size:13px;line-height:18px}
+.crumbs li+li::before{content:"/";content:"/" / "";margin:0 8px;opacity:.75}
+.crumbs a,.site-foot a{color:var(--on-bg);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.crumbs a:hover,.site-foot a:hover{color:var(--title)}
+.crumbs a:focus-visible,.site-foot a:focus-visible{outline:2px solid var(--w4);outline-offset:3px}
+.crumbs [aria-current="page"]{color:var(--on-bg)}
+@media (max-width:559px){ .crumbs li:last-child{display:none} }
+.site-foot{padding-top:28px;padding-bottom:max(32px,env(safe-area-inset-bottom,0px));font-size:14px;line-height:1.5}
+.site-foot p{margin:0 0 4px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.site-head,.site-foot{--app-max:1120px}
+h1.title{margin:26px 0 22px;font-family:var(--f-title);font-weight:400;font-size:clamp(18px,3.4vw,26px);line-height:1.35;color:var(--w4);text-shadow:0 2px 0 var(--bplum),0 4px 0 var(--ink)}
+.thanks{padding:22px 28px 20px;font-size:17px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:6px 26px;align-items:start}
+.thanks p{margin:0 0 10px;max-width:68ch}
+.thanks .lead{font-size:19px;font-weight:500}
+.thanks .note{image-rendering:pixelated;margin-top:6px}
+.thanks .go{margin:8px 0 0}
+.px.btn{display:inline-block;text-decoration:none}
+h2.h{margin:44px 0 6px;font-family:var(--f-title);font-weight:400;font-size:15px;line-height:1.5;color:var(--on-bg);text-shadow:0 2px 0 var(--sh)}
+.sub{margin:0 0 16px;color:var(--on-bg-soft);font-size:15px;text-shadow:0 1px 0 var(--sh)}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.course{padding:18px 22px 16px;display:flex;flex-direction:column}
+.course .kick,.card .kick{margin:0 0 6px;font-family:var(--f-pixel);font-size:10px;letter-spacing:.06em;color:#9e3442}
+.course h3{margin:0 0 8px;font-family:var(--f-title);font-weight:400;font-size:13px;line-height:1.5;color:var(--text)}
+.course p{margin:0 0 12px;font-size:16px;line-height:1.45}
+.course .go{margin-top:auto;margin-bottom:0}
+/* the deck: a row that scrolls sideways. Swipe on a phone; the arrows move one card; it turns by itself every 6 seconds (not with reduced motion) */
+.deck-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 18px}
+.deck-head .sub{margin-bottom:12px}
+.ctrl{display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.count{font-family:var(--f-pixel);font-size:10px;letter-spacing:.04em;color:var(--on-bg-soft);margin-right:6px;min-width:9ch;text-align:right;text-shadow:0 1px 0 var(--sh)}
+.ctrl .px{width:36px;height:34px;padding:0;display:grid;place-items:center}
+.ctrl .px svg{display:block}
+.ctrl .px svg[hidden]{display:none}
+.track{list-style:none;margin:0;padding:8px 4px 18px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2 * 22px) / 3);gap:22px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.card{scroll-snap-align:start;display:flex;flex-direction:column;padding:0 0 14px;min-width:0}
+.card .band{height:76px;display:grid;place-items:center;margin:0 0 14px;background-color:var(--band);
+  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 2px,transparent 2px 6px);box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
+.card .band svg{image-rendering:pixelated}
+.card .kick,.card h3,.card .by,.card .line,.card .foot{padding:0 18px}
+.card h3{margin:0 0 6px;font-family:var(--f-body);font-weight:600;font-size:19px;line-height:1.25}
+.card h3 a{color:var(--text);text-decoration:none}
+.card h3 a:hover{color:#34408a;text-decoration:underline;text-underline-offset:3px}
+.card h3 a:focus-visible{outline:3px solid #34408a;outline-offset:3px}
+.card .by{margin:0 0 8px;font-size:14px;color:var(--text-soft)}
+.card .line{margin:0 0 14px;font-size:16px;line-height:1.45}
+.card .foot{margin:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card .unit{font-family:var(--f-pixel);font-size:9px;letter-spacing:.04em;color:var(--text-soft);line-height:1.4}
+.back-row{margin:30px 0 0;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em}
+.back-row a{color:var(--on-bg);text-underline-offset:4px}
+.thanks a:not(.px),.course a:not(.px){color:#34408a;text-underline-offset:3px}
+@media (max-width:899px){ .track{grid-auto-columns:calc((100% - 22px) / 2)} }
+@media (max-width:640px){
+  .thanks{grid-template-columns:1fr;padding:18px 18px 16px;font-size:16px}
+  .thanks .lead{font-size:17px}
+  .thanks .note{display:none}
+  .courses{grid-template-columns:1fr;gap:18px}
+  .track{grid-auto-columns:86%;gap:16px}
+  .deck-head{align-items:center}
+}
+@media (prefers-reduced-motion:reduce){ .track{scroll-behavior:auto} }
+</style>
+</head>
+<body class="bg-desk">
+<header class="site-head">
+  <nav aria-label="Breadcrumb">
+    <ol class="crumbs">
+      <li><a href="https://juanguillen.me/">juanguillen.me</a></li>
+      <li><a href="https://juanguillen.me/work/">Work</a></li>
+      <li><a href="../">AI Big Brother</a></li>
+      <li><span aria-current="page">Thank You, BlueDot</span></li>
+    </ol>
+  </nav>
+</header>
+<main class="wrap">
+  <h1 class="title">THANK YOU, BLUEDOT</h1>
+
+  <section class="thanks panel" aria-label="Thank you">
+    <svg class="note" viewBox="0 0 16 12" width="96" height="72" aria-hidden="true" shape-rendering="crispEdges">
+      <rect x="0" y="1" width="16" height="11" fill="#2a1b2e"/><rect x="1" y="2" width="14" height="9" fill="#fbecc4"/>
+      <rect x="1" y="2" width="2" height="1" fill="#dca05a"/><rect x="3" y="3" width="2" height="1" fill="#dca05a"/><rect x="5" y="4" width="2" height="1" fill="#dca05a"/><rect x="7" y="5" width="2" height="1" fill="#dca05a"/>
+      <rect x="13" y="2" width="2" height="1" fill="#dca05a"/><rect x="11" y="3" width="2" height="1" fill="#dca05a"/><rect x="9" y="4" width="2" height="1" fill="#dca05a"/>
+      <rect x="6" y="7" width="1" height="1" fill="#9e3442"/><rect x="9" y="7" width="1" height="1" fill="#9e3442"/><rect x="5" y="8" width="6" height="1" fill="#9e3442"/><rect x="6" y="9" width="4" height="1" fill="#9e3442"/><rect x="7" y="10" width="2" height="1" fill="#9e3442"/>
+      <rect x="7" y="7" width="2" height="1" fill="#9e3442"/>
+    </svg>
+    <div>
+      <p class="lead">Thanks to BlueDot Impact, where Greg and Juan met. BlueDot Impact are a fantastic organisation that have made it their mission to build the workforce that protects humanity.</p>
+      <p>AI is the most transformative technology humanity has ever produced. Too few people are working to make it go well. BlueDot find people who could help, and they support them to go full-time working on solving important problems. They also provide the most amazing free courses on AI safety and governance! Check them out!</p>
+      <p class="go"><a class="px btn" href="https://bluedot.org/" target="_blank" rel="noopener">Visit BlueDot Impact</a></p>
+    </div>
+  </section>
+
+  <h2 class="h">THE COURSES</h2>
+  <p class="sub">Free courses from BlueDot Impact.</p>
+  <div class="courses">
+    <article class="course panel">
+      <p class="kick">BlueDot Course</p>
+      <h3>AGI Strategy</h3>
+      <p>The race to AGI, what drives AI progress, how AI could cause harm, and how to start contributing. Greg's picks below come from this course.</p>
+      <p class="go"><a class="px btn" href="https://bluedot.org/courses/agi-strategy" target="_blank" rel="noopener">See the Course</a></p>
+    </article>
+    <article class="course panel">
+      <p class="kick">BlueDot Course</p>
+      <h3>Frontier AI Governance</h3>
+      <p>The state of play at the frontier, the proposals on the table, and where you can make a difference.</p>
+      <p class="go"><a class="px btn" href="https://bluedot.org/courses/ai-governance" target="_blank" rel="noopener">See the Course</a></p>
+    </article>
+  </div>
+
+  <section class="deck" aria-roledescription="carousel" aria-labelledby="deck-h">
+    <div class="deck-head">
+      <div>
+        <h2 class="h" id="deck-h">GREG'S PICKS</h2>
+        <p class="sub">14 readings from the AGI Strategy course. Each card opens the original page.</p>
+      </div>
+      <div class="ctrl">
+        <span class="count" id="count" aria-live="off">1 to 3 of 14</span>
+        <button class="px btn" id="play" type="button" aria-pressed="false" aria-label="Pause the cards">
+          <svg id="icoPause" viewBox="0 0 6 6" width="12" height="12" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x="1" y="0" width="1.5" height="6"/><rect x="3.5" y="0" width="1.5" height="6"/></svg>
+          <svg id="icoPlay" viewBox="0 0 6 6" width="12" height="12" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor" hidden><rect x="1" y="0" width="1" height="6"/><rect x="2" y="1" width="1" height="4"/><rect x="3" y="2" width="1" height="2"/><rect x="4" y="2.5" width="1" height="1"/></svg>
+        </button>
+        <button class="px btn" id="prev" type="button" aria-label="Previous card"><svg viewBox="0 0 6 6" width="12" height="12" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x="1" y="2" width="1" height="2"/><rect x="2" y="1" width="1" height="4"/><rect x="3" y="0" width="1" height="6"/><rect x="4" y="2" width="1" height="2"/></svg></button>
+        <button class="px btn" id="next" type="button" aria-label="Next card"><svg viewBox="0 0 6 6" width="12" height="12" aria-hidden="true" shape-rendering="crispEdges" fill="currentColor"><rect x="1" y="2" width="1" height="2"/><rect x="2" y="0" width="1" height="6"/><rect x="3" y="1" width="1" height="4"/><rect x="4" y="2" width="1" height="2"/></svg></button>
+      </div>
+    </div>
+    <ul class="track" id="track">
+      <li class="card panel" aria-roledescription="slide" aria-label="1 of 14">
+        <div class="band" style="--band:#1f6a66"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="0" width="7" height="10" fill="#fbecc4"/><rect x="9" y="0" width="2" height="2" fill="#2a1b2e"/><rect x="5" y="2" width="4" height="1" fill="#2a1b2e"/><rect x="5" y="4" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="6" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="8" width="3" height="1" fill="#2a1b2e"/></svg></div>
+        <p class="kick">Article · 2022</p>
+        <h3><a href="https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/" target="_blank" rel="noopener">Racing through a minefield: the AI deployment problem</a></h3>
+        <p class="by">Holden Karnofsky, Cold Takes</p>
+        <p class="line">Why even careful AI companies feel they must race, and why that is risky.</p>
+        <p class="foot"><span class="unit">Unit 1: The Race to AGI</span><a class="px btn" href="https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="2 of 14">
+        <div class="band" style="--band:#1f6a66"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="0" width="7" height="10" fill="#fbecc4"/><rect x="9" y="0" width="2" height="2" fill="#2a1b2e"/><rect x="5" y="2" width="4" height="1" fill="#2a1b2e"/><rect x="5" y="4" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="6" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="8" width="3" height="1" fill="#2a1b2e"/></svg></div>
+        <p class="kick">Article · 2026</p>
+        <h3><a href="https://blog.peterwildeford.com/p/the-scramble-getting-in-position" target="_blank" rel="noopener">The Scramble: getting in position to pace the frontier</a></h3>
+        <p class="by">Peter Wildeford</p>
+        <p class="line">How a government could get ready to pace the frontier of AI.</p>
+        <p class="foot"><span class="unit">Unit 1: The Race to AGI</span><a class="px btn" href="https://blog.peterwildeford.com/p/the-scramble-getting-in-position" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="3 of 14">
+        <div class="band" style="--band:#1f6a66"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="0" width="7" height="10" fill="#fbecc4"/><rect x="9" y="0" width="2" height="2" fill="#2a1b2e"/><rect x="5" y="2" width="4" height="1" fill="#2a1b2e"/><rect x="5" y="4" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="6" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="8" width="3" height="1" fill="#2a1b2e"/></svg></div>
+        <p class="kick">Article · 2025</p>
+        <h3><a href="https://80000hours.org/ai/guide/when-will-agi-arrive/" target="_blank" rel="noopener">Will we have AGI by 2030?</a></h3>
+        <p class="by">Benjamin Todd, 80,000 Hours</p>
+        <p class="line">The main drivers of AI progress, and why they could continue until 2030.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://80000hours.org/ai/guide/when-will-agi-arrive/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="4 of 14">
+        <div class="band" style="--band:#6e3a3e"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="3" y="1" width="8" height="9" fill="#fbecc4"/><rect x="5" y="0" width="4" height="2" fill="#dca05a"/><rect x="4" y="3" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="5" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="7" width="4" height="1" fill="#2a1b2e"/><rect x="8" y="7" width="2" height="2" fill="#9e3442"/></svg></div>
+        <p class="kick">Report · 2025</p>
+        <h3><a href="https://epoch.ai/publications/what-will-ai-look-like-in-2030" target="_blank" rel="noopener">What will AI look like in 2030?</a></h3>
+        <p class="by">David Owen, Epoch AI</p>
+        <p class="line">What more compute, money, data and power could make AI able to do by 2030.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://epoch.ai/publications/what-will-ai-look-like-in-2030" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="5 of 14">
+        <div class="band" style="--band:#1f6a66"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="0" width="7" height="10" fill="#fbecc4"/><rect x="9" y="0" width="2" height="2" fill="#2a1b2e"/><rect x="5" y="2" width="4" height="1" fill="#2a1b2e"/><rect x="5" y="4" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="6" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="8" width="3" height="1" fill="#2a1b2e"/></svg></div>
+        <p class="kick">Article · 2025</p>
+        <h3><a href="https://80000hours.org/problem-profiles/extreme-power-concentration/" target="_blank" rel="noopener">Extreme power concentration</a></h3>
+        <p class="by">Rose Hadshar, 80,000 Hours</p>
+        <p class="line">How advanced AI could let a very small group take power and keep it.</p>
+        <p class="foot"><span class="unit">Unit 3: Pathways to Harm</span><a class="px btn" href="https://80000hours.org/problem-profiles/extreme-power-concentration/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="6 of 14">
+        <div class="band" style="--band:#2e4072"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="8" width="2" height="2" fill="#fbecc4"/><rect x="3" y="7" width="2" height="1" fill="#fbecc4"/><rect x="5" y="6" width="2" height="1" fill="#fbecc4"/><rect x="7" y="5" width="2" height="1" fill="#fbecc4"/><rect x="9" y="4" width="2" height="1" fill="#fbecc4"/><rect x="11" y="1" width="1" height="7" fill="#fbecc4"/><rect x="12" y="1" width="2" height="2" fill="#e48a6a"/><rect x="12" y="3" width="1" height="1" fill="#e48a6a"/></svg></div>
+        <p class="kick">Scenario · 2026</p>
+        <h3><a href="https://blog.aifutures.org/p/ai-2040-plan-a" target="_blank" rel="noopener">AI 2040: Plan A</a></h3>
+        <p class="by">AI Futures Project</p>
+        <p class="line">A scenario where countries agree to delay superintelligence and check each other.</p>
+        <p class="foot"><span class="unit">Unit 4: Strategies for the AGI Transition</span><a class="px btn" href="https://blog.aifutures.org/p/ai-2040-plan-a" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="7 of 14">
+        <div class="band" style="--band:#1f6a66"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="0" width="7" height="10" fill="#fbecc4"/><rect x="9" y="0" width="2" height="2" fill="#2a1b2e"/><rect x="5" y="2" width="4" height="1" fill="#2a1b2e"/><rect x="5" y="4" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="6" width="5" height="1" fill="#2a1b2e"/><rect x="5" y="8" width="3" height="1" fill="#2a1b2e"/></svg></div>
+        <p class="kick">Article · 2025</p>
+        <h3><a href="https://www.lesswrong.com/posts/epjuxGnSPof3GnMSL/alignment-remains-a-hard-unsolved-problem" target="_blank" rel="noopener">Alignment remains a hard, unsolved problem</a></h3>
+        <p class="by">Evan Hubinger, LessWrong</p>
+        <p class="line">Why we still cannot reliably make powerful AI want what we want.</p>
+        <p class="foot"><span class="unit">Unit 4: Strategies for the AGI Transition</span><a class="px btn" href="https://www.lesswrong.com/posts/epjuxGnSPof3GnMSL/alignment-remains-a-hard-unsolved-problem" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="8 of 14">
+        <div class="band" style="--band:#9e3442"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="1" width="3" height="2" fill="#fbecc4"/><rect x="5" y="1" width="8" height="2" fill="#fbecc4"/><rect x="1" y="4" width="3" height="2" fill="#fbecc4"/><rect x="5" y="4" width="6" height="2" fill="#fbecc4"/><rect x="1" y="7" width="3" height="2" fill="#fbecc4"/><rect x="5" y="7" width="7" height="2" fill="#fbecc4"/><rect x="2" y="1" width="1" height="1" fill="#3f6a2a"/><rect x="2" y="4" width="1" height="1" fill="#3f6a2a"/></svg></div>
+        <p class="kick">List · 2026</p>
+        <h3><a href="https://coefficientgiving.org/tailwind/initiatives/" target="_blank" rel="noopener">Project Tailwind: Initiatives</a></h3>
+        <p class="by">Coefficient Giving</p>
+        <p class="line">AI safety projects that funders want new founders to start.</p>
+        <p class="foot"><span class="unit">Unit 5: Start Contributing</span><a class="px btn" href="https://coefficientgiving.org/tailwind/initiatives/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="9 of 14">
+        <div class="band" style="--band:#3f6a2a"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="9" width="12" height="1" fill="#fbecc4"/><rect x="2" y="6" width="2" height="3" fill="#fbecc4"/><rect x="5" y="3" width="2" height="6" fill="#fbecc4"/><rect x="8" y="5" width="2" height="4" fill="#fbecc4"/><rect x="11" y="1" width="2" height="8" fill="#f2cc7a"/></svg></div>
+        <p class="kick">Dashboard</p>
+        <h3><a href="https://epoch.ai/trends" target="_blank" rel="noopener">Trends in AI</a></h3>
+        <p class="by">Epoch AI</p>
+        <p class="line">Charts of what drives AI progress, such as the compute used to train models.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://epoch.ai/trends" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="10 of 14">
+        <div class="band" style="--band:#3f6a2a"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="9" width="12" height="1" fill="#fbecc4"/><rect x="2" y="6" width="2" height="3" fill="#fbecc4"/><rect x="5" y="3" width="2" height="6" fill="#fbecc4"/><rect x="8" y="5" width="2" height="4" fill="#fbecc4"/><rect x="11" y="1" width="2" height="8" fill="#f2cc7a"/></svg></div>
+        <p class="kick">Dashboard</p>
+        <h3><a href="https://epoch.ai/eci" target="_blank" rel="noopener">Epoch Capabilities Index</a></h3>
+        <p class="by">Epoch AI</p>
+        <p class="line">One scale that combines many AI tests, so models can be compared over time.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://epoch.ai/eci" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="11 of 14">
+        <div class="band" style="--band:#86501a"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="2" y="1" width="3" height="2" fill="#fbecc4"/><rect x="6" y="1" width="6" height="2" fill="#fbecc4"/><rect x="2" y="4" width="3" height="2" fill="#fbecc4"/><rect x="6" y="4" width="6" height="2" fill="#fbecc4"/><rect x="2" y="7" width="3" height="2" fill="#fbecc4"/><rect x="6" y="7" width="6" height="2" fill="#fbecc4"/></svg></div>
+        <p class="kick">Directory</p>
+        <h3><a href="https://epoch.ai/benchmarks" target="_blank" rel="noopener">AI benchmarks</a></h3>
+        <p class="by">Epoch AI</p>
+        <p class="line">A searchable list of AI tests, and how each model scores on them.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://epoch.ai/benchmarks" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="12 of 14">
+        <div class="band" style="--band:#6e3a3e"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="3" y="1" width="8" height="9" fill="#fbecc4"/><rect x="5" y="0" width="4" height="2" fill="#dca05a"/><rect x="4" y="3" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="5" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="7" width="4" height="1" fill="#2a1b2e"/><rect x="8" y="7" width="2" height="2" fill="#9e3442"/></svg></div>
+        <p class="kick">Report · 2026</p>
+        <h3><a href="https://metr.org/blog/2026-05-19-frontier-risk-report/" target="_blank" rel="noopener">Frontier Risk Report (February to March 2026)</a></h3>
+        <p class="by">METR</p>
+        <p class="line">What frontier AI agents could do in early 2026, and what risks that brings.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://metr.org/blog/2026-05-19-frontier-risk-report/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="13 of 14">
+        <div class="band" style="--band:#6e3a3e"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="3" y="1" width="8" height="9" fill="#fbecc4"/><rect x="5" y="0" width="4" height="2" fill="#dca05a"/><rect x="4" y="3" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="5" width="6" height="1" fill="#2a1b2e"/><rect x="4" y="7" width="4" height="1" fill="#2a1b2e"/><rect x="8" y="7" width="2" height="2" fill="#9e3442"/></svg></div>
+        <p class="kick">Report · 2026</p>
+        <h3><a href="https://www.anthropic.com/institute/measuring-pace-of-ai-development" target="_blank" rel="noopener">Measurements for understanding the pace of AI development inside frontier labs</a></h3>
+        <p class="by">Anthropic</p>
+        <p class="line">How Anthropic measures how much of its own AI research is done by AI.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://www.anthropic.com/institute/measuring-pace-of-ai-development" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+      <li class="card panel" aria-roledescription="slide" aria-label="14 of 14">
+        <div class="band" style="--band:#2e4072"><svg viewBox="0 0 14 10" width="56" height="40" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="8" width="2" height="2" fill="#fbecc4"/><rect x="3" y="7" width="2" height="1" fill="#fbecc4"/><rect x="5" y="6" width="2" height="1" fill="#fbecc4"/><rect x="7" y="5" width="2" height="1" fill="#fbecc4"/><rect x="9" y="4" width="2" height="1" fill="#fbecc4"/><rect x="11" y="1" width="1" height="7" fill="#fbecc4"/><rect x="12" y="1" width="2" height="2" fill="#e48a6a"/><rect x="12" y="3" width="1" height="1" fill="#e48a6a"/></svg></div>
+        <p class="kick">Scenario · 2025</p>
+        <h3><a href="https://ai-2027.com/" target="_blank" rel="noopener">AI 2027</a></h3>
+        <p class="by">Daniel Kokotajlo and others</p>
+        <p class="line">A detailed scenario where AI agents take over AI research and oversight gets harder.</p>
+        <p class="foot"><span class="unit">Unit 2: Drivers of AI Progress</span><a class="px btn" href="https://ai-2027.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Read</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <p class="back-row"><a href="../">Back to the Room</a></p>
+</main>
+<footer class="site-foot">
+  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). <a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room. This page is ours, not BlueDot's: we link to the original articles and to BlueDot's own course pages.</p>
+  <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a></p>
+</footer>
+<script>
+(()=>{
+  const track=document.getElementById('track'), cards=[...track.children], N=cards.length;
+  const count=document.getElementById('count'), play=document.getElementById('play');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let paused=reduce, hover=false, timer=null;
+  const step=()=>cards.length>1 ? cards[1].offsetLeft-cards[0].offsetLeft : track.clientWidth;
+  const perView=()=>Math.max(1, Math.round(track.clientWidth/step()));
+  const maxI=()=>Math.max(0, N-perView());
+  let cur=0, moving=0;   // cur: the first card in view. While a button move runs, a scroll does not change cur.
+  function show(){ const v=perView(), last=Math.min(N, cur+v);
+    count.textContent = v>1 ? `${cur+1} to ${last} of ${N}` : `${cur+1} of ${N}`; }
+  function go(d){ const m=maxI(); cur = d>0 ? (cur>=m ? 0 : Math.min(m, cur+d)) : (cur<=0 ? m : Math.max(0, cur+d));
+    moving=Date.now(); track.scrollTo({left:cur*step()}); show(); }
+  function setPaused(p){ paused=p; play.setAttribute('aria-pressed', String(p)); play.setAttribute('aria-label', p?'Play the cards':'Pause the cards');
+    document.getElementById('icoPause').hidden=p; document.getElementById('icoPlay').hidden=!p; count.setAttribute('aria-live', p?'polite':'off'); }
+  function tick(){ if(!paused && !hover && !document.hidden) go(1); }
+  document.getElementById('next').addEventListener('click',()=>go(1));
+  document.getElementById('prev').addEventListener('click',()=>go(-1));
+  play.addEventListener('click',()=>setPaused(!paused));
+  const deck=track.closest('.deck');
+  deck.addEventListener('pointerenter',e=>{ if(e.pointerType==='mouse') hover=true; });
+  deck.addEventListener('pointerleave',()=>{ hover=false; });
+  deck.addEventListener('focusin',()=>{ hover=true; }); deck.addEventListener('focusout',()=>{ hover=false; });
+  track.addEventListener('touchstart',()=>setPaused(true),{passive:true});   // a swipe means the reader is choosing: stop turning
+  let idle=0; track.addEventListener('scroll',()=>{ clearTimeout(idle); idle=setTimeout(()=>{   // a swipe or a trackpad scroll: read where it stopped
+    if(Date.now()-moving<900) return; cur=Math.min(maxI(), Math.round(track.scrollLeft/step())); show(); }, 150); },{passive:true});
+  addEventListener('resize',()=>{ cur=Math.min(cur, maxI()); track.scrollTo({left:cur*step(), behavior:'auto'}); show(); });
+  setPaused(paused); show();
+  if(!reduce) timer=setInterval(tick, 6000);
+  else play.hidden=true;
+})();
+</script>
+</body></html>

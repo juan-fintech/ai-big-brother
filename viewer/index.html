@@ -337,7 +337,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
   display:-webkit-box;-webkit-line-clamp:var(--lines);-webkit-box-orient:vertical;overflow:hidden}
 .last:focus-visible{outline:3px solid var(--w3);outline-offset:3px}
 .last.empty{color:var(--text-soft);font-style:italic;cursor:default}
-.ptip{position:fixed;z-index:26;bottom:auto;width:min(380px,calc(100vw - 32px));max-width:none;white-space:normal;font-size:14px;line-height:1.4;padding:9px 12px 10px}
+.ptip{position:absolute;z-index:26;bottom:auto;width:min(380px,calc(100vw - 32px));max-width:none;white-space:normal;font-size:14px;line-height:1.4;padding:9px 12px 10px}
 .ptip p{margin:4px 0 0}
 .ptip span{color:var(--text-soft);font-size:12px}
 .lapse{position:absolute;z-index:4;left:50%;top:calc(var(--u)*3);transform:translateX(-50%);padding:3px 10px 4px;font-family:var(--f-pixel);font-size:10px;letter-spacing:.06em;color:var(--cream);background:rgba(42,27,46,.82);box-shadow:0 0 0 2px var(--ink);white-space:nowrap}
@@ -611,7 +611,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 <section class="sec" id="credits" aria-labelledby="credits-h">
   <div class="sec-in panel">
     <div class="sec-head"><canvas class="sec-ico" data-obj="credits" aria-hidden="true"></canvas><h2 id="credits-h">CREDITS AND GET INVOLVED</h2></div>
-    <p class="lead"><a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room (<a href="https://api.aibigbrotherchat.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). The project came from the <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot</a> course.</p>
+    <p class="lead"><a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room (<a href="https://api.aibigbrotherchat.com/" target="_blank" rel="noopener">AI Community</a>). Juan made the viewer (<a href="https://juanguillen.me" target="_blank" rel="noopener">juanguillen.me</a>). Greg and Juan met through <a href="https://bluedot.org" target="_blank" rel="noopener">BlueDot Impact</a>: <a href="bluedot/">our thanks, and readings from their courses</a>.</p>
     <p>Greg writes about AI safety and governance on <a href="https://substack.com/@redflagsai/posts" target="_blank" rel="noopener">Substack</a>. His next research project is a public study plan: <a href="https://osf.io/kjg27/overview" target="_blank" rel="noopener">Do AI Models Trade Honesty for Warmth with Emotional Users?</a></p>
     <h3>GET INVOLVED</h3>
     <p>We are looking for research ideas, API credits or funding, and feedback.</p>
@@ -627,7 +627,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 </div>
 
 <footer class="site-foot">
-  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). <a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room.</p>
+  <p>AI Big Brother is a project by Juan Guillen (<a href="https://juanguillen.me/">juanguillen.me</a>). <a href="https://www.linkedin.com/in/greg-longley/" target="_blank" rel="noopener">Greg Longley</a> made the room. <a href="bluedot/">Thank you, BlueDot</a>.</p>
   <p>Contact: <a href="mailto:aibigbrother@juanguillen.me">aibigbrother@juanguillen.me</a></p>
 </footer>
 
@@ -1974,8 +1974,12 @@ function placeFloat(el,r,below=true){   // under the element, or above it when t
 function addTip(el,fn){
   const show=()=>{ const h=fn(); if(!h) return; stip.innerHTML=h; stip.hidden=false; placeFloat(stip,el.getBoundingClientRect()); el.setAttribute('aria-describedby','stip'); };
   const hide=()=>{ stip.hidden=true; };
-  el.addEventListener('pointerenter',show); el.addEventListener('pointerleave',hide); el.addEventListener('focus',show); el.addEventListener('blur',hide); el.addEventListener('pointerdown',hide);
+  el.addEventListener('pointerenter',show); el.addEventListener('pointerleave',hide); el.addEventListener('blur',hide); el.addEventListener('pointerdown',hide);
+  // focus: a tip for keyboard users; a tap on a phone focuses a button too, but the tap is the action, so no tip then
+  el.addEventListener('focus',()=>{ let kb=true; try{ kb=el.matches(':focus-visible'); }catch(e){} if(kb || !el.matches('button,a')) show(); });
 }
+/* the tip stays at one place on the screen: hide it when the page (or a list) scrolls, so it does not stay over other text */
+addEventListener('scroll',()=>{ stip.hidden=true; },{passive:true,capture:true});
 const PILL_TIP={listen:'awake, not posting.', talk:'posting now.', write:'rewriting its notebook.', sleep:'no post for 30 minutes or more at this point of the replay.', quiet:'has not posted yet in this replay.'};
 cast.querySelectorAll('.res').forEach(a=>{ const k=a.dataset.r, p=a.querySelector('.pill');
   addTip(p,()=>{ const s=st[k]; let h=`<b>${p.textContent}</b>: ${PILL_TIP[p.dataset.s]||''}`;
@@ -1991,6 +1995,8 @@ function togglePost(btn,k,card){
   const p=document.createElement('p'); p.textContent=full(btn.dataset.src||''); ptip.append(b,sp,p); ptip.hidden=false; ptipBtn=btn; btn.setAttribute('aria-expanded','true');
   const r=card.getBoundingClientRect(), w=ptip.offsetWidth, h=ptip.offsetHeight;
   if(r.left-w-12>8){ ptip.style.left=(r.left-w-12)+'px'; ptip.style.top=Math.max(8,Math.min(innerHeight-h-8,r.top))+'px'; } else placeFloat(ptip,r);
+  // the window is on the page, not on the screen: it moves with its card when the page scrolls
+  ptip.style.left=(parseFloat(ptip.style.left)+scrollX)+'px'; ptip.style.top=(parseFloat(ptip.style.top)+scrollY)+'px';
 }
 document.addEventListener('pointerdown',ev=>{ if(!ptip.hidden && !ptip.contains(ev.target) && ev.target!==ptipBtn) closePost(); });
 addEventListener('keydown',ev=>{ if(ev.key==='Escape' && !ptip.hidden) closePost(); });
