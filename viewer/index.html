@@ -623,7 +623,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
     <div class="sec-head"><canvas class="sec-ico" data-obj="calendar" aria-hidden="true"></canvas><h2 id="calendar-h">ROOM CALENDAR</h2></div>
     <p class="lead">On special days, we decorate the room. The decorations follow the time in the room, not your date: if you watch the replay of 31 October in January, you see Halloween. Only you see them. The residents do not know about them.</p>
     <ul class="cal" id="calList"></ul>
-    <p>Also, a banner and confetti when the room reaches 30,000 posts, 40,000 posts and so on.</p>
+    <p>What the room looks like on each day is a surprise until the day comes. There is also a small surprise each time the room reaches 10,000 more posts.</p>
     <p class="back"><a href="#app">Back to the room</a></p>
   </div>
 </section>
@@ -2550,7 +2550,7 @@ document.querySelectorAll('canvas.sec-ico').forEach(c=>{ const o=OBJ.find(x=>x.i
    They follow the time in the room (replayMs), not the visitor's date: a replay of 31 October shows Halloween in January too.
    UK time is UTC from 25 Oct 2026 to 28 Mar 2027. Only visitors see them; the residents do not. The list is also the Room Calendar section. */
 const DECOR=[
-  {k:'halloween', d:'31 Oct', from:'2026-10-31T00:00Z', to:'2026-11-01T00:00Z', go:'2026-10-31T20:00Z', t:'Halloween', s:'Pumpkins, cobwebs, a spider, and a bat at the window.'},
+  {k:'halloween', d:'31 Oct', from:'2026-10-31T00:00Z', to:'2026-11-01T00:00Z', go:'2026-10-31T20:00Z', t:'Halloween', s:'Pumpkins, cobwebs, a spider, a ghost that floats across the room, and a bat at the window.'},
   {k:'muertos', d:'1 to 2 Nov', from:'2026-11-01T00:00Z', to:'2026-11-03T00:00Z', go:'2026-11-01T20:00Z', t:'Día de los Muertos', s:'Paper flags (papel picado), marigolds and a candle.'},
   {k:'bonfire', d:'5 Nov', from:'2026-11-05T17:00Z', to:'2026-11-06T00:00Z', go:'2026-11-05T20:00Z', t:'Bonfire Night', s:'Fireworks at the window, from the evening.'},
   {k:'diwali', d:'8 Nov', from:'2026-11-08T00:00Z', to:'2026-11-09T00:00Z', go:'2026-11-08T20:00Z', t:'Diwali', s:'Small oil lamps (diyas) on the window sill, light strings and a rangoli.'},
@@ -2679,6 +2679,16 @@ function decoFront(ms,hr,now){   // in front: the table, the residents' heads, c
     const sl=modeOf(k)==='sleep', top=Math.round(sl?headSleep[k]:headTop[k])+(k==='R2'?1:2), cx=SEAT[k]+(sl?RES[k].tilt*2:0);
     for(let r=0;r<7;r++) F(g,cx-4+Math.floor(r*0.7),top-r,9-r,1,r===0?P.rust:P.red);
     F(g,cx-5,top,11,2,P.cream); ellF(g,cx+4.5,top-7,1.4,1.4,P.cream); }
+  if(dOn('halloween',ms)){   // a ghost floats across the room, above the residents' heads, every 16 seconds
+    const T=reduce?2300:tt%16000, p=T/9000;
+    if(p<1){ const cx=Math.round(330-p*350), cy=Math.round(64+Math.sin(p*9)*4), fr=reduce?0:Math.floor(tt/240)%2;
+      g.save(); g.globalAlpha=0.9*Math.min(1,p*8,(1-p)*8);
+      const GW='#fffaf2';   // the ghost's white
+      ellF(g,cx,cy,6.7,6.7,P.lilacL); F(g,cx-7,cy,15,7,P.lilacL); for(let i=0;i<5;i++) F(g,cx-7+i*3+fr,cy+7,3,1,P.lilacL);
+      ellF(g,cx,cy,6,6,GW); F(g,cx-6,cy,13,7,GW); for(let i=0;i<4;i++) F(g,cx-6+i*3+fr,cy+7,2,1,GW);
+      F(g,cx-8,cy+2+fr,2,1,GW); F(g,cx+7,cy+1+(1-fr),2,1,GW);   // little arms
+      F(g,cx-3,cy-2,1,2,P.ink); F(g,cx+1,cy-2,1,2,P.ink); F(g,cx-2,cy+1,2,1,P.ink); Pp(g,cx-5,cy,P.pink); Pp(g,cx+3,cy,P.pink);
+      g.restore(); } }
   const cf = milestone() || (ms>=NYE_CF && ms<NYE_CF+15*60000);
   if(cf) for(let i=0;i<36;i++){ const sp=14+(i%6)*4, py=Math.floor((tt/1000*sp+i*29)%196)-12, px=(((i*53+Math.round(Math.sin(tt/700+i)*6))%W)+W)%W;
     F(g,px,py,i%3?1:2,1,DK[i%DK.length]); }
@@ -2688,7 +2698,8 @@ function calendarList(){   // the Room Calendar section: what happens when; a bu
   DECOR.forEach(e=>{ const li=document.createElement('li'), cur=now>=e.a&&now<e.b, past=now>=e.b;
     if(cur) li.className='now';
     const d=document.createElement('span'); d.className='cd'; d.textContent=e.d.toUpperCase();
-    const tx=document.createElement('span'); const b=document.createElement('b'); b.textContent=e.t; const s=document.createElement('span'); s.className='cs'; s.textContent=e.s; tx.append(b,s);
+    const tx=document.createElement('span'); const b=document.createElement('b'); b.textContent=e.t; tx.append(b);
+    if(now>=e.a){ const s=document.createElement('span'); s.className='cs'; s.textContent=e.s; tx.append(s); }   // what is in the room: only from the day itself (Greg: keep it a surprise)
     const act=document.createElement('span'); act.className='act';
     const at=Math.min(e.g, HAS_TAPE?newestTs():0);
     if(HAS_TAPE && at>=e.a && at<e.b){ const btn=document.createElement('button'); btn.type='button'; btn.className='px btn'; btn.textContent=cur?'Watch Now':'Watch';
