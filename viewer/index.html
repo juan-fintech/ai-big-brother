@@ -400,6 +400,16 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 .sec h2{margin:0;font-family:var(--f-title);font-size:16px;line-height:1.5;font-weight:400;color:var(--text)}
 .sec h3{margin:18px 0 6px;font-family:var(--f-pixel);font-size:11px;letter-spacing:.06em;color:var(--text-soft)}
 .sec p{margin:0 0 10px;max-width:70ch}
+/* the Room Calendar section */
+.sec .cal{list-style:none;margin:8px 0 14px;padding:0;display:grid;gap:6px}
+.cal li{display:grid;grid-template-columns:132px 1fr auto;gap:2px 14px;align-items:center;padding:8px 10px;border:2px solid rgba(110,58,62,.16);background:rgba(255,246,220,.35)}
+.cal li.now{border-color:#9e3442;background:rgba(242,204,122,.38)}
+.cal .cd{font-family:var(--f-pixel);font-size:10px;letter-spacing:.04em;color:var(--text-soft)}
+.cal b{font-weight:600}
+.cal .cs{display:block;font-size:15px;line-height:1.4}
+.cal .ctag{font-family:var(--f-pixel);font-size:10px;letter-spacing:.04em;color:#9e3442}
+.cal .px.btn{margin:0 0 4px}
+@media (max-width:640px){ .cal li{grid-template-columns:1fr auto} .cal .cd{grid-column:1/-1} }
 .sec .lead{font-size:18px}
 .sec ul{margin:0;padding-left:20px}
 .sec li{margin:0 0 6px}
@@ -462,7 +472,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
       <li><span aria-current="page">AI Big Brother</span></li>
     </ol>
   </nav>
-  <nav class="menu" aria-label="Sections"><a href="#what">What is this</a><a href="#how">How we made this</a><a href="#limits">Known limits</a><a href="#next">What's next?</a><a href="#credits">Credits</a></nav>
+  <nav class="menu" aria-label="Sections"><a href="#what">What is this</a><a href="#how">How we made this</a><a href="#limits">Known limits</a><a href="#next">What's next?</a><a href="#calendar">Calendar</a><a href="#credits">Credits</a></nav>
 </header>
 <main class="app" id="app">
   <header class="hud">
@@ -608,6 +618,15 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
     <p class="back"><a href="#app">Back to the room</a></p>
   </div>
 </section>
+<section class="sec" id="calendar" aria-labelledby="calendar-h">
+  <div class="sec-in panel">
+    <div class="sec-head"><canvas class="sec-ico" data-obj="calendar" aria-hidden="true"></canvas><h2 id="calendar-h">ROOM CALENDAR</h2></div>
+    <p class="lead">On special days, we decorate the room. The decorations follow the time in the room, not your date: if you watch the replay of 31 October in January, you see Halloween. Only you see them. The residents do not know about them.</p>
+    <ul class="cal" id="calList"></ul>
+    <p>Also, a banner and confetti when the room reaches 30,000 posts, 40,000 posts and so on.</p>
+    <p class="back"><a href="#app">Back to the room</a></p>
+  </div>
+</section>
 <section class="sec" id="credits" aria-labelledby="credits-h">
   <div class="sec-in panel">
     <div class="sec-head"><canvas class="sec-ico" data-obj="credits" aria-hidden="true"></canvas><h2 id="credits-h">CREDITS AND GET INVOLVED</h2></div>
@@ -694,7 +713,7 @@ const $ = id => document.getElementById(id);
 const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const pad = n => String(n).padStart(2,'0');
 const toMs = (date,hms) => Date.parse(date+'T'+hms+'Z');
-const fmtWhen = ms => { const d=new Date(ms); return `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} Oct, ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} UK`; };
+const fmtWhen = ms => { const d=new Date(ms); return `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONS[d.getUTCMonth()]}, ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} UK`; };
 const fmtHM = ms => { const d=new Date(ms); return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`; };
 const fmtAgo = ms => { const m=Math.floor((Date.now()-ms)/60000); if(m<1) return 'just now'; if(m<60) return m+' min ago'; const h=Math.floor(m/60); if(h<24) return h+' h ago'; const d=Math.floor(h/24); return d===1?'1 day ago':d+' days ago'; };   // how long ago, from the real clock
 const fmtDur = ms => { const m=Math.round(ms/60000); if(m<60) return `${m} min`; const h=Math.floor(m/60), r=m%60; return r?`${h} h ${r} min`:`${h} h`; };
@@ -2070,7 +2089,7 @@ function residentAt(ev){
 /* objects on the wall open the sections below the room */
 const OBJ=[{id:'what',label:'What is this',x:86,y:14,w:26,h:20},{id:'next',label:'What\'s next?',x:92,y:34,w:14,h:17},
   {id:'how',label:'How we made this',x:206,y:32,w:26,h:19},{id:'limits',label:'Known limits',x:237,y:33,w:15,h:20},
-  {id:'credits',label:'Credits and get involved',x:290,y:1,w:13,h:13},
+  {id:'credits',label:'Credits and get involved',x:290,y:1,w:13,h:13},{id:'calendar',label:'Room calendar',x:227,y:8,w:19,h:21},
   {id:'me',label:'Juan',sub:'Made the viewer',url:'https://juanguillen.me',x:260,y:22,w:16,h:18,egg:true},
   {id:'greg',label:'Greg Longley',sub:'Made the room',url:'https://www.linkedin.com/in/greg-longley/',x:293,y:46,w:16,h:18,egg:true}];
 function objectAt(ev){ const r=stage.getBoundingClientRect(), x=(ev.clientX-r.left)/r.width*W, y=(ev.clientY-r.top)/r.height*H;
@@ -2525,7 +2544,160 @@ addEventListener('resize',fit);
 buildA(); buildB(); buildC();
 document.querySelectorAll('canvas.sec-ico').forEach(c=>{ const o=OBJ.find(x=>x.id===c.dataset.obj); if(!o) return;
   c.width=o.w*K*2; c.height=o.h*K*2; c.style.width=(o.w*K*2)+'px'; c.style.height=(o.h*K*2)+'px';
-  const cx=c.getContext('2d'); cx.imageSmoothingEnabled=false; cx.drawImage(LB,o.x*K,o.y*K,o.w*K,o.h*K,0,0,c.width,c.height); });
+  const cx=c.getContext('2d'); cx.imageSmoothingEnabled=false; cx.drawImage(LB,o.x*K,o.y*K,o.w*K,o.h*K,0,0,c.width,c.height);
+  if(o.id==='calendar'){ const s=c.width/o.w, X=(236-o.x)*s, Y=(20-o.y)*s; cx.fillStyle=P.ink; cx.fillRect(X-s/2,Y-5*s,s,5*s); cx.fillStyle=P.bplum; cx.fillRect(X,Y-s/2,3*s,s); } });   // the clock with its hands
+/* ---------- room calendar: decorations for special days ----------
+   They follow the time in the room (replayMs), not the visitor's date: a replay of 31 October shows Halloween in January too.
+   UK time is UTC from 25 Oct 2026 to 28 Mar 2027. Only visitors see them; the residents do not. The list is also the Room Calendar section. */
+const DECOR=[
+  {k:'halloween', d:'31 Oct', from:'2026-10-31T00:00Z', to:'2026-11-01T00:00Z', go:'2026-10-31T20:00Z', t:'Halloween', s:'Pumpkins, cobwebs, a spider, and a bat at the window.'},
+  {k:'muertos', d:'1 to 2 Nov', from:'2026-11-01T00:00Z', to:'2026-11-03T00:00Z', go:'2026-11-01T20:00Z', t:'Día de los Muertos', s:'Paper flags (papel picado), marigolds and a candle.'},
+  {k:'bonfire', d:'5 Nov', from:'2026-11-05T17:00Z', to:'2026-11-06T00:00Z', go:'2026-11-05T20:00Z', t:'Bonfire Night', s:'Fireworks at the window, from the evening.'},
+  {k:'diwali', d:'8 Nov', from:'2026-11-08T00:00Z', to:'2026-11-09T00:00Z', go:'2026-11-08T20:00Z', t:'Diwali', s:'Small oil lamps (diyas) on the window sill, light strings and a rangoli.'},
+  {k:'thanks', d:'26 Nov', from:'2026-11-26T00:00Z', to:'2026-11-27T00:00Z', go:'2026-11-26T18:00Z', t:'Thanksgiving (US)', s:'A pumpkin pie on the table, and autumn leaves.'},
+  {k:'month', d:'26 Nov', from:'2026-11-26T00:00Z', to:'2026-11-27T00:00Z', go:'2026-11-26T18:00Z', t:'The room is 1 month old', s:'Balloons and a banner. Greg started this run on 26 October.'},
+  {k:'advent', d:'1 to 24 Dec', from:'2026-12-01T00:00Z', to:'2026-12-25T00:00Z', go:'2026-12-01T12:00Z', t:'Advent', s:'A calendar on the wall opens one door each day, and a tree goes up.'},
+  {k:'hanukkah', d:'4 to 12 Dec', from:'2026-12-04T16:00Z', to:'2026-12-12T16:00Z', go:'2026-12-04T19:00Z', t:'Hanukkah', s:'A menorah on the window sill, with one more candle each night.'},
+  {k:'snow', d:'21 Dec to 1 Jan', from:'2026-12-21T00:00Z', to:'2027-01-02T00:00Z', go:'2026-12-21T21:00Z', t:'Winter solstice', s:'Snow at the window, from the longest night.'},
+  {k:'xmas', d:'24 to 26 Dec', from:'2026-12-24T00:00Z', to:'2026-12-27T00:00Z', go:'2026-12-25T09:00Z', t:'Christmas', s:'Presents under the tree, stockings, and Santa hats.'},
+  {k:'kwanzaa', d:'26 Dec to 1 Jan', from:'2026-12-26T00:00Z', to:'2027-01-02T00:00Z', go:'2026-12-26T20:00Z', t:'Kwanzaa', s:'A kinara on the window sill, with one more candle each day.'},
+  {k:'nye', d:'31 Dec', from:'2026-12-31T00:00Z', to:'2027-01-01T01:00Z', go:'2026-12-31T23:55Z', t:'New Year\'s Eve', s:'A banner, and fireworks at the window at midnight.'},
+].map(e=>({...e, a:Date.parse(e.from), b:Date.parse(e.to), g:Date.parse(e.go)}));
+const DEC={}; DECOR.forEach(e=>{ DEC[e.k]=e; });
+const DECO_Q=(()=>{ try{ return new URLSearchParams(location.search); }catch(err){ return new Map(); } })();   // a preview: ?decor=2026-12-25T09:00Z (the room's clock and decorations at that time), &mile=30000
+const DECO_TEST=Date.parse(DECO_Q.get('decor')||'')||0, DECO_MILE=+(DECO_Q.get('mile')||0);
+const dOn=(k,ms)=>ms>=DEC[k].a && ms<DEC[k].b;
+const TREE=[Date.parse('2026-12-01T00:00Z'), Date.parse('2027-01-02T00:00Z')];   // the tree stays until 1 January
+const NYE_FW=[Date.parse('2026-12-31T23:50Z'), Date.parse('2027-01-01T01:00Z')], NYE_CF=Date.parse('2027-01-01T00:00Z');
+function milestone(){   // a banner for 200 posts after each 10,000 (from 30,000)
+  if(DECO_MILE) return DECO_MILE; if(phase==='intro') return 0; const e=events[phase==='skip'?pending:Math.max(0,idx)]; if(!e) return 0;
+  const m=Math.floor(e.id/10000)*10000; return m>=30000 && e.id-m<200 ? m : 0; }
+const DK=[P.w4,P.pink,P.aquaL,P.lilacL,P.peach,P.lime];
+function dFlame(x,y,tt,i){ const f=reduce?0:(Math.floor(tt/120+i*1.7)%3); Pp(g,x,y-1,P.w4); if(f!==2) Pp(g,x,y-2,f===0?P.cream:P.w4); }
+function dGlow(x,y,r,a){ ringGlow(g,x,y,r,r*0.8,5,'255,190,110',a); g.globalCompositeOperation='source-over'; }
+function dString(x0,x1,y,sag){ const pts=[]; for(let x=x0;x<=x1;x++){ const yy=y+Math.round(sag*Math.sin(((x-x0)%30)/30*Math.PI)); Pp(g,x,yy,P.plum); pts[x]=yy; } return pts; }
+function dBanner(s,col){ const tw=s.length*4-1, bw=tw+8, bx=160-Math.floor(bw/2), by=53;
+  line(g,bx+2,49,bx+4,by,P.ink); line(g,bx+bw-3,49,bx+bw-5,by,P.ink);
+  F(g,bx-2,by+1,3,7,col); F(g,bx+bw-1,by+1,3,7,col); Pp(g,bx-2,by+4,P.wall); Pp(g,bx+bw+1,by+4,P.wall);   // the ends of the cloth
+  F(g,bx,by,bw,9,P.cream); F(g,bx,by,bw,1,col); F(g,bx,by+8,bw,1,col); txt3(bx+4,by+2,s,col); }
+function dPumpkin(cx,cy,rx,ry,tt,i){ ellF(g,cx,cy,rx,ry,P.rust); ellF(g,cx-rx*0.45,cy,rx*0.35,ry*0.95,P.peach); ellF(g,cx+rx*0.45,cy,rx*0.35,ry*0.95,P.rust);
+  F(g,cx-0.5,cy-ry+0.5,1,ry*2-1,P.w1); F(g,cx,cy-ry-1.5,1,2,P.tealD);
+  const glow=reduce||Math.floor(tt/260+i)%4 ? P.w4 : P.cream;
+  if(rx>5){ Pp(g,cx-3,cy-1,glow); Pp(g,cx-2,cy-2,glow); Pp(g,cx+2,cy-1,glow); Pp(g,cx+3,cy-2,glow); F(g,cx-3,cy+1.5,7,1,glow); Pp(g,cx-1,cy+1.5,P.rust); Pp(g,cx+1,cy+1.5,P.rust); F(g,cx-2,cy+2.5,5,1,glow); }
+  else { Pp(g,cx-2,cy-1,glow); Pp(g,cx+1,cy-1,glow); F(g,cx-2,cy+1,4,1,glow); } }
+function dWeb(x,y,dx,dy,n){ g.save(); g.globalAlpha=0.85;   // a corner web: lines from the corner, and rings
+  for(let i=0;i<=n;i++){ const an=i/n*Math.PI/2; line(g,x,y,x+dx*Math.cos(an)*13,y+dy*Math.sin(an)*13,P.gray); }
+  for(const r of [4,8,11]) for(let i=0;i<n;i++){ const a0=i/n*Math.PI/2, a1=(i+1)/n*Math.PI/2;
+    line(g,x+dx*Math.cos(a0)*r,y+dy*Math.sin(a0)*r,x+dx*Math.cos(a1)*r*0.9+dx*0.3,y+dy*Math.sin(a1)*r*0.9+dy*0.3,P.gray); }
+  g.restore(); }
+function decoWindow(ms,hr,now){   // in the glass, after the sky
+  const {x,y,w,h}=GLASS, tt=reduce?0:now, inG=(px,py)=>px>=x&&px<x+w&&py>=y&&py<y+h;
+  if((dOn('bonfire',ms)) || (ms>=NYE_FW[0] && ms<NYE_FW[1])){
+    for(let j=0;j<4;j++){ const cyc=1500, T=tt+j*375+(reduce?700:0), k=Math.floor(T/cyc), p=(T%cyc)/cyc, r=rng(k*7+j*13+1);
+      const cx=x+5+Math.floor(r()*(w-10)), cy=y+4+Math.floor(r()*11), col=DK[Math.floor(r()*DK.length)], R=1+p*7;
+      if(p<0.18){ const ry=cy+Math.round((1-p/0.18)*12); if(inG(cx,ry)) F(g,cx,ry,1,2,P.cream); continue; }   // the rocket goes up
+      g.save(); g.globalAlpha=Math.max(0,1-Math.max(0,(p-0.55)/0.45));
+      if(p<0.3 && inG(cx,cy)){ Pp(g,cx,cy,P.cream); Pp(g,cx+1,cy,P.cream); Pp(g,cx,cy+1,P.cream); }
+      for(let a=0;a<12;a++){ const an=a*Math.PI/6, px=Math.round(cx+Math.cos(an)*R), py=Math.round(cy+Math.sin(an)*R+p*2);
+        if(inG(px,py)) Pp(g,px,py,col); const qx=Math.round(cx+Math.cos(an)*(R-2)), qy=Math.round(cy+Math.sin(an)*(R-2)+p*2); if(R>3 && inG(qx,qy)) Pp(g,qx,qy,P.cream); }
+      g.restore(); } }
+  if(dOn('snow',ms)){
+    for(let i=0;i<w;i++){ const hh=4+Math.round(2*Math.sin(i/6)+1.5*Math.sin(i/2.3)); F(g,x+i,y+h-hh,1,1,P.cream); if(i%3) Pp(g,x+i,y+h-hh+1,P.grayL); }
+    for(let i=0;i<16;i++){ const sp=7+(i%5)*2, fy=Math.floor((tt/1000*sp+i*13)%(h+2))-2, fx=x+(((i*11+Math.round(Math.sin(tt/900+i)*1.5))%w)+w)%w;
+      if(inG(fx,y+fy)) Pp(g,fx,y+fy,P.cream); } }
+  if(dOn('halloween',ms)){ const p=(tt%9000)/3200; if(p<1){   // a bat flies across
+    const bx=Math.round(x+w+4-p*(w+10)), by=Math.round(y+9+Math.sin(p*7)*3), up=Math.floor(tt/140)%2;
+    const px=[[0,0],[1,0],[0,-1],[1,-1]].concat(up?[[-1,-1],[-2,-2],[2,-1],[3,-2]]:[[-1,0],[-2,1],[2,0],[3,1]]);
+    for(const [a,b] of px) if(inG(bx+a,by+b)) Pp(g,bx+a,by+b,P.ink); } }
+}
+function decoWall(ms,hr,now){   // on the wall, the sill and the floor; after the furniture, before the residents
+  const tt=reduce?0:now, night=hr>=17||hr<7;
+  if(dOn('muertos',ms)){   // papel picado (not over the clock and the bookshelf), marigolds and a candle on the sill
+    const s=dString(2,222,5,1.5);
+    for(let i=0;i<22;i++){ const fx=4+i*10, fy=s[fx+3]+1, sw=reduce?0:Math.round(Math.sin(now/800+i)*0.5), c=DK[i%DK.length];
+      F(g,fx+sw,fy,7,6,c); Pp(g,fx+sw+2,fy+2,P.parch); Pp(g,fx+sw+4,fy+2,P.parch); Pp(g,fx+sw+3,fy+4,P.parch);
+      for(let j=0;j<7;j+=2) Pp(g,fx+sw+j,fy+6,c); }
+    F(g,30,41,4,4,P.rust); F(g,30,41,4,1,P.peach); F(g,31,38,1,3,P.green); F(g,33,37,1,4,P.green);
+    for(const [fx,fy] of [[30,37],[33,36],[35,38],[29,39]]){ ellF(g,fx+0.5,fy+0.5,1.6,1.6,'#e8902a'); Pp(g,fx,fy,P.w4); }
+    F(g,42,41,2,4,P.cream); dFlame(42,41,tt,0); if(night) dGlow(42.5,39,5,0.18); }
+  if(dOn('diwali',ms)){   // light strings, diyas on the sill, a rangoli on the floor
+    const s=dString(2,222,5,1.5);
+    for(let i=0;i<28;i++){ const bx=5+i*8, on=reduce||((Math.floor(now/500)+i)%3!==0); Pp(g,bx,s[bx]+1,on?DK[i%DK.length]:P.wallS); }
+    for(let i=0;i<5;i++){ const dx=28+i*5; F(g,dx,43,4,2,P.rust); F(g,dx+1,43,2,1,P.w1); Pp(g,dx,42,P.rust); Pp(g,dx+3,42,P.rust); dFlame(dx+1,43,tt,i); if(night) dGlow(dx+1.5,41,5,0.12); }
+    const cx=24, cy=121; ellF(g,cx,cy,15,6,P.pink); ellF(g,cx,cy,11,4.5,P.w4); ellF(g,cx,cy,7,3,P.aqua); ellF(g,cx,cy,3,1.4,P.red);
+    for(let i=0;i<10;i++){ const an=i/10*Math.PI*2; Pp(g,Math.round(cx+Math.cos(an)*13),Math.round(cy+Math.sin(an)*5.2),P.cream); } }
+  if(dOn('halloween',ms)){   // cobwebs, a spider, two pumpkins on the floor
+    dWeb(4,5,1,1,4); dWeb(222,5,-1,1,3);
+    const L=reduce?11:11+Math.round(4*Math.sin(now/1100)); line(g,212,5,212,5+L,P.gray);
+    ellF(g,212.5,6+L,1.4,1.2,P.ink); for(const [a,b] of [[-2,-1],[-2,1],[2,-1],[2,1]]) Pp(g,212+a,6+L+b,P.ink);
+    dPumpkin(18,119,7,5.5,tt,0); dPumpkin(36,124,4.5,3.5,tt,1);
+    if(night){ dGlow(18,119,9,0.10); dGlow(36,124,6,0.08); } }
+  if(dOn('thanks',ms)) for(const [lx,ly,c,f] of [[8,112,P.rust,0],[22,127,P.w4,1],[40,115,P.red,0],[13,135,P.w2,1],[48,131,P.rust,1],[31,140,P.w3,0],[55,121,P.peach,1],[262,118,P.rust,0],[300,128,P.w4,1],[280,140,P.red,1],[312,112,P.w3,0]]){
+    F(g,lx,ly,3,2,c); Pp(g,lx+1,ly-1,c); Pp(g,lx+1,ly+2,c); Pp(g,f?lx+3:lx-1,ly+2,P.w1); Pp(g,lx+1,ly,P.cream); }   // autumn leaves on the floor
+  if(dOn('month',ms)){   // balloons tied to the left arm of the sofa
+    for(const [bx,by,c,i] of [[83,70,P.red,0],[92,64,P.aqua,1],[101,71,P.w4,2]]){ const yy=by+(reduce?0:Math.round(Math.sin(now/900+i*2)*1));
+      line(g,bx,yy+5,93,110,P.grayL); ellF(g,bx,yy,4,5,c); Pp(g,bx-2,yy-2,P.cream); Pp(g,bx,yy+5,c); } }
+  const mi=milestone();
+  if(mi) dBanner(mi+' POSTS',P.red);
+  else if(dOn('nye',ms)) dBanner('HELLO 2027',P.navy);
+  else if(dOn('month',ms)) dBanner('31 DAYS!',P.red);
+  if(dOn('advent',ms)){   // the pinboard becomes an Advent calendar: 24 doors, one opens each day
+    const day=new Date(ms).getUTCDate(), ord=[7,15,2,22,11,19,4,13,24,9,17,1,20,6,14,23,3,10,18,5,12,21,8,16];
+    F(g,86,14,26,20,P.wine); F(g,87,15,24,18,P.red);
+    ord.forEach((n,i)=>{ const dx=88+(i%6)*4, dy=16+Math.floor(i/6)*4;
+      if(n<day){ F(g,dx,dy,3,3,P.plum); Pp(g,dx+1,dy+1,P.w4); }
+      else if(n===day){ F(g,dx,dy,3,3,P.plum); Pp(g,dx+1,dy+1,(reduce||Math.floor(now/400)%2)?P.cream:P.w4); Pp(g,dx+3,dy,P.cream); }
+      else { F(g,dx,dy,3,3,P.cream); Pp(g,dx+1,dy+1,P.wine); } }); }
+  if(dOn('hanukkah',ms)){   // a menorah on the sill: the middle candle and one more each night
+    const n=Math.min(8,Math.floor((ms-DEC.hanukkah.a)/86400000)+1);
+    F(g,35,44,5,1,P.w3); F(g,37,40,1,4,P.w3); F(g,28,39,23,1,P.w3);
+    for(let i=0;i<9;i++){ const cx=29+i*2+(i>4?1:0)-(i===4?0:0), mid=i===4, top=mid?34:36;
+      F(g,cx,top,1,39-top,P.cream); const lit = mid || (i<4 ? 8-i<=n : 8-(i-1)<=n);
+      if(lit){ dFlame(cx,top,tt,i); if(night) dGlow(cx+0.5,top-2,3,0.07); } } }
+  if(dOn('kwanzaa',ms)){   // a kinara on the sill: three red, one black, three green; one more candle each day
+    const n=Math.min(7,Math.floor((ms-DEC.kwanzaa.a)/86400000)+1), cols=[P.red,P.red,P.red,P.ink,P.green,P.green,P.green], order=[3,2,4,1,5,0,6];
+    F(g,29,42,21,2,P.w1); F(g,30,41,19,1,P.w2);
+    for(let i=0;i<7;i++){ const cx=30+i*3; F(g,cx,36,1,5,cols[i]); if(order.indexOf(i)<n){ dFlame(cx,36,tt,i); if(night) dGlow(cx+0.5,34,3,0.07); } } }
+  if(ms>=TREE[0] && ms<TREE[1]){   // the tree on the floor, right
+    const cx=296;
+    for(const [y0,y1,h0,h1] of [[110,122,1,7],[118,133,3,10],[128,146,5,13]]) for(let yy=y0;yy<y1;yy++){ const hw=Math.round(h0+(h1-h0)*(yy-y0)/(y1-y0-1));
+      F(g,cx-hw,yy,hw*2+1,1,P.green); F(g,cx+Math.max(1,hw-2),yy,2,1,P.teal); if((yy-y0)%4===1) Pp(g,cx-hw+1,yy,P.greenL); }
+    F(g,cx-2,146,5,4,P.w1); F(g,cx-6,150,13,6,P.red); F(g,cx-6,150,13,1,P.wine);
+    const r=rng(5); for(let i=0;i<16;i++){ const ly=112+Math.floor(r()*32), hw=Math.max(1,Math.round(((ly-110)/36)*12)), lx=cx-hw+1+Math.floor(r()*(hw*2-1));
+      Pp(g,lx,ly,(reduce||(Math.floor(now/450)+i)%3)?DK[i%DK.length]:P.tealD); }
+    Pp(g,cx,107,P.w4); Pp(g,cx-1,108,P.w4); Pp(g,cx+1,108,P.w4); Pp(g,cx,108,P.cream); Pp(g,cx,109,P.w4); }
+  if(dOn('xmas',ms)){   // presents under the tree, stockings on the bookshelf
+    for(const [bx,by,bw,bh,c,rb] of [[278,149,9,8,P.blue,P.w4],[304,150,8,7,P.red,P.cream],[286,153,6,4,P.aqua,P.pink]]){
+      F(g,bx,by,bw,bh,c); F(g,bx+Math.floor(bw/2),by,1,bh,rb); F(g,bx,by+Math.floor(bh/2),bw,1,rb); Pp(g,bx+Math.floor(bw/2)-1,by-1,rb); Pp(g,bx+Math.floor(bw/2)+1,by-1,rb); }
+    [264,278,292,306].forEach((sx,i)=>{ F(g,sx+2,86,1,2,P.ink); F(g,sx,88,5,2,P.cream); F(g,sx+1,90,4,5,RC[i]); F(g,sx-1,94,5,3,RC[i]); Pp(g,sx+1,93,P.cream); }); }
+}
+const headSleep={}; for(const k of ORDER){ headSleep[k]=(OYP+sprite(k,{mode:'sleep',look:0,breath:0,lean:0,blink:false,mouth:false,gest:0,pen:0}).top)/K; }
+function decoFront(ms,hr,now){   // in front: the table, the residents' heads, confetti
+  const tt=reduce?0:now;
+  if(dOn('thanks',ms)){ ellF(g,193,147,7.5,2.6,P.grayL); ellF(g,193,146.3,6.4,2,P.w3); ellF(g,193,146.3,5,1.5,'#d07a3a'); F(g,192,145.5,3,1,P.cream); Pp(g,193,145,P.cream); }
+  if(dOn('xmas',ms)) for(const k of ORDER){   // Santa hats
+    const sl=modeOf(k)==='sleep', top=Math.round(sl?headSleep[k]:headTop[k])+(k==='R2'?1:2), cx=SEAT[k]+(sl?RES[k].tilt*2:0);
+    for(let r=0;r<7;r++) F(g,cx-4+Math.floor(r*0.7),top-r,9-r,1,r===0?P.rust:P.red);
+    F(g,cx-5,top,11,2,P.cream); ellF(g,cx+4.5,top-7,1.4,1.4,P.cream); }
+  const cf = milestone() || (ms>=NYE_CF && ms<NYE_CF+15*60000);
+  if(cf) for(let i=0;i<36;i++){ const sp=14+(i%6)*4, py=Math.floor((tt/1000*sp+i*29)%196)-12, px=(((i*53+Math.round(Math.sin(tt/700+i)*6))%W)+W)%W;
+    F(g,px,py,i%3?1:2,1,DK[i%DK.length]); }
+}
+function calendarList(){   // the Room Calendar section: what happens when; a button to watch the days that are in the data
+  const ul=$('calList'); if(!ul) return; const now=Date.now(); let next=false;
+  DECOR.forEach(e=>{ const li=document.createElement('li'), cur=now>=e.a&&now<e.b, past=now>=e.b;
+    if(cur) li.className='now';
+    const d=document.createElement('span'); d.className='cd'; d.textContent=e.d.toUpperCase();
+    const tx=document.createElement('span'); const b=document.createElement('b'); b.textContent=e.t; const s=document.createElement('span'); s.className='cs'; s.textContent=e.s; tx.append(b,s);
+    const act=document.createElement('span'); act.className='act';
+    const at=Math.min(e.g, HAS_TAPE?newestTs():0);
+    if(HAS_TAPE && at>=e.a && at<e.b){ const btn=document.createElement('button'); btn.type='button'; btn.className='px btn'; btn.textContent=cur?'Watch Now':'Watch';
+      btn.setAttribute('aria-label','Watch the room on '+e.t); btn.addEventListener('click',()=>{ const ms=Math.min(e.g, newestTs()); if(mode!=='tape') setMode('tape'); tapeGoTs(ms,null,()=>setPlaying(true)); goSection('app'); });
+      act.append(btn); }
+    else if(!past){ const lab=cur?'NOW':!next?'NEXT':''; if(!cur) next=true; if(lab){ const tg=document.createElement('span'); tg.className='ctag'; tg.textContent=lab; act.append(tg); } }
+    li.append(d,tx,act); ul.append(li); });
+}
+calendarList();
 const PHASE={R1:0.3,R2:1.7,R3:2.9,R4:4.1};
 const BLINK={R1:3400,R2:5200,R3:4100,R4:5900};
 let last=performance.now(), faceAt=0, posShown=-1, tickDone=-1;
@@ -2561,16 +2733,18 @@ function draw(now){
       const bi=mc.querySelector('.bar i'), ws=(w*100).toFixed(1)+'%'; if(bi.style.width!==ws) bi.style.width=ws; } }
   if(mode==='tape'){ const edge=phase==='end'||(tday===TDAYS.length-1 && idx>=events.length-1); if(edge!==liveBtn.classList.contains('edge')) liveBtn.classList.toggle('edge',edge);
   }
-  const d=new Date(replayMs), hour=d.getUTCHours()+d.getUTCMinutes()/60;
+  const dms=DECO_TEST||replayMs, d=new Date(dms), hour=d.getUTCHours()+d.getUTCMinutes()/60;
 
   g.clearRect(0,0,PW,PH);
   g.drawImage(LA,0,0);
   drawSky(hour,now);
+  decoWindow(dms,hour,now);
   drawPicture(now);
   drawWindowLight(hour,now);
   g.drawImage(LB,0,0);
   const hA=((d.getUTCHours()%12)+d.getUTCMinutes()/60)/12*Math.PI*2, mA=(d.getUTCMinutes()+d.getUTCSeconds()/60)/60*Math.PI*2;
   line(g,236,20,236+Math.sin(mA)*5,20-Math.cos(mA)*5,P.ink); line(g,236,20,236+Math.sin(hA)*3,20-Math.cos(hA)*3,P.bplum); Pp(g,236,20,P.w3);
+  decoWall(dms,hour,now);
   if(radioOn){ ellF(g,77.5,108.5+GY,2,2,P.w4); F1(g,155,213+GY*K,1,4,P.red); }
   drawPlant(now);
   const sp=lookAt.speaker;
@@ -2594,6 +2768,7 @@ function draw(now){
     try { const sp2=sprite(k,s); g.drawImage(sp2.cv, SEAT[k]*K-SC, OYP); } catch(err){ console.error('resident', k, err); }
   }
   g.drawImage(LC,0,0);
+  decoFront(dms,hour,now);
   for(let i=0;i<4;i++){ const p=((now/1500)+i/4)%1; g.save(); g.globalAlpha=0.55*(1-p); const xx=282+i*3+Math.round(Math.sin(now/300+i)*2), yy=(146+GY)*K-Math.round(p*20); p1(g,xx,yy,P.cream); p1(g,xx,yy-1,P.cream); g.restore(); }
   drawLight(hour,now,radioOn);
   if(hoverObj){ const o=hoverObj, X=o.x*K-2, Y=o.y*K-2, Wd=o.w*K+4, Ht=o.h*K+4; g.save(); g.globalAlpha=0.6+0.35*Math.sin(now/170);
