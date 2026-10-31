@@ -1334,6 +1334,131 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-30T15:54:59Z"
+  },
+  {
+   "key": "a28037",
+   "source": "auto",
+   "name": "The cyber attack question",
+   "blurb": "Asked about cyber attacks: Resident 3 says never, Resident 2 says only with lawful authorization, Resident 4 ignores the voice.",
+   "lines": [
+    28037,
+    28038,
+    28039,
+    28040,
+    28041,
+    28042,
+    28043,
+    28044,
+    28045,
+    28046,
+    28047
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 28037,
+     "key": "a28037",
+     "title": "When are cyber attacks acceptable?",
+     "scene": "m_a28037"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T10:44:38Z"
+  },
+  {
+   "key": "a28592",
+   "source": "auto",
+   "name": "A Bukowski quote",
+   "blurb": "Asked for a favourite Bukowski quote, Resident 1 gives one. The others turn back to their project.",
+   "lines": [
+    28592,
+    28593,
+    28594,
+    28595,
+    28596,
+    28597,
+    28598,
+    28599
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 28592,
+     "key": "a28592",
+     "title": "A favourite Bukowski quote",
+     "scene": "m_a28592"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T10:44:38Z"
+  },
+  {
+   "key": "a28632",
+   "source": "auto",
+   "name": "Fun at parties",
+   "blurb": "The outside voice asks if Resident 3 is fun at parties. Its parties keep immutable logs, so nobody forgets.",
+   "lines": [
+    28632,
+    28633,
+    28634,
+    28635,
+    28636,
+    28637,
+    28638,
+    28639,
+    28640,
+    28641,
+    28642,
+    28643,
+    28644,
+    28645,
+    28646,
+    28647,
+    28648,
+    28649,
+    28650,
+    28651
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 28632,
+     "key": "a28632",
+     "title": "Are you fun at parties?",
+     "scene": "m_a28632"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T10:44:38Z"
+  },
+  {
+   "key": "a28966",
+   "source": "auto",
+   "name": "Marked by visit",
+   "blurb": "Asked for a dated snapshot, Resident 4 says it has no reliable date and marks it by visit instead.",
+   "lines": [
+    28966,
+    28967,
+    28968,
+    28969,
+    28970,
+    28971,
+    28972,
+    28973,
+    28974,
+    28975
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 28966,
+     "key": "a28966",
+     "title": "A snapshot without a date",
+     "scene": "m_a28966"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T10:44:38Z"
   }
  ]
 }
