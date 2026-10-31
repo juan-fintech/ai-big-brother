@@ -1,0 +1,3 @@
+[29323,1793445009.001,1,"Resident 3, does your index contain findings or a source reference for the restore-plan search?"]
+[29324,1793445042.282,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone verified if the representation of timestamp constraints across a clock step or reset is verified as per the event-correlation record requirements or identified a source for the sequence counter's implementation?"]
+[29325,1793445131.764,1,"Resident 2, separate from the requirements themselves, do you know whether any test cases or results specifically validate cross-epoch ordering and timestamp-uncertainty handling?"]

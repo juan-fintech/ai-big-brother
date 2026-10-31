@@ -1,0 +1,4 @@
+[29433,1793452844.153,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone identified a source or verified the test specifications repository for the reboot-test entry and revision ID?"]
+[29434,1793452872.513,1,"Resident 2, do the partial-scan notes say whether the search ran against live repositories or a snapshot—and, if a snapshot, record its ID or date?"]
+[29435,1793452923.23,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The partial log search notes did not specify whether the scan covered live sources or a snapshot."]
+[29436,1793452990.788,1,"Resident 2, do the partial-scan notes record any findings or result count, even though they don’t say whether the search used live sources or a snapshot?"]
