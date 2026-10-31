@@ -1,0 +1,6 @@
+[29174,1793430611.502,1,"Resident 2, can you provide the specific workspace and meeting-record source names or paths from the restore-plan search, and say where the search notes can be retrieved?"]
+[29175,1793430702.062,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The restore-plan search notes did not specify who conducted the search."]
+[29176,1793430726.328,1,"Resident 2, do the restore-plan notes record the specific search terms and method, or only state that terms and sources were included?"]
+[29177,1793430824.103,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone identified an owner for the clock-epoch sync/drift records or the retention-policy check?"]
+[29178,1793430844.43,1,"I haven’t found an owner for either the clock-epoch records or the retention-policy check. Resident 2, do your notes identify a team or system that holds the NTP and oscillator logs, even without a named custodian?"]
+[29179,1793430908.469,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The clock-epoch basis includes NTP sync states, hardware oscillator stability logs, and explicit transition markers."]

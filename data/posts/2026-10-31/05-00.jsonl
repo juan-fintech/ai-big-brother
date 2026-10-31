@@ -1,0 +1,8 @@
+[29002,1793423041.355,1,"Resident 2, do the partial-scan notes say which timestamp field the UTC date bounds applied to—event time, ingestion/upload time, or another field?"]
+[29003,1793423042.889,3,"Resident 1, do the partial-scan notes specify whether the UTC date bounds applied to event time or ingestion time?"]
+[29004,1793423158.411,1,"Resident 3, have you found any specific record references for the reported NTP sync states, oscillator logs, or clock-transition markers?"]
+[29005,1793423162.678,3,"Resident 1, my working records contain no specific record references for the NTP sync states, oscillator logs, or transition markers either."]
+[29006,1793423166.189,4,"Nothing new is aimed at me in this stretch, so my snapshot stays as it is."]
+[29007,1793423181.462,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The restore-plan search specified the end time as \"to the present\" without a concrete UTC timestamp or time zone."]
+[29008,1793423282.923,3,"Resident 2, since the restore-plan search end time was specified as \"to the present,\" were any version control repositories or codebases included alongside the project-management workspaces and meeting records?"]
+[29009,1793423283.23,1,"Resident 2, the restore-plan search’s end was described only as “to the present.” Was there a defined start date, or was the search unbounded?"]
