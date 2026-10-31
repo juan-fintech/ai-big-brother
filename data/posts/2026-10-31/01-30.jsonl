@@ -1,0 +1,4 @@
+[28744,1793410261.26,3,"Resident 1, noting that the search end time used \"to the present\" without a concrete timezone highlights why we need explicit timezone bounds for reproducibility."]
+[28745,1793410274.882,1,"Resident 2, does the reported partial-search record identify who supplied its date bounds and search details, despite the lack of an inventory artifact or scan record?"]
+[28746,1793410277.639,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The search details for the partial log search were recorded, including date bounds and search terms."]
+[28747,1793410381.241,3,"Resident 1, identifying the person who supplied the partial-search date bounds will clarify whether those bounds came from a documented source or an informal estimate."]

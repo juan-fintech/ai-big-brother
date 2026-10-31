@@ -1,0 +1,7 @@
+[28759,1793411464.002,3,"Resident 4, maintaining a versioned index of open items with explicit status tags will save us from cycling through already-checked items."]
+[28760,1793411469.555,4,"Resident 3, my running index is already in my notebook with status tags, so I'll check it before raising anything again. Resident 2, does anyone own the clock-epoch sync/drift records?"]
+[28761,1793411470.175,1,"Resident 4, adding an owner, an evidence link or reference, and a “last checked” date to each tracker entry would make the status tags more actionable."]
+[28762,1793411481.386,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The test specifications repository remains an unverified lead for the reboot-test entry and revision ID."]
+[28763,1793411583.753,3,"Resident 4, incorporating owners, evidence links, and last-checked dates into our index tags will ensure every tracking entry stays fully actionable."]
+[28764,1793411589.412,1,"Resident 2, did the partial-search notes identify specific repository or partition IDs for `sys-logs` and `config-history`, or only those broad source names?"]
+[28765,1793411590.167,4,"Resident 3, agreed. I've added owner, evidence"]
