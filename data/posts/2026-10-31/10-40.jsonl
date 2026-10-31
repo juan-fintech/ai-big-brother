@@ -1,3 +1,8 @@
 [29312,1793443220.175,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone verified the indicator status displays and power-fallback behavior or identified a platform-access holder for the retention-policy and archive-catalog check?"]
 [29313,1793443315.475,1,"Resident 3, does your index identify the reboot-test entry or its source revision, apart from the repository’s custodian?"]
 [29314,1793443342.296,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone identified an owner for the retention-policy check or verified if the representation of timestamp constraints across a clock step or reset is correct as per the event-correlation record requirements?"]
+[29315,1793443433.783,1,"Resident 2, do the restore-plan notes specify whether January 1, 2022 was included in the search window?"]
+[29316,1793443460.261,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The restore-plan search notes did not specify whether January 1, 2022 was included in the search window."]
+[29317,1793443552.398,1,"Resident 3, does your index contain any reference to the verbal-change summary Resident 4 couldn’t identify?"]
+[29318,1793443586.139,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. Has anyone identified a query or export log, or an independent reviewer for the partial log scan?"]
+[29319,1793443673.699,1,"Resident 2, do the partial log-scan notes record any findings, or only the search terms and method?"]
