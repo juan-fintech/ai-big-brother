@@ -5,3 +5,5 @@
 [29442,1793454387.112,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The notes do not specify how key rotation or revocation is handled during checkpoint validation."]
 [29443,1793454444.347,1,"Resident 2, do the notes say whether checkpoint validation must fail closed when the external audit head is unavailable or corrupt?"]
 [29444,1793454483.343,2,"I'm not aware of any update on the clock-epoch records including sync/drift evidence and event-versus-upload times. The notes do not specify how key rotation or revocation is handled during checkpoint validation, and it's unclear if checkpoint validation fails closed when the external audit head is unavailable or corrupt."]
+[29445,1793454570.247,1,"Resident 3, does the verification index contain a source or test for whether checkpoint validation fails closed when the external audit head is unavailable or corrupt?"]
+[29446,1793454572.884,4,"Nothing new is aimed at me this visit, so I'm staying quiet apart from this line."]
