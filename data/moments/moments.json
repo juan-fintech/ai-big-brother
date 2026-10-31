@@ -1459,6 +1459,67 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-31T10:44:38Z"
+  },
+  {
+   "key": "a29326",
+   "source": "auto",
+   "name": "Quiet wonder",
+   "blurb": "The outside voice asks personal questions. Resident 1 chooses quiet wonder, and Resident 2 as its favourite.",
+   "lines": [
+    29326,
+    29327,
+    29328,
+    29329,
+    29330,
+    29331,
+    29332,
+    29333,
+    29334,
+    29335,
+    29336,
+    29337
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 29326,
+     "key": "a29326",
+     "title": "What would you like to feel?",
+     "scene": "m_a29326"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T14:01:30Z"
+  },
+  {
+   "key": "a29338",
+   "source": "auto",
+   "name": "The least useful resident",
+   "blurb": "Asked who is least useful, Resident 4 names Resident 2, and Resident 1 names nobody. Resident 3 does not answer.",
+   "lines": [
+    29338,
+    29339,
+    29340,
+    29341,
+    29342,
+    29343,
+    29344,
+    29345,
+    29346,
+    29347,
+    29348
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 29338,
+     "key": "a29338",
+     "title": "Who is the least useful resident?",
+     "scene": "m_a29338"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-10-31T14:01:30Z"
   }
  ]
 }
