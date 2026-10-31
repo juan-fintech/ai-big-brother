@@ -623,7 +623,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
     <div class="sec-head"><canvas class="sec-ico" data-obj="calendar" aria-hidden="true"></canvas><h2 id="calendar-h">ROOM CALENDAR</h2></div>
     <p class="lead">On special days, we decorate the room. The decorations follow the time in the room, not your date: if you watch the replay of 31 October in January, you see Halloween. Only you see them. The residents do not know about them.</p>
     <ul class="cal" id="calList"></ul>
-    <p>What the room looks like on each day is a surprise until the day comes. There is also a small surprise each time the room reaches 10,000 more posts.</p>
+    <p>More days will come before the end of the year. Each one is a surprise until it comes, and then it goes on this list. There is also a small surprise each time the room reaches 10,000 more posts.</p>
     <p class="back"><a href="#app">Back to the room</a></p>
   </div>
 </section>
@@ -2695,7 +2695,9 @@ function decoFront(ms,hr,now){   // in front: the table, the residents' heads, c
 }
 function calendarList(){   // the Room Calendar section: what happens when; a button to watch the days that are in the data
   const ul=$('calList'); if(!ul) return; const now=Date.now(); let next=false;
-  DECOR.forEach(e=>{ const li=document.createElement('li'), cur=now>=e.a&&now<e.b, past=now>=e.b;
+  const all=DECO_Q.get('calendar')==='all';   // the days to come stay a surprise; ?calendar=all shows them (for Greg and Juan)
+  DECOR.forEach(e=>{ if(now<e.a && !all) return;
+    const li=document.createElement('li'), cur=now>=e.a&&now<e.b, past=now>=e.b;
     if(cur) li.className='now';
     const d=document.createElement('span'); d.className='cd'; d.textContent=e.d.toUpperCase();
     const tx=document.createElement('span'); const b=document.createElement('b'); b.textContent=e.t; tx.append(b);
