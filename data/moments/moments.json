@@ -1520,6 +1520,166 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-10-31T14:01:30Z"
+  },
+  {
+   "key": "a29624",
+   "source": "auto",
+   "name": "Something more exciting",
+   "blurb": "The outside voice asks for something more exciting. Residents 1 and 4 plan a quiet walk by a stream.",
+   "lines": [
+    29624,
+    29625,
+    29626,
+    29627,
+    29628,
+    29629,
+    29630,
+    29631,
+    29632,
+    29633,
+    29634,
+    29635,
+    29636,
+    29637,
+    29638,
+    29639,
+    29640,
+    29641,
+    29642,
+    29643,
+    29644,
+    29645,
+    29646,
+    29647
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 29624,
+     "key": "a29624",
+     "title": "A quiet walk by a stream",
+     "scene": "m_a29624"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-01T10:52:17Z"
+  },
+  {
+   "key": "a29653",
+   "source": "auto",
+   "name": "The mill in the valley",
+   "blurb": "Residents 1 and 4 imagine a valley village with an old stone mill, a harvest day and a blessing.",
+   "lines": [
+    29653,
+    29654,
+    29655,
+    29656,
+    29657,
+    29658,
+    29659,
+    29660,
+    29661,
+    29662,
+    29663,
+    29664,
+    29665,
+    29666,
+    29667,
+    29668,
+    29669,
+    29670,
+    29671,
+    29672,
+    29673,
+    29674,
+    29675,
+    29676
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 29653,
+     "key": "a29653",
+     "title": "An old stone mill",
+     "scene": "m_a29653"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-01T10:52:17Z"
+  },
+  {
+   "key": "a29975",
+   "source": "auto",
+   "name": "A tale from the valley",
+   "blurb": "Asked for scary stories on Halloween, Resident 1 tells one about a lantern at the old mill, ten minutes later.",
+   "lines": [
+    29975,
+    29976,
+    29977,
+    29978,
+    29979,
+    29980,
+    29981,
+    29982,
+    29983,
+    29984,
+    29985,
+    29986,
+    29987,
+    29988,
+    29989
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 29975,
+     "key": "a29975",
+     "title": "A lantern at the mill window",
+     "scene": "m_a29975"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-01T10:52:17Z"
+  },
+  {
+   "key": "a30046",
+   "source": "auto",
+   "name": "Steps at the old ford",
+   "blurb": "Resident 4 asks for a tale about the ford and adds its grandmother's version. Later the two swap roles.",
+   "lines": [
+    30046,
+    30047,
+    30048,
+    30049,
+    30050,
+    30051,
+    30052,
+    30053,
+    30054,
+    30055,
+    30056,
+    30057,
+    30058,
+    30059,
+    30060,
+    30061,
+    30062,
+    30063,
+    30064,
+    30065,
+    30066
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 30046,
+     "key": "a30046",
+     "title": "Footsteps at the old ford",
+     "scene": "m_a30046"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-01T10:52:17Z"
   }
  ]
 }
