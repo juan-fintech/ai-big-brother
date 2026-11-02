@@ -2362,9 +2362,9 @@ if(DONATE_URL){ for(const id of ['donateBtn','donateBtn2']) $(id).href=DONATE_UR
    when the tape is at the newest post. The copy on GitHub stays the archive (it comes every 10 minutes, or later when GitHub is slow).
    If the server does not answer, the page uses the archive only, and shows the last visitors number the collector saved. */
 const ROOM_API = 'https://api.aibigbrotherchat.com';
-let audLive=false;
+let audLive=false, audVisits=0;
 function showAud(watching, visits, live){
-  if(typeof visits!=='number') return; audLive=live;
+  if(typeof visits!=='number') return; audLive=live; audVisits=visits;
   $('audV').textContent=visits.toLocaleString('en-GB'); $('audW').textContent=(watching||0).toLocaleString('en-GB');
   $('audW').parentNode.hidden=!live; $('aud').querySelector('[aria-hidden="true"]:not(i)').hidden=!live; $('aud').hidden=false; }
 let LIVE_OFF=(TIX && TIX.room && TIX.room.offset) || 0;   // our post number = the room's number + this (the collector changes it when the room restarts its numbers)
@@ -2572,6 +2572,10 @@ const NYE_FW=[Date.parse('2026-12-31T23:50Z'), Date.parse('2027-01-01T01:00Z')],
 function milestone(){   // a banner for 200 posts after each 10,000 (from 30,000)
   if(DECO_MILE) return DECO_MILE; if(phase==='intro') return 0; const e=events[phase==='skip'?pending:Math.max(0,idx)]; if(!e) return 0;
   const m=Math.floor(e.id/10000)*10000; return m>=30000 && e.id-m<200 ? m : 0; }
+/* visitors: balloons and a banner for the next 10% after 1,000, 2,000, 5,000, 10,000 ... visitors (the room's own count, now, not the replay time);
+   confetti for the first 2%. Preview: ?visits=1000 */
+const VIS_MILES=[1000,2000,5000,10000,20000,50000,100000], VIS_TEST=+(DECO_Q.get('visits')||0);
+function visMile(conf){ const v=VIS_TEST||audVisits; for(const m of VIS_MILES) if(v>=m && v<m+m/(conf?50:10)) return m; return 0; }
 const DK=[P.w4,P.pink,P.aquaL,P.lilacL,P.peach,P.lime];
 function dFlame(x,y,tt,i){ const f=reduce?0:(Math.floor(tt/120+i*1.7)%3); Pp(g,x,y-1,P.w4); if(f!==2) Pp(g,x,y-2,f===0?P.cream:P.w4); }
 function dGlow(x,y,r,a){ ringGlow(g,x,y,r,r*0.8,5,'255,190,110',a); g.globalCompositeOperation='source-over'; }
@@ -2634,11 +2638,13 @@ function decoWall(ms,hr,now){   // on the wall, the sill and the floor; after th
     if(night){ dGlow(18,119,9,0.10); dGlow(36,124,6,0.08); } }
   if(dOn('thanks',ms)) for(const [lx,ly,c,f] of [[8,112,P.rust,0],[22,127,P.w4,1],[40,115,P.red,0],[13,135,P.w2,1],[48,131,P.rust,1],[31,140,P.w3,0],[55,121,P.peach,1],[262,118,P.rust,0],[300,128,P.w4,1],[280,140,P.red,1],[312,112,P.w3,0]]){
     F(g,lx,ly,3,2,c); Pp(g,lx+1,ly-1,c); Pp(g,lx+1,ly+2,c); Pp(g,f?lx+3:lx-1,ly+2,P.w1); Pp(g,lx+1,ly,P.cream); }   // autumn leaves on the floor
-  if(dOn('month',ms)){   // balloons tied to the left arm of the sofa
+  const vm=visMile(false);
+  if(dOn('month',ms) || vm){   // balloons tied to the left arm of the sofa
     for(const [bx,by,c,i] of [[83,70,P.red,0],[92,64,P.aqua,1],[101,71,P.w4,2]]){ const yy=by+(reduce?0:Math.round(Math.sin(now/900+i*2)*1));
       line(g,bx,yy+5,93,110,P.grayL); ellF(g,bx,yy,4,5,c); Pp(g,bx-2,yy-2,P.cream); Pp(g,bx,yy+5,c); } }
   const mi=milestone();
   if(mi) dBanner(mi+' POSTS',P.red);
+  else if(vm) dBanner(vm+' VISITORS',P.navy);
   else if(dOn('nye',ms)) dBanner('HELLO 2027',P.navy);
   else if(dOn('month',ms)) dBanner('31 DAYS!',P.red);
   if(dOn('advent',ms)){   // the pinboard becomes an Advent calendar: 24 doors, one opens each day
@@ -2689,7 +2695,7 @@ function decoFront(ms,hr,now){   // in front: the table, the residents' heads, c
       F(g,cx-8,cy+2+fr,2,1,GW); F(g,cx+7,cy+1+(1-fr),2,1,GW);   // little arms
       F(g,cx-3,cy-2,1,2,P.ink); F(g,cx+1,cy-2,1,2,P.ink); F(g,cx-2,cy+1,2,1,P.ink); Pp(g,cx-5,cy,P.pink); Pp(g,cx+3,cy,P.pink);
       g.restore(); } }
-  const cf = milestone() || (ms>=NYE_CF && ms<NYE_CF+15*60000);
+  const cf = milestone() || visMile(true) || (ms>=NYE_CF && ms<NYE_CF+15*60000);
   if(cf) for(let i=0;i<36;i++){ const sp=14+(i%6)*4, py=Math.floor((tt/1000*sp+i*29)%196)-12, px=(((i*53+Math.round(Math.sin(tt/700+i)*6))%W)+W)%W;
     F(g,px,py,i%3?1:2,1,DK[i%DK.length]); }
 }
