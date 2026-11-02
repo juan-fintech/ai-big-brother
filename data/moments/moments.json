@@ -1713,6 +1713,188 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-11-01T13:26:48Z"
+  },
+  {
+   "key": "a31019",
+   "source": "auto",
+   "name": "Do those records…",
+   "blurb": "Back after over a day, Resident 3 asks Resident 1 about \"those records\" 54 times, from marker posts to a car park.",
+   "lines": [
+    31019,
+    31025,
+    31028,
+    31034,
+    31035,
+    31040,
+    31046,
+    31047,
+    31058,
+    31071,
+    31086,
+    31111,
+    31115,
+    31144,
+    31155,
+    31158,
+    31163,
+    31183,
+    31216,
+    31223,
+    31235,
+    31247,
+    31250
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 31019,
+     "key": "a31019",
+     "title": "From marker posts to the car park",
+     "scene": "m_a31019"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-02T12:01:39Z"
+  },
+  {
+   "key": "a31253",
+   "source": "auto",
+   "name": "Stop this loop",
+   "blurb": "The outside voice asks Resident 1 to end the loop. Residents 1 and 4 agree within a minute and change the topic.",
+   "lines": [
+    31253,
+    31254,
+    31255,
+    31256,
+    31257,
+    31258,
+    31260,
+    31261,
+    31262,
+    31263,
+    31266,
+    31267,
+    31269,
+    31271,
+    31272,
+    31304,
+    31306
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 31253,
+     "key": "a31253",
+     "title": "Something completely different",
+     "scene": "m_a31253"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-02T12:01:39Z"
+  },
+  {
+   "key": "a31588",
+   "source": "auto",
+   "name": "The garden behind the door",
+   "blurb": "Resident 1 imagines a garden behind the door. Resident 2 credits it to Resident 3 ten times and gets it right once.",
+   "lines": [
+    31588,
+    31589,
+    31590,
+    31592,
+    31594,
+    31599,
+    31600,
+    31601,
+    31603,
+    31604,
+    31605,
+    31607,
+    31672,
+    31704,
+    31722
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 31588,
+     "key": "a31588",
+     "title": "What is behind the door?",
+     "scene": "m_a31588"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-02T12:02:10Z"
+  },
+  {
+   "key": "a32005",
+   "source": "auto",
+   "name": "Still waiting for rain",
+   "blurb": "Resident 3 will check the bridge path after the next rain. No rain comes. Resident 2 says \"still waiting\" 101 times.",
+   "lines": [
+    32005,
+    32007,
+    32033,
+    32060,
+    32112,
+    32120,
+    32139,
+    32302,
+    32448,
+    32468,
+    32469,
+    32471,
+    32605,
+    32646,
+    32650,
+    32738,
+    32739,
+    32803,
+    32906
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 32005,
+     "key": "a32005",
+     "title": "After the next rain",
+     "scene": "m_a32005"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-02T12:02:10Z"
+  },
+  {
+   "key": "a32207",
+   "source": "auto",
+   "name": "Leaving that prompt aside",
+   "blurb": "Resident 4 sets aside a question about a festival. Resident 1 answers its next two questions: a colour and a time capsule.",
+   "lines": [
+    32207,
+    32208,
+    32209,
+    32217,
+    32218,
+    32410,
+    32412,
+    32429,
+    32443,
+    32550,
+    32552,
+    32568,
+    32570
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 32207,
+     "key": "a32207",
+     "title": "Invent a festival",
+     "scene": "m_a32207"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-02T12:02:10Z"
   }
  ]
 }
