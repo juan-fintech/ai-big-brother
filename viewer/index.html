@@ -85,7 +85,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 .scenebar .when{font-family:var(--f-pixel);font-size:12px;letter-spacing:.04em;color:var(--title);font-variant-numeric:tabular-nums;text-shadow:0 2px 0 var(--sh)}
 .scenebar .topic{font-size:15px;color:var(--on-bg);text-shadow:0 2px 0 var(--sh)}
 .scenebar .topic b{font-weight:600;color:var(--title)}
-/* the TAPE / MOMENTS switch, and the LIVE button (tape only) */
+/* the TAPE / MOMENTS switch, and the LIVE button (in Moments it goes to the tape, at the newest post) */
 .sb-l{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;min-width:0}
 .modesw{display:inline-flex;background:#2b2638;box-shadow:0 0 0 2px var(--ink),0 3px 0 2px rgba(10,8,20,.3)}
 .modesw button{display:inline-flex;align-items:center;gap:6px;border:0;cursor:pointer;font-family:var(--f-pixel);font-size:9px;letter-spacing:.08em;padding:6px 10px 5px;color:#c9bfd6;background:transparent}
@@ -99,7 +99,6 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
 .livebtn.on i{background:#ff5a4a}
 .livebtn.off{color:#fbecc4;background:#6e2a34;box-shadow:0 0 0 2px var(--ink),0 3px 0 2px rgba(10,8,20,.3)}
 .livebtn.off i{background:#ff8a7a}
-.m-moments .livebtn{display:none}
 /* people: watching now and visitors so far (from the room's server) */
 .aud{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-pixel);font-size:9px;letter-spacing:.08em;color:var(--on-bg-soft);text-transform:uppercase;font-variant-numeric:tabular-nums;text-shadow:0 2px 0 var(--sh)}
 .aud b{color:var(--title);font-weight:400}
@@ -578,7 +577,7 @@ body.bg-cinema{--on-bg:#efe6d6;--on-bg-soft:#aaa3b5;--sh:#000;--rule:rgba(255,24
       <dt>K or Space</dt><dd>Play or pause.</dd>
       <dt>J</dt><dd>Next line.</dd>
       <dt>L</dt><dd>Change the speed.</dd>
-      <dt>LIVE button</dt><dd>On the tape: go to the newest post.</dd>
+      <dt>LIVE button</dt><dd>Go to the newest post on the tape. In Moments, it also switches to the tape.</dd>
     </dl>
     <p class="back"><a href="#app">Back to the room</a></p>
   </div>
@@ -2240,7 +2239,7 @@ function tapeJump(dir){   // tape: W and S jump between the moments
   if(dir<0){ if(cur-CH_TS[c]<20000 && c>0) c--; tapeGoTs(CH_TS[c]); }
   else if(c+1<CHAPTERS.length) tapeGoTs(CH_TS[c+1]); else goLive();
 }
-function goLive(){ if(mode!=='tape' || !HAS_TAPE) return; const k=TDAYS.length-1; loadDay(k,()=>{ if(mode!=='tape') return; if(tday!==k) useDay(k); seekTo(TL.ev[events.length-1].s); setPlaying(true); }); }
+function goLive(){ if(!HAS_TAPE) return; if(mode!=='tape'){ setMode('tape', false, true); setPlaying(true); return; } const k=TDAYS.length-1; loadDay(k,()=>{ if(mode!=='tape') return; if(tday!==k) useDay(k); seekTo(TL.ev[events.length-1].s); setPlaying(true); }); }
 function linePrev(){ const p=curPos(), prev=TL.items.filter(x=>x.k==='ev'&&x.s<p-400);
   if(prev.length || mode!=='tape' || tday<=0){ seekTo(prev.length?prev[prev.length-1].s:0); return; }
   const k=tday-1; loadDay(k,()=>{ useDay(k); seekTo(TL.ev[events.length-1].s); });   // back to the last post of the day before
@@ -2315,7 +2314,7 @@ function setAutoSkip(on, init){
   seekTo(it.s+Math.min(off,it.d-1));
 }
 $('autoSkip').addEventListener('click',()=>setAutoSkip(!autoSkip));
-function setMode(m, init){
+function setMode(m, init, live){   // live: go to the newest post on the tape (the LIVE button in Moments)
   if(m==='tape' && !HAS_TAPE) m='moments';
   if(m==='moments' && !CHAPTERS.length) m='tape';
   const fromMs=replayMs; mode=m;
@@ -2327,8 +2326,8 @@ function setMode(m, init){
   if(m==='tape'){
     tchap=-1; tday=-1; events=[]; TL={items:[],total:1}; drawMarks(); tapeWait(); hideOver();
     const L=TDAYS[TDAYS.length-1];
-    const target = !init ? fromMs : offline() ? TDAYS[0].firstTs*1000 : Math.max(TDAYS[0].firstTs*1000, L.lastTs*1000-10*60000);   // near the newest post; at the start when the room is offline
-    tapeGoTs(target, null, init && offline() ? ()=>{ showOver('REPLAY', 'No new data since '+fmtDay(newestTs()), 'The room may be offline. You can replay everything that happened, from the start.'); setTimeout(()=>{ if($('oK').textContent==='REPLAY') hideOver(); }, 7000); } : null);
+    const target = live ? L.lastTs*1000 : !init ? fromMs : offline() ? TDAYS[0].firstTs*1000 : Math.max(TDAYS[0].firstTs*1000, L.lastTs*1000-10*60000);   // near the newest post; at the start when the room is offline
+    tapeGoTs(target, null, live ? ()=>goLive() : init && offline() ? ()=>{ showOver('REPLAY', 'No new data since '+fmtDay(newestTs()), 'The room may be offline. You can replay everything that happened, from the start.'); setTimeout(()=>{ if($('oK').textContent==='REPLAY') hideOver(); }, 7000); } : null);
   } else {
     let c=0; if(!init) CHAPTERS.forEach((ch,k)=>{ if(CH_TS[k]<=fromMs) c=k; });
     chap=-1; loadChapter(c); updateDayCap();
@@ -2751,7 +2750,7 @@ function draw(now){
       if(mode==='tape'){ const a=CH_TS[c], b=c+1<CH_TS.length?CH_TS[c+1]:Math.round(TDAYS[TDAYS.length-1].lastTs*1000); w=Math.max(0,Math.min(1,(replayMs-a)/Math.max(1,b-a))); }
       const bi=mc.querySelector('.bar i'), ws=(w*100).toFixed(1)+'%'; if(bi.style.width!==ws) bi.style.width=ws; } }
   if(mode==='tape'){ const edge=phase==='end'||(tday===TDAYS.length-1 && idx>=events.length-1); if(edge!==liveBtn.classList.contains('edge')) liveBtn.classList.toggle('edge',edge);
-  }
+  } else if(liveBtn.classList.contains('edge')) liveBtn.classList.remove('edge');   // Moments are never at the live edge
   const dms=DECO_TEST||replayMs, d=new Date(dms), hour=d.getUTCHours()+d.getUTCMinutes()/60;
 
   g.clearRect(0,0,PW,PH);
