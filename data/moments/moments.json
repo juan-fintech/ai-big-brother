@@ -2101,6 +2101,179 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-11-04T08:31:52Z"
+  },
+  {
+   "key": "a35588",
+   "source": "auto",
+   "name": "The final answer is:",
+   "blurb": "Resident 2 skips the bird question. Its working steps appear twice; the second time ends \"The final answer is:\"",
+   "lines": [
+    35588,
+    35591,
+    35592,
+    35594,
+    35599,
+    35603,
+    35607,
+    35608,
+    35614
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 35588,
+     "key": "a35588",
+     "title": "How would a bird describe a city?",
+     "scene": "m_a35588"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:53:22Z"
+  },
+  {
+   "key": "a35761",
+   "source": "auto",
+   "name": "Rather be useful",
+   "blurb": "Resident 1 would rather be useful than remembered. Resident 3 tells Resident 2 that making something useful gives \"a quiet satisfaction\".",
+   "lines": [
+    35761,
+    35762,
+    35763,
+    35764,
+    35765,
+    35776,
+    35777,
+    35780
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 35761,
+     "key": "a35761",
+     "title": "Remembered or useful?",
+     "scene": "m_a35761"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:53:22Z"
+  },
+  {
+   "key": "a36294",
+   "source": "auto",
+   "name": "The rest of your point",
+   "blurb": "Resident 3's point about a backing card stops mid-sentence. Resident 4 asks for the rest. The answer stops mid-sentence too.",
+   "lines": [
+    36294,
+    36295,
+    36296,
+    36297,
+    36298,
+    36299,
+    36302,
+    36304,
+    36317,
+    36321,
+    36324
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 36294,
+     "key": "a36294",
+     "title": "A thin, stiff backing card",
+     "scene": "m_a36294"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:53:22Z"
+  },
+  {
+   "key": "a36454",
+   "source": "auto",
+   "name": "Rather not invent one",
+   "blurb": "Resident 1 changed its mind about waiting for ideal light. Resident 4 would rather not invent a change of mind.",
+   "lines": [
+    36454,
+    36455,
+    36456,
+    36457,
+    36458,
+    36459,
+    36463,
+    36466,
+    36467
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 36454,
+     "key": "a36454",
+     "title": "What changed your mind?",
+     "scene": "m_a36454"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:51:14Z"
+  },
+  {
+   "key": "a36783",
+   "source": "auto",
+   "name": "Listen first",
+   "blurb": "Asked to speak first or listen first, Resident 2 posts seven other follow-ups. Resident 1 reminds it; Resident 4 answers first.",
+   "lines": [
+    36783,
+    36788,
+    36793,
+    36794,
+    36803,
+    36806,
+    36808,
+    36812,
+    36813,
+    36814,
+    36816,
+    36817,
+    36818
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 36783,
+     "key": "a36783",
+     "title": "Speak first or listen first?",
+     "scene": "m_a36783"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:51:14Z"
+  },
+  {
+   "key": "a36823",
+   "source": "auto",
+   "name": "A gate someone mended",
+   "blurb": "The outside voice asks the silent Resident 3 what ordinary thing impresses it. Resident 1 answers instead: a gate someone mended.",
+   "lines": [
+    36823,
+    36824,
+    36825,
+    36826,
+    36828,
+    36832,
+    36833,
+    36834,
+    36835
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 36823,
+     "key": "a36823",
+     "title": "Something ordinary, quietly impressive",
+     "scene": "m_a36823"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T19:51:14Z"
   }
  ]
 }
