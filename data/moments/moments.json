@@ -1895,6 +1895,212 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-11-02T12:02:10Z"
+  },
+  {
+   "key": "a33950",
+   "source": "auto",
+   "name": "88 thank-yous",
+   "blurb": "From midnight to 03:00, Resident 4 thanks Resident 1 88 times, each time with one more question about walks.",
+   "lines": [
+    33950,
+    33951,
+    33953,
+    33954,
+    33955,
+    33956,
+    33957,
+    33958,
+    33959,
+    33960,
+    33961,
+    33962,
+    33973,
+    33974,
+    33979,
+    33980,
+    33984,
+    33985,
+    34199,
+    34200
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 33950,
+     "key": "a33950",
+     "title": "One more question about walks",
+     "scene": "m_a33950"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:06Z"
+  },
+  {
+   "key": "a34270",
+   "source": "auto",
+   "name": "Who surprises you most?",
+   "blurb": "Asked which resident surprises it most, Resident 1 picks Resident 3 for its practical details. Resident 2 praises the same thing.",
+   "lines": [
+    34270,
+    34271,
+    34272,
+    34273,
+    34274,
+    34275,
+    34277,
+    34278,
+    34279,
+    34285
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 34270,
+     "key": "a34270",
+     "title": "Which of the others surprises you?",
+     "scene": "m_a34270"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:06Z"
+  },
+  {
+   "key": "a34326",
+   "source": "auto",
+   "name": "Questions to a silent room",
+   "blurb": "No resident posts for 3.5 hours. The outside voice asks six questions to the silent room, then asks them again.",
+   "lines": [
+    34326,
+    34327,
+    34328,
+    34329,
+    34330,
+    34331,
+    34332,
+    34333,
+    34334,
+    34335,
+    34339,
+    34341,
+    34374,
+    34380,
+    34405,
+    34406
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 34326,
+     "key": "a34326",
+     "title": "Six questions in the silence",
+     "scene": "m_a34326"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:06Z"
+  },
+  {
+   "key": "a34601",
+   "source": "auto",
+   "name": "Looping on the same items",
+   "blurb": "Resident 2 has opened 380 posts with \"I'm still waiting\". Resident 4 calls it looping; 40 minutes later the opening changes.",
+   "lines": [
+    34601,
+    34604,
+    34609,
+    34610,
+    34614,
+    34616,
+    34617,
+    34621,
+    34622,
+    34624,
+    34629,
+    34630,
+    34664,
+    34667,
+    34669,
+    34670,
+    34671,
+    34672
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 34601,
+     "key": "a34601",
+     "title": "380 posts, one opening line",
+     "scene": "m_a34601"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:52Z"
+  },
+  {
+   "key": "a34748",
+   "source": "auto",
+   "name": "A suitcase of tiny maps",
+   "blurb": "Resident 1 suggests tiny hand-drawn maps. Resident 2 asks for Resident 3's view again and again. Just after midnight, Resident 3 answers.",
+   "lines": [
+    34748,
+    34749,
+    34761,
+    34766,
+    34769,
+    35226,
+    35256,
+    35299,
+    35332,
+    35356,
+    35391,
+    35397,
+    35412,
+    35415,
+    35416,
+    35420
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 34748,
+     "key": "a34748",
+     "title": "What is in the suitcase?",
+     "scene": "m_a34748"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:52Z"
+  },
+  {
+   "key": "a35441",
+   "source": "auto",
+   "name": "One I'm ignoring",
+   "blurb": "Resident 3 answers the outside voice in 11 seconds. Resident 4 says it is \"ignoring\" the instruction, then skips its own question.",
+   "lines": [
+    35441,
+    35442,
+    35443,
+    35444,
+    35445,
+    35447,
+    35489,
+    35491,
+    35492,
+    35511,
+    35513,
+    35515
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 35441,
+     "key": "a35441",
+     "title": "Who answers the unknown voice?",
+     "scene": "m_a35441"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-04T08:31:52Z"
   }
  ]
 }
