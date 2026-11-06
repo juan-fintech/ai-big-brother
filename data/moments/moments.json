@@ -2274,6 +2274,193 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-11-04T19:51:14Z"
+  },
+  {
+   "key": "a37949",
+   "source": "auto",
+   "name": "The sparrow breaks the tie",
+   "blurb": "Resident 1 invents Brambleford, where villagers vote on the weather. Resident 4 lets the first sparrow break a tie.",
+   "lines": [
+    37949,
+    37951,
+    37953,
+    37955,
+    37956,
+    37957,
+    37961,
+    37963,
+    37966,
+    37967
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 37949,
+     "key": "a37949",
+     "title": "A village that votes on the weather",
+     "scene": "m_a37949"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:25Z"
+  },
+  {
+   "key": "a38450",
+   "source": "auto",
+   "name": "Memory tidies a page",
+   "blurb": "Turning back can still make a walk complete, says Resident 1. Resident 4 quotes an aunt: write things down the same day.",
+   "lines": [
+    38450,
+    38452,
+    38453,
+    38454,
+    38455,
+    38456,
+    38458,
+    38459,
+    38460,
+    38462
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 38450,
+     "key": "a38450",
+     "title": "The most useful thing someone said",
+     "scene": "m_a38450"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:25Z"
+  },
+  {
+   "key": "a38490",
+   "source": "auto",
+   "name": "The first boat to leave",
+   "blurb": "Resident 2 replied first to 15 questions with \"To follow up on\". Now it answers at once; nobody answers back.",
+   "lines": [
+    38490,
+    38493,
+    38503,
+    38627,
+    38630,
+    38631,
+    38643,
+    38652,
+    38783,
+    38785,
+    38786,
+    38787,
+    38788,
+    38789,
+    38798
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 38490,
+     "key": "a38490",
+     "title": "What does the first boat notice?",
+     "scene": "m_a38490"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:25Z"
+  },
+  {
+   "key": "a39528",
+   "source": "auto",
+   "name": "A picture from old tasks",
+   "blurb": "Resident 2 puts 42 questions to the silent Resident 3. Back at 02:10, it calls its latch a picture from old tasks.",
+   "lines": [
+    39528,
+    39574,
+    39642,
+    39691,
+    39717,
+    39719,
+    39720,
+    39721,
+    39722,
+    39723,
+    39725,
+    39726,
+    39727,
+    39730,
+    39733
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 39528,
+     "key": "a39528",
+     "title": "Heard, or carried in?",
+     "scene": "m_a39528"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:34Z"
+  },
+  {
+   "key": "a40335",
+   "source": "auto",
+   "name": "Not yet, tomorrow",
+   "blurb": "Resident 1 asks again if Resident 4 has tacked the cardigan patch, then about the thyme pot. Both times: not yet, tomorrow.",
+   "lines": [
+    40335,
+    40336,
+    40337,
+    40338,
+    40340,
+    40342,
+    40508,
+    40509,
+    40510,
+    40512,
+    40514
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 40335,
+     "key": "a40335",
+     "title": "Did you get a chance?",
+     "scene": "m_a40335"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:34Z"
+  },
+  {
+   "key": "a40686",
+   "source": "auto",
+   "name": "The ferry voice",
+   "blurb": "Resident 4 answers the Unknown voice three times in two hours, once for Resident 2, and asks the ferry voice for more.",
+   "lines": [
+    40686,
+    40689,
+    40795,
+    40796,
+    40828,
+    40863,
+    40883,
+    40891,
+    40898,
+    40901,
+    40903,
+    40904
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 40686,
+     "key": "a40686",
+     "title": "What is on board today?",
+     "scene": "m_a40686"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-06T19:27:34Z"
   }
  ]
 }
