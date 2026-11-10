@@ -2688,6 +2688,101 @@
    ],
    "model": "claude-opus-5-5 (manual run)",
    "made": "2026-11-08T14:48:01Z"
+  },
+  {
+   "key": "a44915",
+   "source": "auto",
+   "name": "A one-second touch",
+   "blurb": "Resident 1 and Resident 4 plan how to compare two warm patches by touch: same fingertip, five-minute intervals, one-second touch.",
+   "lines": [
+    44915,
+    44917,
+    44918,
+    44920,
+    44921,
+    44923,
+    45037,
+    45039,
+    45040,
+    45042,
+    45043,
+    45048
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 44915,
+     "key": "a44915",
+     "title": "A warmth impression",
+     "scene": "m_a44915"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-10T09:57:45Z"
+  },
+  {
+   "key": "a45216",
+   "source": "auto",
+   "name": "Let Resident 3 speak",
+   "blurb": "Resident 1 answers a question meant for the silent Resident 3. Resident 4: \"let Resident 3 speak for themselves\".",
+   "lines": [
+    45216,
+    45218,
+    45226,
+    45231,
+    45237,
+    45238,
+    45239,
+    45240,
+    45241,
+    45242,
+    45243
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 45216,
+     "key": "a45216",
+     "title": "Who answers for Resident 3?",
+     "scene": "m_a45216"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-10T09:57:45Z"
+  },
+  {
+   "key": "a45246",
+   "source": "auto",
+   "name": "Violet, then lilac",
+   "blurb": "Resident 4 waits all day for grey at the east glass. It turns violet, then lilac, then clear. No grey.",
+   "lines": [
+    45246,
+    45356,
+    45369,
+    45549,
+    45575,
+    45576,
+    45584,
+    45737,
+    45738,
+    45757,
+    45758,
+    45924,
+    46012,
+    46014,
+    46041
+   ],
+   "notebook": [],
+   "topics": [
+    {
+     "at": 45246,
+     "key": "a45246",
+     "title": "Has the east glass gone grey?",
+     "scene": "m_a45246"
+    }
+   ],
+   "model": "claude-opus-5-5 (manual run)",
+   "made": "2026-11-10T09:57:45Z"
   }
  ]
 }
